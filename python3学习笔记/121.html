@@ -120,7 +120,7 @@
 
 
 
-  <title>categories | 丿我欲疾风前行灬</title>
+  <title> | 丿我欲疾风前行灬</title>
   
 
 
@@ -307,7 +307,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
+	<h1 class="post-title" itemprop="name headline"></h1>
 
 
 
@@ -319,14 +319,24 @@
       <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 1 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><p>一般所有高级语言，都包含如下语句，Python也不例外：</p>
+<ul>
+<li>循环语句:容许一些语句反复运行数次。循环可依据一个默认的数目来决定运行这些语句的次数；或反复运行它们，直至某些条件改变。</li>
+<li>条件语句:容许仅当某些条件成立时才运行某个区块。否则，这个区块中的语句会略去，然后按区块后的语句继续运行。</li>
+<li>无条件分支语句容许运行顺序转移到程序的其他部分之中。包括跳跃（在很多语言中称为Goto）、副程序和Procedure等。</li>
+</ul>
+<p>循环、条件分支和无条件分支都是控制流程。</p>
+<h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><p>导入模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import math       # 可读性强</span><br><span class="line">&gt;&gt;&gt; math.pow(3,2)   --&gt; 9.0</span><br></pre></td></tr></table></figure></p>
+<p>导入模块中单个或多个方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from math import pow     # 可读性差</span><br><span class="line">&gt;&gt;&gt; from math import e, pi</span><br><span class="line">&gt;&gt;&gt; pow(3,2)                --&gt; 9.0</span><br><span class="line">&gt;&gt;&gt; pow(e,pi)               --&gt; 23.140692632779263</span><br></pre></td></tr></table></figure></p>
+<p>导入模块中的函数并自定义名称<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from math import pow as pingfang</span><br><span class="line">&gt;&gt;&gt; pingfang(3,2)           --&gt; 9.0</span><br></pre></td></tr></table></figure></p>
+<p>导入模块中的所有方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from math import *</span><br><span class="line">&gt;&gt;&gt; pow(3,2)</span><br><span class="line">9.0</span><br><span class="line">&gt;&gt;&gt; sqrt(9)</span><br><span class="line">3.0</span><br></pre></td></tr></table></figure></p>
+<h3 id="赋值语句"><a href="#赋值语句" class="headerlink" title="赋值语句"></a>赋值语句</h3><blockquote>
+<p>编程中的“=”和数学中的“=”是完全不同的。在编程语言中，“=”表示赋值过程。</p>
+</blockquote>
+<p>多重赋值语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x, y, z = 1, &quot;python&quot;, [&quot;hello&quot;, &quot;world&quot;]</span><br><span class="line">&gt;&gt;&gt; x       --&gt; 1</span><br><span class="line">&gt;&gt;&gt; y       --&gt; &apos;python&apos;</span><br><span class="line">&gt;&gt;&gt; z       --&gt; [&apos;hello&apos;, &apos;world&apos;]</span><br></pre></td></tr></table></figure></p>
+<p>变量值互换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = 2</span><br><span class="line">&gt;&gt;&gt; b = 9</span><br><span class="line">&gt;&gt;&gt; a, b = b, a        # 相当于标签互换</span><br><span class="line">&gt;&gt;&gt; a           --&gt; 9</span><br><span class="line">&gt;&gt;&gt; b           --&gt; 2</span><br></pre></td></tr></table></figure></p>
+<p>还有一种赋值方式，被称为“链式赋值”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; m = n = &quot;python&quot;</span><br><span class="line">&gt;&gt;&gt; m               --&gt; &quot;python&quot;</span><br><span class="line">&gt;&gt;&gt; n               --&gt; &quot;python&quot;</span><br></pre></td></tr></table></figure></p>
+
         
       </div>
       
@@ -344,6 +354,18 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -364,8 +386,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -439,6 +470,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#语句"><span class="nav-number">1.</span> <span class="nav-text">语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#import"><span class="nav-number">1.1.</span> <span class="nav-text">import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#赋值语句"><span class="nav-number">1.2.</span> <span class="nav-text">赋值语句</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -613,6 +660,34 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'wlccgp3',
+            repo: 'gitment-comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '7435e2125063dda4afc448ca259f3bc10b985d9a',
+            
+                client_id: '7cb8ea1d61e76b5f39aa'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
     
 
 

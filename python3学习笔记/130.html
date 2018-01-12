@@ -120,7 +120,7 @@
 
 
 
-  <title>categories | 丿我欲疾风前行灬</title>
+  <title> | 丿我欲疾风前行灬</title>
   
 
 
@@ -307,7 +307,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
+	<h1 class="post-title" itemprop="name headline"></h1>
 
 
 
@@ -319,14 +319,49 @@
       <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 1 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h2 id="自省"><a href="#自省" class="headerlink" title="自省"></a>自省</h2><blockquote>
+<p>来源<a href="http://www.ibm.com/developerworks/cn/linux/l-pyint/#ibm-pcon" target="_blank" rel="noopener">《Python自省指南》</a></p>
+</blockquote>
+<h3 id="联机帮助"><a href="#联机帮助" class="headerlink" title="联机帮助"></a>联机帮助</h3><p>在交互模式下，用help向python请求帮助。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; help()</span><br><span class="line"></span><br><span class="line">Welcome to Python 3.5&apos;s help utility!</span><br><span class="line"></span><br><span class="line">If this is your first time using Python, you should definitely check out</span><br><span class="line">the tutorial on the Internet at http://docs.python.org/3.5/tutorial/.</span><br><span class="line"></span><br><span class="line">Enter the name of any module, keyword, or topic to get help on writing</span><br><span class="line">Python programs and using Python modules.  To quit this help utility and</span><br><span class="line">return to the interpreter, just type &quot;quit&quot;.</span><br><span class="line"></span><br><span class="line">To get a list of available modules, keywords, symbols, or topics, type</span><br><span class="line">&quot;modules&quot;, &quot;keywords&quot;, &quot;symbols&quot;, or &quot;topics&quot;.  Each module also comes</span><br><span class="line">with a one-line summary of what it does; to list the modules whose name</span><br><span class="line">or summary contain a given string such as &quot;spam&quot;, type &quot;modules spam&quot;.</span><br><span class="line"></span><br><span class="line">help&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这时候就进入了联机帮助状态，根据提示输入<code>keywords</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">help&gt; keywords</span><br><span class="line"></span><br><span class="line">Here is a list of the Python keywords.  Enter any keyword to get more help.</span><br><span class="line"></span><br><span class="line">False               def                 if                  raise</span><br><span class="line">None                del                 import              return</span><br><span class="line">True                elif                in                  try</span><br><span class="line">and                 else                is                  while</span><br><span class="line">as                  except              lambda              with</span><br><span class="line">assert              finally             nonlocal            yield</span><br><span class="line">break               for                 not</span><br><span class="line">class               from                or</span><br><span class="line">continue            global              pass</span><br></pre></td></tr></table></figure></p>
+<p>如果从文档说明界面返回到帮助界面，需要按<code>q</code>键。<br>从联机帮助状态退回到python的交互模式，使用<code>quit</code>命令。</p>
+<h3 id="dir"><a href="#dir" class="headerlink" title="dir()"></a>dir()</h3><p>dir() 函数可能是 Python 自省机制中最著名的部分了。它返回传递给它的任何对象的属性名称经过排序的列表。如果不指定对象，则 dir() 返回当前作用域中的名称。让我们将 dir() 函数应用于 keyword 模块，并观察它揭示了什么：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import keyword</span><br><span class="line">&gt;&gt;&gt; dir(keyword)</span><br><span class="line">[&apos;__all__&apos;, &apos;__builtins__&apos;, &apos;__doc__&apos;, &apos;__file__&apos;, &apos;__name__&apos;, &apos;__package__&apos;, &apos;iskeyword&apos;, &apos;kwlist&apos;, &apos;main&apos;]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; __builtins__</span><br><span class="line">&lt;module &apos;__builtin__&apos; (built-in)&gt;</span><br></pre></td></tr></table></figure></p>
+<p>注：如果您在磁盘上寻找 <code>__builtin__.py</code> 文件，将空手而归。这个特殊的模块对象是 Python 解释器凭空创建的，因为它包含着解释器始终可用的项。尽管看不到物理文件，但我们仍可以将 dir() 函数应用于这个对象，以观察所有内置函数、错误对象以及它所包含的几个杂项属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; dir(__builtins__)</span><br><span class="line">[省略...... &apos;__debug__&apos;, &apos;__doc__&apos;, &apos;__import__&apos;, &apos;__name__&apos;, &apos;__package__&apos;, &apos;abs&apos;, &apos;all&apos;, &apos;any&apos;, &apos;apply&apos;, &apos;ascii&apos;, &apos;basestring&apos;, &apos;bin&apos;, &apos;bool&apos;, &apos;buffer&apos;, &apos;bytearray&apos;, &apos;bytes&apos;, &apos;callable&apos;, &apos;chr&apos;, &apos;classmethod&apos;, &apos;cmp&apos;, &apos;coerce&apos;, &apos;compile&apos;, &apos;complex&apos;, &apos;copyright&apos;, &apos;credits&apos;, &apos;delattr&apos;, &apos;dict&apos;, &apos;dir&apos;, &apos;divmod&apos;, &apos;enumerate&apos;, &apos;eval&apos;, &apos;execfile&apos;, &apos;exit&apos;, &apos;file&apos;, &apos;filter&apos;, &apos;float&apos;, &apos;format&apos;, &apos;frozenset&apos;, &apos;getattr&apos;, &apos;globals&apos;, &apos;hasattr&apos;, &apos;hash&apos;, &apos;help&apos;, &apos;hex&apos;, &apos;id&apos;, &apos;input&apos;, &apos;int&apos;, &apos;intern&apos;, &apos;isinstance&apos;, &apos;issubclass&apos;, &apos;iter&apos;, &apos;len&apos;, &apos;license&apos;, &apos;list&apos;, &apos;locals&apos;, &apos;long&apos;, &apos;map&apos;, &apos;max&apos;, &apos;memoryview&apos;, &apos;min&apos;, &apos;next&apos;, &apos;ngettext&apos;, &apos;object&apos;, &apos;oct&apos;, &apos;open&apos;, &apos;ord&apos;, &apos;pow&apos;, &apos;print&apos;, &apos;property&apos;, &apos;quit&apos;, &apos;range&apos;, &apos;raw_input&apos;, &apos;reduce&apos;, &apos;reload&apos;, &apos;repr&apos;, &apos;reversed&apos;, &apos;round&apos;, &apos;set&apos;, &apos;setattr&apos;, &apos;slice&apos;, &apos;sorted&apos;, &apos;staticmethod&apos;, &apos;str&apos;, &apos;sum&apos;, &apos;super&apos;, &apos;tuple&apos;, &apos;type&apos;, &apos;unichr&apos;, &apos;unicode&apos;, &apos;vars&apos;, &apos;xrange&apos;, &apos;zip&apos;]</span><br></pre></td></tr></table></figure></p>
+<p>dir() 函数适用于所有对象类型，包括字符串、整数、列表、元组、字典、函数、定制类、类实例和类方法</p>
+<blockquote>
+<p><code>dir(42)</code>,<code>dir([])</code>,<code>dir(())</code>,<code>dir({})</code>,<code>dir(dir)</code></p>
+</blockquote>
+<h3 id="检查python对象"><a href="#检查python对象" class="headerlink" title="检查python对象"></a>检查python对象</h3><p>在计算机术语中，对象是拥有标识和值的事物，属于特定类型、具有特定特征和以特定方式执行操作。并且，对象从一个或多个父类继承了它们的许多属性。除了关键字和特殊符号（像运算符，如 + 、 - 、 <em> 、 *</em> 、 / 、 % 、 &lt; 、 &gt; 等）外，Python 中的所有东西都是对象。Python具有一组丰富的对象类型：字符串、整数、浮点、列表、元组、字典、函数、类、类实例、模块、文件等。</p>
+<p>当您有一个任意的对象（也许是一个作为参数传递给函数的对象）时，可能希望知道一些关于该对象的情况。如希望python告诉我们：</p>
+<ul>
+<li>对象的名称是什么？</li>
+<li>这是哪种类型的对象？</li>
+<li>对象知道些什么？</li>
+<li>对象能做些什么？</li>
+<li>对象的父对象是谁？</li>
+</ul>
+<h3 id="文档字符串-doc-属性"><a href="#文档字符串-doc-属性" class="headerlink" title="文档字符串__doc__属性"></a>文档字符串<code>__doc__</code>属性</h3><p><code>__doc__</code> 这个属性是一个字符串，它包含了描述对象的注释。Python 称之为文档字符串或docstring<br>如果模块、类、方法或函数定义的第一条语句是字符串，那么该字符串会作为对象的 <code>__doc__</code> 属性与该对象关联起来。例如，看一下str类型对象的文档字符串。</p>
+<h3 id="名称-name-属性"><a href="#名称-name-属性" class="headerlink" title="名称__name__属性"></a>名称<code>__name__</code>属性</h3><ul>
+<li>如果模块是被导入，<code>__name__</code>的值为模块名字</li>
+<li>如果是被直接执行，<code>__name__</code>的值为<code>__main__</code></li>
+</ul>
+<blockquote>
+<p>此处所说的模块可以简单理解为一个.py文件</p>
+</blockquote>
+<p>并非所有对象都有名称，但那些有名称的对象都将名称存储在其 <code>__name__</code> 属性中。注：名称是从对象而不是引用该对象的变量中派生的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    # Do something appropriate here, like calling a</span><br><span class="line">    # main() function defined elsewhere in this module.</span><br><span class="line">    main()</span><br><span class="line">else:</span><br><span class="line">    # Do nothing. This module has been imported by another</span><br><span class="line">    # module that wants to make use of the functions,</span><br><span class="line">    # classes and other useful bits it has defined.</span><br></pre></td></tr></table></figure>
+<h3 id="类型type"><a href="#类型type" class="headerlink" title="类型type()"></a>类型type()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; type(42)    #--&gt; &lt;type &apos;int&apos;&gt;</span><br><span class="line">&gt;&gt;&gt; type([])    #--&gt; &lt;type &apos;list&apos;&gt;</span><br><span class="line">&gt;&gt;&gt; type(&#123;&#125;)    #--&gt; &lt;type &apos;dict&apos;&gt;</span><br><span class="line">&gt;&gt;&gt; type(dir)   #--&gt; &lt;type &apos;builtin_function_or_method&apos;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="标识id"><a href="#标识id" class="headerlink" title="标识id()"></a>标识id()</h3><h3 id="检测是否存在属性in-not-in"><a href="#检测是否存在属性in-not-in" class="headerlink" title="检测是否存在属性in/not in"></a>检测是否存在属性in/not in</h3><h3 id="可调用callable"><a href="#可调用callable" class="headerlink" title="可调用callable()"></a>可调用callable()</h3><ol>
+<li>callable()方法用来检测对象是否可被调用，可被调用指的是对象能否使用()括号的方法调用。</li>
+<li>可调用对象，在实际调用也可能调用失败；但是不可调用对象，调用肯定不成功。</li>
+<li>类对象都是可被调用对象，类的实例对象是否可调用对象，取决于类是否定义了<strong>call</strong>方法。</li>
+</ol>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>在 type() 函数提供对象的类型时，还可以使用 isinstance() 函数测试对象，以确定它是否是某个特定类型或定制类的实例：</p>
+<h3 id="子类"><a href="#子类" class="headerlink" title="子类"></a>子类</h3><p>关于类的问题，有一个“继承”概念，有继承就有父子问题，这是在现实生活中很正常的，在编程语言中也是如此。虽然这是后面要说的，但是，为了本讲内容的完整，也姑且把这个内容放在这里。读者可以不看，留着以后看也行。我更建议还是阅读一下，有个印象。</p>
+<p>在类这一级别，可以根据一个类来定义另一个类，同样地，这个新类会按照层次化的方式继承属性。Python 甚至支持多重继承，多重继承意味着可以用多个父类来定义一个类，这个新类继承了多个父类。 issubclass() 函数使我们可以查看一个类是不是继承了另一个类：</p>
+<h2 id="python文档"><a href="#python文档" class="headerlink" title="python文档"></a>python文档</h2><p>1.文档是一种对软件系统的书面描述；<br>2.文档应当精确地描述软件系统；<br>3.软件文档是软件工程师之间用作沟通交流的一种方式；<br>4.文档的类型有很多种，包括软件需求文档，设计文档，测试文档，用户手册等；<br>5.文档的呈现方式有很多种，可以是传统的书面文字形式或图表形式，也可是动态的网页形式</p>
+<p>python文档的网址：<a href="https://docs.python.org/2/" target="_blank" rel="noopener">https://docs.python.org/2/</a>，这是python2.x，从这里也可以找到python3.x的文档。</p>
+
         
       </div>
       
@@ -344,6 +379,18 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -364,8 +411,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -439,6 +495,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自省"><span class="nav-number">1.</span> <span class="nav-text">自省</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#联机帮助"><span class="nav-number">1.1.</span> <span class="nav-text">联机帮助</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dir"><span class="nav-number">1.2.</span> <span class="nav-text">dir()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查python对象"><span class="nav-number">1.3.</span> <span class="nav-text">检查python对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档字符串-doc-属性"><span class="nav-number">1.4.</span> <span class="nav-text">文档字符串__doc__属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#名称-name-属性"><span class="nav-number">1.5.</span> <span class="nav-text">名称__name__属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型type"><span class="nav-number">1.6.</span> <span class="nav-text">类型type()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标识id"><span class="nav-number">1.7.</span> <span class="nav-text">标识id()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测是否存在属性in-not-in"><span class="nav-number">1.8.</span> <span class="nav-text">检测是否存在属性in/not in</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可调用callable"><span class="nav-number">1.9.</span> <span class="nav-text">可调用callable()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-number">1.10.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子类"><span class="nav-number">1.11.</span> <span class="nav-text">子类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python文档"><span class="nav-number">2.</span> <span class="nav-text">python文档</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -613,6 +685,34 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'wlccgp3',
+            repo: 'gitment-comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '7435e2125063dda4afc448ca259f3bc10b985d9a',
+            
+                client_id: '7cb8ea1d61e76b5f39aa'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
     
 
 

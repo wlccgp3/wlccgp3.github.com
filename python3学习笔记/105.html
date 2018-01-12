@@ -120,7 +120,7 @@
 
 
 
-  <title>categories | 丿我欲疾风前行灬</title>
+  <title> | 丿我欲疾风前行灬</title>
   
 
 
@@ -307,7 +307,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
+	<h1 class="post-title" itemprop="name headline"></h1>
 
 
 
@@ -319,14 +319,28 @@
       <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 1 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><p>字典(dictionary)是另一种<code>可变</code>容器模型，且可存储任意类型对象，用dict()表示。<br>字典的每个键值{key:value}对用冒号<code>:</code>分割，每个对之间用逗号<code>,</code>分割，整个字典包括在花括号<code>{}</code>中</p>
+<blockquote>
+<p>键必须是<code>唯一</code>的，但值不必。值可以取任何数据类型，但键必须是不可变的，如字符串，数字或元组。</p>
+</blockquote>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p>字典对象是以键值对的形式存储数据的，所以只要知道键，就能得到值。这本质上就是一种映射关系。<br>既然字典是键值对的映射，就不用考虑所谓“排序”问题了，只要通过键就能找到值，至于这个键值对位置在哪里就不用考虑了。没有排序也就不用索引和切片了</p>
+<blockquote>
+<p>字典中的这类以键值对的映射方式存储数据，是一种非常高效的方法，比如要读取值得时候，如果用列表，Python需要从头开始读，直到找到指定的那个索引值。但是，在字典中是通过“键”来得到值。要高效得多。<br>正是这个特点，键值对这样的形式可以用来存储大规模的数据，因为检索快捷。规模越大越明显。所以，mongdb这种非关系型数据库在大数据方面比较流行了。</p>
+</blockquote>
+<h4 id="len-d-返回字典-d-中的键值对的数量"><a href="#len-d-返回字典-d-中的键值对的数量" class="headerlink" title="len(d) 返回字典(d)中的键值对的数量"></a>len(d) 返回字典(d)中的键值对的数量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d = &#123;1: &apos;a&apos;, &apos;b&apos;: 2&#125;</span><br><span class="line">&gt;&gt;&gt; len(d) ---&gt; 2</span><br></pre></td></tr></table></figure>
+<h4 id="d-key-返回字典-d-中的键-key-的值"><a href="#d-key-返回字典-d-中的键-key-的值" class="headerlink" title="d[key] 返回字典(d)中的键(key)的值"></a>d[key] 返回字典(d)中的键(key)的值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d = &#123;1: &apos;a&apos;, &apos;b&apos;: 2&#125;</span><br><span class="line">&gt;&gt;&gt; d[&apos;b&apos;]              ---&gt; 2</span><br></pre></td></tr></table></figure>
+<h4 id="d-key-value，更新已有key的value或添加一对键值"><a href="#d-key-value，更新已有key的value或添加一对键值" class="headerlink" title="d[key]=value，更新已有key的value或添加一对键值"></a>d[key]=value，更新已有key的value或添加一对键值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d = &#123;1:&apos;a&apos;,&apos;b&apos;:2&#125;</span><br><span class="line">&gt;&gt;&gt; d[1] = &apos;c&apos;</span><br><span class="line">&gt;&gt;&gt; d                ---&gt; &#123;1:&apos;c&apos;,&apos;b&apos;:2&#125;</span><br><span class="line">&gt;&gt;&gt; d[3] = &apos;python&apos;</span><br><span class="line">&gt;&gt;&gt; d                ---&gt; &#123;1: &apos;c&apos;, 3: &apos;python&apos;, &apos;b&apos;: 2&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="del-d-key-，删除字典-d-的键-key-项（将该键值对删除）"><a href="#del-d-key-，删除字典-d-的键-key-项（将该键值对删除）" class="headerlink" title="del d[key]，删除字典(d)的键(key)项（将该键值对删除）"></a>del d[key]，删除字典(d)的键(key)项（将该键值对删除）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d = &#123;1:&apos;a&apos;,&apos;b&apos;:2&#125;</span><br><span class="line">&gt;&gt;&gt; del d[&apos;b&apos;]</span><br><span class="line">&gt;&gt;&gt; d                ---&gt; &#123;1: &apos;a&apos;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="key-in-d，检查字典-d-中是否含有键为key的项"><a href="#key-in-d，检查字典-d-中是否含有键为key的项" class="headerlink" title="key in d，检查字典(d)中是否含有键为key的项"></a>key in d，检查字典(d)中是否含有键为key的项</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d = &#123;1:&apos;a&apos;,&apos;b&apos;:2&#125;</span><br><span class="line">&gt;&gt;&gt; &apos;b&apos; in d         ---&gt; True</span><br><span class="line">&gt;&gt;&gt; &apos;c&apos; in d         ---&gt; False</span><br></pre></td></tr></table></figure>
+<h3 id="常用字典方法"><a href="#常用字典方法" class="headerlink" title="常用字典方法"></a>常用字典方法</h3><h4 id="dict-copy"><a href="#dict-copy" class="headerlink" title="dict.copy()"></a>dict.copy()</h4><p>函数返回一个字典的浅复制，</p>
+<h4 id="dict-clear"><a href="#dict-clear" class="headerlink" title="dict.clear()"></a>dict.clear()</h4><p>将字典<code>清空</code>(del是删除)，修改原对象，<code>没有</code>返回值</p>
+<h4 id="dict-get-key-default-None"><a href="#dict-get-key-default-None" class="headerlink" title="dict.get(key, default=None)"></a>dict.get(key, default=None)</h4><p>返回指定键的值，如果值不在字典则<code>返回</code>默认值</p>
+<h4 id="dict-setdefault-key-default-None"><a href="#dict-setdefault-key-default-None" class="headerlink" title="dict.setdefault(key, default=None)"></a>dict.setdefault(key, default=None)</h4><p><code>返回</code>指定键的值，如果值不在字典中则添加这对(key:default)<code>没有</code>返回值</p>
+<h4 id="items-keys-values"><a href="#items-keys-values" class="headerlink" title="items keys values"></a>items keys values</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dict.items()    # 以列表的`形式`返回可遍历的(键, 值) 元组数组</span><br><span class="line">dict.keys()     # 以列表的`形式`返回字典所有的键</span><br><span class="line">dict.values()   # 以列表的`形式`返回字典所有的值</span><br></pre></td></tr></table></figure>
+<p>返回的并不是list, 而是<a href="https://docs.python.org/3/library/stdtypes.html#dict-views" target="_blank" rel="noopener">view对象</a></p>
+<h4 id="dict-pop-key-d"><a href="#dict-pop-key-d" class="headerlink" title="dict.pop(key,[,d])"></a>dict.pop(key,[,d])</h4><p>删除指定键的键值对，如果key不在字典中则返回d，如果key不在字典中又没有d，则报错</p>
+<h4 id="dict-update-dict2"><a href="#dict-update-dict2" class="headerlink" title="dict.update(dict2)"></a>dict.update(dict2)</h4><p>更新原字典，<code>没有</code>返回值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = &#123;&apos;a&apos;:1&#125;</span><br><span class="line">&gt;&gt;&gt; y = &#123;&apos;b&apos;:2&#125;</span><br><span class="line">&gt;&gt;&gt; x.update(y)</span><br><span class="line">&gt;&gt;&gt; x             --&gt; &#123;&apos;a&apos;:1, &apos;b&apos;:2&#125;</span><br><span class="line">&gt;&gt;&gt; z = [(&apos;c&apos;,3)] --&gt; 类似dict.items</span><br><span class="line">&gt;&gt;&gt; x.update(z)</span><br></pre></td></tr></table></figure></p>
+
         
       </div>
       
@@ -344,6 +358,18 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -364,8 +390,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -439,6 +474,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字典"><span class="nav-number">1.</span> <span class="nav-text">字典</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作"><span class="nav-number">1.1.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#len-d-返回字典-d-中的键值对的数量"><span class="nav-number">1.1.1.</span> <span class="nav-text">len(d) 返回字典(d)中的键值对的数量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-key-返回字典-d-中的键-key-的值"><span class="nav-number">1.1.2.</span> <span class="nav-text">d[key] 返回字典(d)中的键(key)的值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-key-value，更新已有key的value或添加一对键值"><span class="nav-number">1.1.3.</span> <span class="nav-text">d[key]=value，更新已有key的value或添加一对键值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#del-d-key-，删除字典-d-的键-key-项（将该键值对删除）"><span class="nav-number">1.1.4.</span> <span class="nav-text">del d[key]，删除字典(d)的键(key)项（将该键值对删除）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#key-in-d，检查字典-d-中是否含有键为key的项"><span class="nav-number">1.1.5.</span> <span class="nav-text">key in d，检查字典(d)中是否含有键为key的项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用字典方法"><span class="nav-number">1.2.</span> <span class="nav-text">常用字典方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dict-copy"><span class="nav-number">1.2.1.</span> <span class="nav-text">dict.copy()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dict-clear"><span class="nav-number">1.2.2.</span> <span class="nav-text">dict.clear()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dict-get-key-default-None"><span class="nav-number">1.2.3.</span> <span class="nav-text">dict.get(key, default=None)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dict-setdefault-key-default-None"><span class="nav-number">1.2.4.</span> <span class="nav-text">dict.setdefault(key, default=None)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#items-keys-values"><span class="nav-number">1.2.5.</span> <span class="nav-text">items keys values</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dict-pop-key-d"><span class="nav-number">1.2.6.</span> <span class="nav-text">dict.pop(key,[,d])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dict-update-dict2"><span class="nav-number">1.2.7.</span> <span class="nav-text">dict.update(dict2)</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -613,6 +664,34 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'wlccgp3',
+            repo: 'gitment-comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '7435e2125063dda4afc448ca259f3bc10b985d9a',
+            
+                client_id: '7cb8ea1d61e76b5f39aa'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
     
 
 

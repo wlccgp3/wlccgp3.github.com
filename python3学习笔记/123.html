@@ -120,7 +120,7 @@
 
 
 
-  <title>categories | 丿我欲疾风前行灬</title>
+  <title> | 丿我欲疾风前行灬</title>
   
 
 
@@ -307,7 +307,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
+	<h1 class="post-title" itemprop="name headline"></h1>
 
 
 
@@ -319,14 +319,23 @@
       <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 1 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>其基本结构是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for 循环规则：      # 冒号:结束</span><br><span class="line">    操作语句       # 缩进四个空格</span><br></pre></td></tr></table></figure></p>
+<p>字符串for循环：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; hello = &quot;world&quot;</span><br><span class="line">&gt;&gt;&gt; for i in hello:         # 冒号:结束</span><br><span class="line">...     print(i)            # print自带end=&apos;\n&apos;</span><br><span class="line">... </span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br></pre></td></tr></table></figure></p>
+<p><strong>循环的对象必须是可迭代的对象</strong>，判断是否存在:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &apos;__iter__&apos; in dir(1)        --&gt; False</span><br><span class="line">&gt;&gt;&gt; &apos;__iter__&apos; in dir(list)     --&gt; True</span><br></pre></td></tr></table></figure></p>
+<h3 id="range-start-stop-step-–-gt-range-object"><a href="#range-start-stop-step-–-gt-range-object" class="headerlink" title="range(start,stop[, step]) –&gt; range object"></a>range(start,stop[, step]) –&gt; range object</h3><ul>
+<li>start：开始数值，缺省则为0</li>
+<li>stop：结束的数值，必须要写，取值为stop-1</li>
+<li>step：变化的步长，缺省则为1<ul>
+<li>stop&gt;start : step&gt;0(非必须)</li>
+<li>stop&lt;start : step&lt;0(非必须)</li>
+</ul>
+</li>
+</ul>
+<h2 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while 判断条件:     # 冒号:结束</span><br><span class="line">    语句           # 缩进4个空格</span><br></pre></td></tr></table></figure>
+<h2 id="break语句"><a href="#break语句" class="headerlink" title="break语句"></a>break语句</h2><p>跳出 for 和 while 的循环体</p>
+<h2 id="continue语句"><a href="#continue语句" class="headerlink" title="continue语句"></a>continue语句</h2><p>跳过当前循环块中的剩余语句，然后继续进行下一轮循环</p>
+<h2 id="pass语句"><a href="#pass语句" class="headerlink" title="pass语句"></a>pass语句</h2><p>空语句，是为了保持程序结构的完整性，pass不做任何事情，一般用做占位语句</p>
+
         
       </div>
       
@@ -344,6 +353,18 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -364,8 +385,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -439,6 +469,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#for循环"><span class="nav-number">1.</span> <span class="nav-text">for循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#range-start-stop-step-–-gt-range-object"><span class="nav-number">1.1.</span> <span class="nav-text">range(start,stop[, step]) –&gt; range object</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#while循环"><span class="nav-number">2.</span> <span class="nav-text">while循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#break语句"><span class="nav-number">3.</span> <span class="nav-text">break语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#continue语句"><span class="nav-number">4.</span> <span class="nav-text">continue语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pass语句"><span class="nav-number">5.</span> <span class="nav-text">pass语句</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -613,6 +659,34 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'wlccgp3',
+            repo: 'gitment-comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '7435e2125063dda4afc448ca259f3bc10b985d9a',
+            
+                client_id: '7cb8ea1d61e76b5f39aa'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
     
 
 

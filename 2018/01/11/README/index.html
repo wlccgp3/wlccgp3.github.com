@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -90,7 +90,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '6.0.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -234,14 +234,14 @@
         </li>
       
         
-        <li class="menu-item menu-item-html">
-          <a href="/html/" rel="section">
+        <li class="menu-item menu-item-python3学习笔记">
+          <a href="/python3学习笔记/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-html"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
             
 
             
-              html
+              python3学习笔记
             
 
           </a>
@@ -429,11 +429,16 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/avatar.png" alt="丿我欲疾风前行灬 微信支付"/>
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="丿我欲疾风前行灬 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="丿我欲疾风前行灬 支付宝"/>
+        <p>支付宝</p>
+      </div>
     
 
     
@@ -497,7 +502,8 @@
   
     <div class="comments" id="comments">
       
-        <div id="gitment-container"></div>
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
       
     </div>
 
@@ -658,7 +664,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.0.0</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.0.0</div>
 
 
 
@@ -747,13 +753,6 @@
   
   
 
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.0.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.0"></script>
-
-
-
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
@@ -826,7 +825,11 @@
       }
 
       
-      renderGitment();
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
       
       </script>
     

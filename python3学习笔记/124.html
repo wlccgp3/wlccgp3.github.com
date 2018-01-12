@@ -120,7 +120,7 @@
 
 
 
-  <title>categories | 丿我欲疾风前行灬</title>
+  <title> | 丿我欲疾风前行灬</title>
   
 
 
@@ -307,7 +307,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
+	<h1 class="post-title" itemprop="name headline"></h1>
 
 
 
@@ -319,14 +319,15 @@
       <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 1 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h2 id="并行迭代"><a href="#并行迭代" class="headerlink" title="并行迭代"></a>并行迭代</h2><p>迭代两个以上的集合</p>
+<h3 id="zip-iter1-iter2-…-–-gt-zip-object"><a href="#zip-iter1-iter2-…-–-gt-zip-object" class="headerlink" title="zip(iter1 [,iter2 […]]) –&gt; zip object"></a>zip(iter1 [,iter2 […]]) –&gt; zip object</h3><h3 id="问题-多个矩阵元素互换"><a href="#问题-多个矩阵元素互换" class="headerlink" title="问题:多个矩阵元素互换"></a>问题:多个矩阵元素互换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = [1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; y = [4, 5, 6]</span><br><span class="line">&gt;&gt;&gt; z = [7, 8, 9]</span><br><span class="line">&gt;&gt;&gt; xyz = list(zip(x, y, z))</span><br><span class="line">&gt;&gt;&gt; xyz             #--&gt; [(1, 4, 7), (2, 5, 8), (3, 6, 9)]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; zyx = list(zip(*xyz))   # 参数加*解压</span><br><span class="line">&gt;&gt;&gt; zyx             #--&gt; [(1, 2, 3), (4, 5, 6), (7, 8, 9)]</span><br></pre></td></tr></table></figure>
+<h3 id="问题：有两个列表，分别是：a-1-2-3-4-5-b-9-8-7-6-5-，要计算这两个列表中对应元素的和。"><a href="#问题：有两个列表，分别是：a-1-2-3-4-5-b-9-8-7-6-5-，要计算这两个列表中对应元素的和。" class="headerlink" title="问题：有两个列表，分别是：a = [1, 2, 3, 4, 5], b = [9, 8, 7, 6, 5]，要计算这两个列表中对应元素的和。"></a>问题：有两个列表，分别是：a = [1, 2, 3, 4, 5], b = [9, 8, 7, 6, 5]，要计算这两个列表中对应元素的和。</h3><p>方法一:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = [1, 2, 3, 4, 5]</span><br><span class="line">&gt;&gt;&gt; b = [9, 8, 7, 6, 5]</span><br><span class="line">&gt;&gt;&gt; c = []</span><br><span class="line">&gt;&gt;&gt; for i in range(len(a)):</span><br><span class="line">...     c.append(a[i]+b[i])</span><br><span class="line">... </span><br><span class="line">&gt;&gt;&gt; c                       #--&gt; [10, 10, 10, 10, 10]</span><br></pre></td></tr></table></figure></p>
+<p>方法二:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d = []</span><br><span class="line">&gt;&gt;&gt; for x,y in zip(a,b):</span><br><span class="line">...     d.append(x+y)</span><br><span class="line">... </span><br><span class="line">&gt;&gt;&gt; d                       #--&gt; [10, 10, 10, 10, 10]</span><br></pre></td></tr></table></figure></p>
+<p>用列表解析:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = [a[i]+b[i] for i in range(len(a))]</span><br><span class="line">&gt;&gt;&gt; x                       #--&gt; [10, 10, 10, 10, 10]</span><br><span class="line">&gt;&gt;&gt; y = [x+y for x,y in zip(a,b)]</span><br><span class="line">&gt;&gt;&gt; y                       #--&gt; [10, 10, 10, 10, 10]</span><br></pre></td></tr></table></figure></p>
+<h3 id="问题-字典键值互换"><a href="#问题-字典键值互换" class="headerlink" title="问题:字典键值互换"></a>问题:字典键值互换</h3><p>用for循环:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d = &#123;&apos;a&apos;:1, &apos;b&apos;:2, &apos;c&apos;:3&#125;</span><br><span class="line">&gt;&gt;&gt; m = &#123;&#125;</span><br><span class="line">&gt;&gt;&gt; for k, v in d.items():</span><br><span class="line">...     m[v] = k            # 以v为key,以k为values添加键值对</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; m                       #--&gt; &#123;1: &apos;a&apos;, 2: &apos;b&apos;, 3: &apos;c&apos;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因为字典有items方法,而zip只能获得key:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = dict(zip(d.values(),d.keys()))</span><br><span class="line">&gt;&gt;&gt; x                       #--&gt; &#123;1: &apos;a&apos;, 2: &apos;b&apos;, 3: &apos;c&apos;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>用dict解析:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; y = &#123;v:k for k, v in d.items()&#125;</span><br><span class="line">&gt;&gt;&gt; y                       #--&gt; &#123;1: &apos;a&apos;, 2: &apos;b&apos;, 3: &apos;c&apos;&#125;</span><br></pre></td></tr></table></figure></p>
+
         
       </div>
       
@@ -344,6 +345,18 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -364,8 +377,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -439,6 +461,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#并行迭代"><span class="nav-number">1.</span> <span class="nav-text">并行迭代</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#zip-iter1-iter2-…-–-gt-zip-object"><span class="nav-number">1.1.</span> <span class="nav-text">zip(iter1 [,iter2 […]]) –&gt; zip object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-多个矩阵元素互换"><span class="nav-number">1.2.</span> <span class="nav-text">问题:多个矩阵元素互换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题：有两个列表，分别是：a-1-2-3-4-5-b-9-8-7-6-5-，要计算这两个列表中对应元素的和。"><span class="nav-number">1.3.</span> <span class="nav-text">问题：有两个列表，分别是：a = [1, 2, 3, 4, 5], b = [9, 8, 7, 6, 5]，要计算这两个列表中对应元素的和。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题-字典键值互换"><span class="nav-number">1.4.</span> <span class="nav-text">问题:字典键值互换</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -613,6 +651,34 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'wlccgp3',
+            repo: 'gitment-comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '7435e2125063dda4afc448ca259f3bc10b985d9a',
+            
+                client_id: '7cb8ea1d61e76b5f39aa'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
     
 
 

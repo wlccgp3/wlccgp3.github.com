@@ -120,7 +120,7 @@
 
 
 
-  <title>categories | 丿我欲疾风前行灬</title>
+  <title> | 丿我欲疾风前行灬</title>
   
 
 
@@ -307,7 +307,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
+	<h1 class="post-title" itemprop="name headline"></h1>
 
 
 
@@ -319,14 +319,34 @@
       <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 1 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h2 id="python数据存储"><a href="#python数据存储" class="headerlink" title="python数据存储"></a>python数据存储</h2><p><strong>变量 引用 对象</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = 1</span><br></pre></td></tr></table></figure></p>
+<p>内存中只创建了对象<code>1</code>，变量x只是贴在对象<code>1</code>的标签，<code>=</code>是赋值即引用<br>在python中一切皆对象，里面又有不可变对象和可变对象</p>
+<h3 id="数字和字符串对象引用"><a href="#数字和字符串对象引用" class="headerlink" title="数字和字符串对象引用"></a>数字和字符串对象引用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = 5                   # 内存中创建了一个对象5</span><br><span class="line">&gt;&gt;&gt; b = 5</span><br><span class="line">&gt;&gt;&gt; b       --&gt; 5</span><br><span class="line">&gt;&gt;&gt; id(a)   --&gt; 139774080</span><br><span class="line">&gt;&gt;&gt; id(b)   --&gt; 139774080   # 一个对象贴了两个标签</span><br><span class="line">&gt;&gt;&gt; b = 3                   # 内存中新建了一个对象3</span><br><span class="line">&gt;&gt;&gt; id(b)   --&gt; 10923616    # 对象引用换成了b</span><br></pre></td></tr></table></figure>
+<h3 id="组合对象的引用-除了数字和字符串"><a href="#组合对象的引用-除了数字和字符串" class="headerlink" title="组合对象的引用(除了数字和字符串)"></a>组合对象的引用(除了数字和字符串)</h3><blockquote>
+<p>可以创建多个”一样”的对象,但是id不同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = [1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; id(x)         --&gt; 140150136275912</span><br><span class="line">&gt;&gt;&gt; y = x[:]</span><br><span class="line">&gt;&gt;&gt; y             --&gt; [1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; id(y)         --&gt; 140150136287496</span><br><span class="line">&gt;&gt;&gt; z = [1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; id(z)         --&gt; 140150136287944</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>解析:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = &apos;a&apos;</span><br><span class="line">&gt;&gt;&gt; y = [&apos;a&apos;, 1, [&apos;a&apos;, 1]]</span><br><span class="line">&gt;&gt;&gt; id(x)        --&gt; 140363897810368   # 对象&apos;a&apos;</span><br><span class="line">&gt;&gt;&gt; id(y)        --&gt; 140363897692872   # 列表对象</span><br><span class="line">&gt;&gt;&gt; id(y[0])     --&gt; 140363897810368</span><br><span class="line">&gt;&gt;&gt; id(y[1])     --&gt; 10923552          # 列表的子对象数字1</span><br><span class="line">&gt;&gt;&gt; id(y[2])     --&gt; 140363897680840   # 列表子对象列表[&apos;a&apos;, 1]</span><br><span class="line">&gt;&gt;&gt; id(y[2][0])  --&gt; 140363897810368   # 三个 &apos;a&apos; id一样</span><br><span class="line">&gt;&gt;&gt; id(y[2][1])  --&gt; 10923552          # 两个 1 id一样</span><br></pre></td></tr></table></figure></p>
+<p>修改列表内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; y.remove([&apos;a&apos;, 1])</span><br><span class="line">&gt;&gt;&gt; y     --&gt; [&apos;a&apos;, 1]</span><br><span class="line">&gt;&gt;&gt; id(y) --&gt; 140363897692872   # 因为是修改原对象，所有id不变</span><br></pre></td></tr></table></figure></p>
+<h4 id="可变对象的浅拷贝"><a href="#可变对象的浅拷贝" class="headerlink" title="可变对象的浅拷贝"></a>可变对象的浅拷贝</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = &#123;&apos;a&apos;:1, &apos;b&apos;:[1, 2, 3]&#125;          # 最底层的对象只有1,2,3</span><br><span class="line">&gt;&gt;&gt; y = x.copy()</span><br><span class="line">&gt;&gt;&gt; y            --&gt; &#123;&apos;a&apos;:1, &apos;b&apos;:[1, 2, 3]&#125;</span><br><span class="line">&gt;&gt;&gt; id(x)        --&gt; 139791973166088</span><br><span class="line">&gt;&gt;&gt; id(y)        --&gt; 139791973166024    # 父对象id显示不一样</span><br><span class="line">&gt;&gt;&gt; id(x[&apos;a&apos;])   --&gt; 10923552</span><br><span class="line">&gt;&gt;&gt; id(y[&apos;a&apos;])   --&gt; 10923552           # 子对象id一样</span><br><span class="line">&gt;&gt;&gt; id(x[&apos;b&apos;])   --&gt; 139791972639688</span><br><span class="line">&gt;&gt;&gt; id(y[&apos;b&apos;])   --&gt; 139791972639688    # 子对象id一样</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>从上面可以看出，浅复制只是创建一个新的父对象，子对象还是同一个对象</p>
+</blockquote>
+<p>修改字典的列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; id(y[&apos;b&apos;][1])   --&gt; 10923584</span><br><span class="line">&gt;&gt;&gt; y[&apos;a&apos;] = 2                           # 引用对象2</span><br><span class="line">&gt;&gt;&gt; id(y[&apos;a&apos;])      --&gt; 10923584</span><br><span class="line">&gt;&gt;&gt; y[&apos;b&apos;].remove(2)</span><br><span class="line">&gt;&gt;&gt; id(y[&apos;b&apos;])      --&gt; 139791972639688  # 列表子对象id没有改变</span><br><span class="line">&gt;&gt;&gt; y               --&gt; &#123;&apos;b&apos;: [1, 3], &apos;a&apos;: 1&#125;</span><br><span class="line">&gt;&gt;&gt; x               --&gt; &#123;&apos;b&apos;: [1, 3], &apos;a&apos;: 1&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="导入copy模块实现deep-copy"><a href="#导入copy模块实现deep-copy" class="headerlink" title="导入copy模块实现deep copy"></a>导入copy模块实现deep copy</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import copy</span><br><span class="line">&gt;&gt;&gt; x = &#123;&apos;a&apos;:1, &apos;b&apos;:[1, 2, 3]&#125;</span><br><span class="line">&gt;&gt;&gt; y = copy.copy(x)                # 浅拷贝和前面一样</span><br><span class="line">&gt;&gt;&gt; z = copy.deepcopy(x)            # 深拷贝</span><br><span class="line">&gt;&gt;&gt; id(x[&apos;b&apos;])  --&gt; 140541619106696</span><br><span class="line">&gt;&gt;&gt; id(z[&apos;b&apos;])  --&gt; 140541618998536 # 创建了两个列表对象</span><br><span class="line">&gt;&gt;&gt; z[&apos;b&apos;].remove(2)</span><br><span class="line">&gt;&gt;&gt; x           --&gt; &#123;&apos;a&apos;: 1, &apos;b&apos;: [1, 2, 3]&#125;</span><br><span class="line">&gt;&gt;&gt; z           --&gt; &#123;&apos;a&apos;: 1, &apos;b&apos;: [1, 3]&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>deepcopy可以创建两个id不一样的可变对象，但不影响不可变对象</p>
+</blockquote>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>python引用变量的顺序： 当前作用域局部变量-&gt;外层作用域变量-&gt;当前模块中的全局变量-&gt;python内置变量<br>global和nonlocal<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = 1           # 全局变量，可省略global关键字</span><br><span class="line">def y():</span><br><span class="line">    a = a + 1   # 全局变量可以在函数内部使用，但不能修改</span><br><span class="line"></span><br><span class="line">y()             # 报错</span><br></pre></td></tr></table></figure></p>
+<h4 id="变量解析规则"><a href="#变量解析规则" class="headerlink" title="变量解析规则"></a>变量解析规则</h4><p>在python的作用域规则里面，创建变量一定会在当前作用域里创建一个变量，但是访问或者修改变量时会先在当前作用域查找变量，没有找到匹配变量的话会依次向上在闭合的作用域里面进行查看找</p>
+<ul>
+<li>声明全局变量，如果在局部要对全局变量修改，需要在局部也要先声明该全局变量</li>
+<li>在局部如果不声明全局变量，并且不修改全局变量。则可以正常使用全局变量</li>
+<li>nonlocal关键字用来在函数或其他作用域中使用外层(非全局)变量</li>
+</ul>
+<blockquote>
+<p>避免出错的办法，就是尽量不重复使用</p>
+</blockquote>
+
         
       </div>
       
@@ -344,6 +364,18 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -364,8 +396,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -439,6 +480,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#python数据存储"><span class="nav-number">1.</span> <span class="nav-text">python数据存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数字和字符串对象引用"><span class="nav-number">1.1.</span> <span class="nav-text">数字和字符串对象引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合对象的引用-除了数字和字符串"><span class="nav-number">1.2.</span> <span class="nav-text">组合对象的引用(除了数字和字符串)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可变对象的浅拷贝"><span class="nav-number">1.2.1.</span> <span class="nav-text">可变对象的浅拷贝</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入copy模块实现deep-copy"><span class="nav-number">1.3.</span> <span class="nav-text">导入copy模块实现deep copy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">1.4.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量解析规则"><span class="nav-number">1.4.1.</span> <span class="nav-text">变量解析规则</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -613,6 +670,34 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'wlccgp3',
+            repo: 'gitment-comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '7435e2125063dda4afc448ca259f3bc10b985d9a',
+            
+                client_id: '7cb8ea1d61e76b5f39aa'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
     
 
 

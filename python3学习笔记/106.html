@@ -120,7 +120,7 @@
 
 
 
-  <title>categories | 丿我欲疾风前行灬</title>
+  <title> | 丿我欲疾风前行灬</title>
   
 
 
@@ -307,7 +307,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
+	<h1 class="post-title" itemprop="name headline"></h1>
 
 
 
@@ -319,14 +319,17 @@
       <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 1 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>是一个<code>无序</code> <code>不重复</code>可变元素集(但元素必须是不可变的元素)，主要用作去重和关系测试，和字典一样使用<code>{}</code>，所以创建空集合不用{}，用set()</p>
+<h3 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = set(&apos;aabb&apos;)</span><br><span class="line">&gt;&gt;&gt; x               --&gt; &#123;&apos;a&apos;, &apos;b&apos;&#125;</span><br></pre></td></tr></table></figure>
+<p>如果创建集合时有可变元素则会报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = &#123;1,[1, 2]&#125;</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">TypeError: unhashable type: &apos;list&apos;</span><br></pre></td></tr></table></figure></p>
+<p>unhashable –&gt; 不可哈希 –&gt; 可变<br>hashable   –&gt; 可哈希   –&gt; 不可变</p>
+<h3 id="关系测试"><a href="#关系测试" class="headerlink" title="关系测试"></a>关系测试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = &#123;1, 2, 3&#125;</span><br><span class="line">&gt;&gt;&gt; y = &#123;2, 3, 4&#125;</span><br><span class="line">&gt;&gt;&gt; x | y       --&gt; &#123;1, 2, 3, 4&#125;    # 并集</span><br><span class="line">&gt;&gt;&gt; x &amp; y       --&gt; &#123;2, 3&#125;          # 交集</span><br><span class="line">&gt;&gt;&gt; x - y       --&gt; &#123;1&#125;             # 差集</span><br><span class="line">&gt;&gt;&gt; x ^ y       --&gt; &#123;1, 4&#125;          # 对称差集</span><br></pre></td></tr></table></figure>
+<h3 id="常用集合方法"><a href="#常用集合方法" class="headerlink" title="常用集合方法"></a>常用集合方法</h3><h4 id="add-update"><a href="#add-update" class="headerlink" title="add, update"></a>add, update</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = &#123;1, 2, 3&#125;</span><br><span class="line">&gt;&gt;&gt; x.add(&apos;abc&apos;)</span><br><span class="line">&gt;&gt;&gt; x               --&gt; &#123;1, 2, 3, &apos;abc&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; x.update(&apos;abc&apos;) --&gt; &#123;1, 2, 3, &apos;abc&apos;, &apos;a&apos;, &apos;b&apos;, &apos;c&apos;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="set-pop"><a href="#set-pop" class="headerlink" title="set.pop()"></a>set.pop()</h4><p>随机删除元素并返回该元素，不存在则报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = &#123;1, 2, 3&#125;</span><br><span class="line">&gt;&gt;&gt; x.pop()      --&gt; 1</span><br></pre></td></tr></table></figure></p>
+<h4 id="set-remove-obj"><a href="#set-remove-obj" class="headerlink" title="set.remove(obj)"></a>set.remove(obj)</h4><p>删除指定元素，若集合中没有该元素则报错，修改原集合<code>没有</code>返回值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = &#123;1, 2, 3&#125;</span><br><span class="line">&gt;&gt;&gt; x.remove(1)</span><br><span class="line">&gt;&gt;&gt; x            --&gt; &#123;2, 3&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="set-discard-obj"><a href="#set-discard-obj" class="headerlink" title="set.discard(obj)"></a>set.discard(obj)</h4><p>删除指定元素，集合中没有该元素不报错，修改原集合<code>没有</code>返回值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = &#123;1, 2, 3&#125;</span><br><span class="line">&gt;&gt;&gt; x.discard(1)</span><br><span class="line">&gt;&gt;&gt; x            --&gt; &#123;2, 3&#125;</span><br><span class="line">&gt;&gt;&gt; x.discard(4)            # do nothing</span><br></pre></td></tr></table></figure></p>
+<h4 id="set-clear"><a href="#set-clear" class="headerlink" title="set.clear()"></a>set.clear()</h4><p>清空集合</p>
+
         
       </div>
       
@@ -344,6 +347,18 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -364,8 +379,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -439,6 +463,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#集合"><span class="nav-number">1.</span> <span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建集合"><span class="nav-number">1.1.</span> <span class="nav-text">创建集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关系测试"><span class="nav-number">1.2.</span> <span class="nav-text">关系测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用集合方法"><span class="nav-number">1.3.</span> <span class="nav-text">常用集合方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#add-update"><span class="nav-number">1.3.1.</span> <span class="nav-text">add, update</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set-pop"><span class="nav-number">1.3.2.</span> <span class="nav-text">set.pop()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set-remove-obj"><span class="nav-number">1.3.3.</span> <span class="nav-text">set.remove(obj)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set-discard-obj"><span class="nav-number">1.3.4.</span> <span class="nav-text">set.discard(obj)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set-clear"><span class="nav-number">1.3.5.</span> <span class="nav-text">set.clear()</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -613,6 +653,34 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'wlccgp3',
+            repo: 'gitment-comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '7435e2125063dda4afc448ca259f3bc10b985d9a',
+            
+                client_id: '7cb8ea1d61e76b5f39aa'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
     
 
 

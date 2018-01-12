@@ -120,7 +120,7 @@
 
 
 
-  <title>categories | 丿我欲疾风前行灬</title>
+  <title> | 丿我欲疾风前行灬</title>
   
 
 
@@ -307,7 +307,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
+	<h1 class="post-title" itemprop="name headline"></h1>
 
 
 
@@ -319,14 +319,67 @@
       <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 1 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open(file, mode=&apos;r&apos;, buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opene r=None)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>以读方式打开文件，可读取文件信息,默认模式</td>
+</tr>
+<tr>
+<td>w</td>
+<td>以写方式打开文件，可向文件写入信息。如文件存在，则清空该文件，再写入新内容</td>
+</tr>
+<tr>
+<td>x</td>
+<td>以写模式新建一个文件</td>
+</tr>
+<tr>
+<td>a</td>
+<td>以追加模式打开文件（文件指针自动移到文件末尾），如果文件不存在则创建</td>
+</tr>
+<tr>
+<td>+</td>
+<td>配合其他模式r,w,a等,以读和写模式</td>
+</tr>
+<tr>
+<td>b</td>
+<td>二进制模式</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; f = open(&quot;130.txt&quot;)     # 在当前文件夹打开已存在的文件</span><br><span class="line">&gt;&gt;&gt; dir(f)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在对文件进行写入操作之后，一定要牢记一个事情：<code>file.close()</code></p>
+</blockquote>
+<h3 id="with…as…"><a href="#with…as…" class="headerlink" title="with…as…"></a>with…as…</h3><p>用with语句不用关闭文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; with open(&quot;130.txt&quot;,&quot;a&quot;) as f:</span><br><span class="line">...     f.write(&quot;\nThis is about &apos;with...as...&apos;&quot;)</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<h3 id="常用文件方法"><a href="#常用文件方法" class="headerlink" title="常用文件方法"></a>常用文件方法</h3><h4 id="f-read-size"><a href="#f-read-size" class="headerlink" title="f.read([size])"></a>f.read([size])</h4><p>如果指定了参数size，就按照该指定长度从文件中读取内容，否则，就读取全文直到EOF</p>
+<h4 id="f-readline-size"><a href="#f-readline-size" class="headerlink" title="f.readline([size])"></a>f.readline([size])</h4><ul>
+<li>如果指定了参数size,则读取指定长度的内容,直到行尾才会读取下一行</li>
+<li>如果不指定参数,则一行一行读取</li>
+</ul>
+<h4 id="f-readlines-hint"><a href="#f-readlines-hint" class="headerlink" title="f.readlines([hint])"></a>f.readlines([hint])</h4><ul>
+<li>返回该文件中包含的所有行。</li>
+<li>如果设置可选参数hint, 则读取指定长度的字节, 并且将这些字节按行分割</li>
+</ul>
+<blockquote>
+<p>EOF(End-of-file)</p>
+</blockquote>
+<h4 id="f-write-string"><a href="#f-write-string" class="headerlink" title="f.write(string)"></a>f.write(string)</h4><p>将 string 写入到文件中, 然后<code>返回</code>写入的字符数</p>
+<h4 id="f-tell"><a href="#f-tell" class="headerlink" title="f.tell()"></a>f.tell()</h4><p>返回文件对象当前所处的位置, 它是从文件开头开始算起的字节数</p>
+<h4 id="f-seek-offset-whence"><a href="#f-seek-offset-whence" class="headerlink" title="f.seek(offset[, whence])"></a>f.seek(offset[, whence])</h4><p>这个函数的功能就是让指针移动。<br>whence的值：</p>
+<ul>
+<li>默认值是0，表示从文件开头开始计算指针偏移的量（简称偏移量）。此时offset必须是大于等于0的整数。</li>
+<li>是1时，表示从当前位置开始计算偏移量。offset如果是负数，表示从当前位置向前移动，整数表示向后移动。</li>
+<li>是2时，表示相对文件末尾移动。</li>
+</ul>
+
         
       </div>
       
@@ -344,6 +397,18 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -364,8 +429,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -439,6 +513,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件"><span class="nav-number">1.</span> <span class="nav-text">文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开文件"><span class="nav-number">1.1.</span> <span class="nav-text">打开文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#with…as…"><span class="nav-number">1.2.</span> <span class="nav-text">with…as…</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用文件方法"><span class="nav-number">1.3.</span> <span class="nav-text">常用文件方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#f-read-size"><span class="nav-number">1.3.1.</span> <span class="nav-text">f.read([size])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#f-readline-size"><span class="nav-number">1.3.2.</span> <span class="nav-text">f.readline([size])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#f-readlines-hint"><span class="nav-number">1.3.3.</span> <span class="nav-text">f.readlines([hint])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#f-write-string"><span class="nav-number">1.3.4.</span> <span class="nav-text">f.write(string)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#f-tell"><span class="nav-number">1.3.5.</span> <span class="nav-text">f.tell()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#f-seek-offset-whence"><span class="nav-number">1.3.6.</span> <span class="nav-text">f.seek(offset[, whence])</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -613,6 +703,34 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'wlccgp3',
+            repo: 'gitment-comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '7435e2125063dda4afc448ca259f3bc10b985d9a',
+            
+                client_id: '7cb8ea1d61e76b5f39aa'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
     
 
 

@@ -120,7 +120,7 @@
 
 
 
-  <title>categories | 丿我欲疾风前行灬</title>
+  <title> | 丿我欲疾风前行灬</title>
   
 
 
@@ -307,7 +307,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
+	<h1 class="post-title" itemprop="name headline"></h1>
 
 
 
@@ -319,14 +319,155 @@
       <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 1 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+<ul>
+<li><a href="#列表">列表</a><ul>
+<li><a href="#基本操作">基本操作</a></li>
+<li><a href="#索引和切片">索引和切片</a></li>
+<li><a href="#更新列表">更新列表</a></li>
+<li><a href="#删除列表元素">删除列表元素</a></li>
+<li><a href="#常用的列表函数">常用的列表函数</a><ul>
+<li><a href="#listappendobj">list.append(obj)</a></li>
+<li><a href="#listextendseq">list.extend(seq)</a></li>
+<li><a href="#listinsertindexobj">list.insert(index,obj)</a></li>
+<li><a href="#listcopy">list.copy()</a></li>
+<li><a href="#listclear">list.clear()</a></li>
+<li><a href="#listcountobj">list.count(obj)</a></li>
+<li><a href="#listindexobj">list.index(obj)</a></li>
+<li><a href="#listpopindex">list.pop([index])</a></li>
+<li><a href="#listremoveobj">list.remove(obj)</a></li>
+<li><a href="#listreverse">list.reverse()</a></li>
+<li><a href="#listsortkeynone-reversefalse">list.sort(key=None, reverse=False)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>表也是一种序列，每个元素以逗号<code>,</code>分开。列表无所不包，里面可以放各种类型的数据，且里面所能容纳的元素数量无限，当然这是在硬件设备理想的情况下。</p>
+<blockquote>
+<p>列表元素可以修改</p>
+</blockquote>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p>和前面<a href="./106.md">《字符串》</a>的基本操作类似，在list中，也有类似的操作。只不过是以<strong>元素为单位</strong>，不是以字符为单位进行索引了。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">实例</th>
+<th style="text-align:center">结果</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">len()</td>
+<td style="text-align:center">len[‘ab’,1]</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">求序列长度</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>+</code></td>
+<td style="text-align:center">[‘ab’]+[1]</td>
+<td style="text-align:center">[‘ab’, 1]</td>
+<td style="text-align:center">连接2个序列，必须是同类型数据</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>*</code></td>
+<td style="text-align:center">[‘a’]*2</td>
+<td style="text-align:center">[‘a’, ‘a’]</td>
+<td style="text-align:center">重复序列元素</td>
+</tr>
+<tr>
+<td style="text-align:center">in</td>
+<td style="text-align:center">‘ab’in[‘ab’,1]<br>‘a’in[‘ab’,1]</td>
+<td style="text-align:center">True<br>False</td>
+<td style="text-align:center">判断元素是否存在于序列中</td>
+</tr>
+<tr>
+<td style="text-align:center">max()</td>
+<td style="text-align:center">max([‘a’,’b’])</td>
+<td style="text-align:center">‘a’</td>
+<td style="text-align:center">返回最大值，大小排序符合字符编码，列表内元素必须是同种类型的数据</td>
+</tr>
+<tr>
+<td style="text-align:center">min()</td>
+<td style="text-align:center">min([2,1])</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">返回最小值，大小排序符合字符编码，列表内元素必须是同种类型的数据</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>用比较运算符比较大小，不过必须是同种类型的数据才能比较</p>
+</blockquote>
+<h3 id="索引和切片"><a href="#索引和切片" class="headerlink" title="索引和切片"></a>索引和切片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; y = [&apos;a&apos;, 1, &apos;a&apos;, [3]]</span><br><span class="line">&gt;&gt;&gt; y[0]         ---&gt; &apos;a&apos;</span><br><span class="line">&gt;&gt;&gt; y[1]         ---&gt; 1</span><br><span class="line">&gt;&gt;&gt; y.index(&apos;a&apos;) ---&gt; 0   # 检索该元素在列表中第一次出现的位置</span><br><span class="line">&gt;&gt;&gt; [&apos;a&apos;,1][0]   ---&gt; &apos;a&apos;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">切片</th>
+<th style="text-align:center">结果</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">list[start:end:step]</td>
+<td style="text-align:center">默认正向切片</td>
+<td style="text-align:center">切片取值：前包括后不包括<br>end必须大于start,否则返回空<br>step为空时，缺省值为1<br>step&lt;0时，则反向切片</td>
+</tr>
+<tr>
+<td style="text-align:center">y[1:]</td>
+<td style="text-align:center">[ 1, ‘a’, [3]]</td>
+<td style="text-align:center">得到从2号到最末尾的元素,这时最后那个可以不写</td>
+</tr>
+<tr>
+<td style="text-align:center">y[:]</td>
+<td style="text-align:center">[‘a’, 1, ‘a’, [3]]</td>
+<td style="text-align:center">得到所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">y[:2]</td>
+<td style="text-align:center">[‘a’, 1]</td>
+<td style="text-align:center">得到2之前(不包括第三个)的元素</td>
+</tr>
+<tr>
+<td style="text-align:center">y[0:3:2]</td>
+<td style="text-align:center">[‘a’, ‘a’]</td>
+<td style="text-align:center">得到以step=2从0到3(不包括3)的元素</td>
+</tr>
+<tr>
+<td style="text-align:center">y[::-1]</td>
+<td style="text-align:center">[[3], ‘a’, 1, ‘a’]</td>
+<td style="text-align:center">反向得到所有元素</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>如果列表内有序列(字符串、列表等)，则可以进行二次索引和切片<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; y = [&apos;a&apos;, 1, &apos;abc&apos;, 2, [3]]</span><br><span class="line">&gt;&gt;&gt; y[2][:2] ---&gt; &apos;ab&apos;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="更新列表"><a href="#更新列表" class="headerlink" title="更新列表"></a>更新列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; y = [&apos;a&apos;, 1, &apos;abc&apos;]</span><br><span class="line">&gt;&gt;&gt; y[1] = &apos;python&apos;</span><br><span class="line">&gt;&gt;&gt; y ---&gt; [&apos;a&apos;,&apos;python&apos;,&apos;abc&apos;]</span><br></pre></td></tr></table></figure>
+<h3 id="删除列表元素"><a href="#删除列表元素" class="headerlink" title="删除列表元素"></a>删除列表元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; y = [&apos;a&apos;, 1,&apos;abc&apos;, &apos;a&apos;]</span><br><span class="line">&gt;&gt;&gt; del list1[1] </span><br><span class="line">&gt;&gt;&gt; y ---&gt; [&apos;a&apos;, &apos;abc&apos;, &apos;a&apos;]</span><br></pre></td></tr></table></figure>
+<h3 id="常用的列表函数"><a href="#常用的列表函数" class="headerlink" title="常用的列表函数"></a>常用的列表函数</h3><blockquote>
+<p>‘append’, ‘clear’, ‘copy’,’count’, ‘extend’, ‘index’, ‘insert’, ‘pop’, ‘remove’, ‘reverse’, ‘sort’</p>
+<h4 id="list-append-obj"><a href="#list-append-obj" class="headerlink" title="list.append(obj)"></a>list.append(obj)</h4><p>在列表末尾添加新的<code>对象</code>,修改原对象且<code>没有返回值</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = [&quot;python&quot;, 1]</span><br><span class="line">print(a.append(2)) ---&gt; None # 没有返回值</span><br><span class="line">print(a)           ---&gt; [&quot;python&quot;, 1,2]</span><br><span class="line">b=a.append([1, 2])</span><br><span class="line">print(b)           ---&gt; None # 没有返回值</span><br><span class="line">print(a)           ---&gt; [&quot;python&quot;, 1,[1,2]]</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="list-extend-seq"><a href="#list-extend-seq" class="headerlink" title="list.extend(seq)"></a>list.extend(seq)</h4><p>在列表末尾一次性追加<code>另一个序列</code>中的多个值，修改原对象且<code>没有返回值</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = [&quot;python&quot;, 1]</span><br><span class="line">&gt;&gt;&gt; a.extend([1, 2])</span><br><span class="line">&gt;&gt;&gt; a               ---&gt; [&quot;python&quot;, 1,1,2]</span><br><span class="line">&gt;&gt;&gt; a.extend(&apos;ab&apos;)  # 当追加的是字符串时，字符串会以字符为单位拆开</span><br><span class="line">&gt;&gt;&gt; a               ---&gt; [&quot;python&quot;, 1,1,2,&apos;a&apos;,&apos;b&apos;]</span><br></pre></td></tr></table></figure></p>
+<h4 id="list-insert-index-obj"><a href="#list-insert-index-obj" class="headerlink" title="list.insert(index,obj)"></a>list.insert(index,obj)</h4><p>将对象<code>obj</code>插入到列表中<code>index</code>位置，原位置向后移动。修改原对象且<code>没有返回值</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = [&quot;python&quot;, 1]</span><br><span class="line">&gt;&gt;&gt; a.insert(1, &apos;a&apos;)</span><br><span class="line">&gt;&gt;&gt; a                 ---&gt; [&quot;python&quot;, &apos;a&apos;,1]</span><br></pre></td></tr></table></figure></p>
+<h4 id="list-copy"><a href="#list-copy" class="headerlink" title="list.copy()"></a>list.copy()</h4><p><code>返回</code>复制后的新列表，类似a[:]</p>
+<h4 id="list-clear"><a href="#list-clear" class="headerlink" title="list.clear()"></a>list.clear()</h4><p>清空列表，类似del a[:]，修改原对象且<code>没有返回值</code></p>
+<h4 id="list-count-obj"><a href="#list-count-obj" class="headerlink" title="list.count(obj)"></a>list.count(obj)</h4><p><code>返回</code>某个元素在列表中出现的次数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = [1, 2, 1, 1, 3]</span><br><span class="line">&gt;&gt;&gt; a.count(1)      ---&gt; 3</span><br><span class="line">&gt;&gt;&gt; a.count(5)      ---&gt; 0   # 可用该方法查找，没有也不会报错</span><br></pre></td></tr></table></figure></p>
+<h4 id="list-index-obj"><a href="#list-index-obj" class="headerlink" title="list.index(obj)"></a>list.index(obj)</h4><p>检索该元素在列表中第一次出现的位置。<code>返回</code>查找对象的索引位置，如果没有找到对象则抛出异常</p>
+<h4 id="list-pop-index"><a href="#list-pop-index" class="headerlink" title="list.pop([index])"></a>list.pop([index])</h4><p>移除列表中的一个元素（默认最后一个元素），修改原对象并且<code>返回</code>该元素的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = [&quot;python&quot;, 1, 1, 2]</span><br><span class="line">&gt;&gt;&gt; a.pop()     ---&gt; 2</span><br><span class="line">&gt;&gt;&gt; a           ---&gt; [&quot;python&quot;, 1, 1]</span><br><span class="line">&gt;&gt;&gt; a.pop(0)    ---&gt; &apos;python&apos;</span><br><span class="line">&gt;&gt;&gt; a           ---&gt; [1, 1, 2]</span><br></pre></td></tr></table></figure></p>
+<h4 id="list-remove-obj"><a href="#list-remove-obj" class="headerlink" title="list.remove(obj)"></a>list.remove(obj)</h4><p>移除列表中某个值的<code>第一个</code>匹配项。修改原对象且<code>没有返回值</code>，如果所删除的内容不在列表中，就报错。</p>
+<h4 id="list-reverse"><a href="#list-reverse" class="headerlink" title="list.reverse()"></a>list.reverse()</h4><p>将列表的元素顺序反过来。修改原对象且<code>没有返回值</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = [3,5,1,6]</span><br><span class="line">&gt;&gt;&gt; a.reverse()</span><br><span class="line">&gt;&gt;&gt; a           ---&gt; [6, 1, 5, 3]</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>因为<code>list.reverse()</code>不返回值，所以不能实现对列表的反向迭代，如果要这么做，可以使用python内建的<code>reversed(seq)</code>函数。<br><code>reversed(seq)</code>函数可以反转一个list，返回一个迭代器（iterator）</p>
+</blockquote>
+<h4 id="list-sort-key-None-reverse-False"><a href="#list-sort-key-None-reverse-False" class="headerlink" title="list.sort(key=None, reverse=False)"></a>list.sort(key=None, reverse=False)</h4><p>key接受一个函数，这个函数只接受一个元素，默认为None<br>reverse是一个布尔值。如果设置为True，列表元素将被倒序排列，默认为False<br>修改原对象且<code>没有返回值</code>。默认情况，实现的是从小到大的排序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = [3,5,1,6]</span><br><span class="line">&gt;&gt;&gt; a.sort(reverse=True)</span><br><span class="line">&gt;&gt;&gt; a                   ---&gt; [6, 5, 3, 1]</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>python3内置函数sorted(iterable，key=None,reverse=False)可<code>返回</code>一个列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; students = [(&apos;john&apos;, &apos;A&apos;, 15), (&apos;jane&apos;, &apos;B&apos;, 12), (&apos;dave&apos;,&apos;B&apos;, 10)]</span><br><span class="line">&gt;&gt;&gt; sorted(students,key=lambda s: x[2]) #按照年龄来排序</span><br><span class="line">[(&apos;dave&apos;,&apos;B&apos;, 10), (&apos;jane&apos;, &apos;B&apos;, 12), (&apos;john&apos;, &apos;A&apos;, 15)]</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
         
       </div>
       
@@ -344,6 +485,18 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -364,8 +517,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -439,6 +601,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">1.</span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作"><span class="nav-number">1.1.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引和切片"><span class="nav-number">1.2.</span> <span class="nav-text">索引和切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新列表"><span class="nav-number">1.3.</span> <span class="nav-text">更新列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除列表元素"><span class="nav-number">1.4.</span> <span class="nav-text">删除列表元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的列表函数"><span class="nav-number">1.5.</span> <span class="nav-text">常用的列表函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#list-append-obj"><span class="nav-number">1.5.1.</span> <span class="nav-text">list.append(obj)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list-extend-seq"><span class="nav-number">1.5.2.</span> <span class="nav-text">list.extend(seq)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list-insert-index-obj"><span class="nav-number">1.5.3.</span> <span class="nav-text">list.insert(index,obj)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list-copy"><span class="nav-number">1.5.4.</span> <span class="nav-text">list.copy()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list-clear"><span class="nav-number">1.5.5.</span> <span class="nav-text">list.clear()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list-count-obj"><span class="nav-number">1.5.6.</span> <span class="nav-text">list.count(obj)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list-index-obj"><span class="nav-number">1.5.7.</span> <span class="nav-text">list.index(obj)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list-pop-index"><span class="nav-number">1.5.8.</span> <span class="nav-text">list.pop([index])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list-remove-obj"><span class="nav-number">1.5.9.</span> <span class="nav-text">list.remove(obj)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list-reverse"><span class="nav-number">1.5.10.</span> <span class="nav-text">list.reverse()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list-sort-key-None-reverse-False"><span class="nav-number">1.5.11.</span> <span class="nav-text">list.sort(key=None, reverse=False)</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -613,6 +791,34 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'wlccgp3',
+            repo: 'gitment-comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '7435e2125063dda4afc448ca259f3bc10b985d9a',
+            
+                client_id: '7cb8ea1d61e76b5f39aa'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
     
 
 

@@ -120,7 +120,7 @@
 
 
 
-  <title>categories | 丿我欲疾风前行灬</title>
+  <title> | 丿我欲疾风前行灬</title>
   
 
 
@@ -307,7 +307,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
+	<h1 class="post-title" itemprop="name headline"></h1>
 
 
 
@@ -319,14 +319,35 @@
       <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 1 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h2 id="构造和初始化"><a href="#构造和初始化" class="headerlink" title="构造和初始化"></a>构造和初始化</h2><p><strong>new</strong>(cls, […) <strong>new</strong> 是在一个对象实例化的时候所调用的第一个方法。它的第一个参数是这个类，其他的参数是用来直接传递给 <strong>init</strong> 方法。 <strong>new</strong> 方法相当不常用,但是它有自己的特性，特别是当继承一个不可变的类型比如一个tuple或者string。</p>
+<p><strong>init</strong>(self, […) 此方法为类的初始化方法。当构造函数被调用的时候的任何参数都将会传给它。</p>
+<blockquote>
+<p>调用 x = SomeClass(10, ‘foo’)，那么 <strong>init</strong> 将会得到两个参数10和foo。</p>
+</blockquote>
+<p><strong>del</strong>(self) 如果 <strong>new</strong> 和 <strong>init</strong> 是对象的构造器的话，那么 <strong>del</strong> 就是析构器。它不实现语句 del x (以上代码将不会翻译为 x.<strong>del</strong>() )。它定义的是当一个对象进行垃圾回收时候的行为。当一个对象在删除的时需要更多的清洁工作的时候此方法会很有用，比如套接字对象或者是文件对象。注意，如果解释器退出的时候对象还存存在，就不能保证 <strong>del</strong> 能够被执行，所以 <strong>del</strong> can’t serve as a replacement for good coding practices ()<del>~</del>~</p>
+<p><a href="http://dipyzh.bitbucket.org/special-method-names.html" target="_blank" rel="noopener">特殊属性调用机制</a></p>
+<h2 id="类属性调用原理"><a href="#类属性调用原理" class="headerlink" title="类属性调用原理"></a>类属性调用原理</h2><p>目的    所编写代码    Python 实际调用<br>类构造器<br>x = MyClass() –&gt; x.<strong>new</strong>()<br>类析构器<br>del x –&gt; x.<strong>del</strong>()<br>只定义特定集合的某些属性<br>x.<strong>slots</strong>()<br>自定义散列值<br>hash(x)    x.<strong>hash</strong>()<br>获取某个属性的值<br>x.color    type(x).<strong>dict</strong>[‘color’].<strong>get</strong>(x, type(x))<br>设置某个属性的值<br>x.color = ‘PapayaWhip’    type(x).<strong>dict</strong>[‘color’].<strong>set</strong>(x, ‘PapayaWhip’)<br>删除某个属性<br>del x.color    type(x).<strong>dict</strong>[‘color’].<strong>del</strong>(x)<br>控制某个对象是否是该对象的实例<br>your class    isinstance(x, MyClass)    MyClass.<strong>instancecheck</strong>(x)<br>控制某个类是否是该类的子类<br>issubclass(C, MyClass)    MyClass.<strong>subclasscheck</strong>(C)<br>控制某个类是否是该抽象基类的子类<br>issubclass(C, MyABC)    MyABC.<strong>subclasshook</strong>(C)</p>
+<h3 id="getattr-和-getattribute"><a href="#getattr-和-getattribute" class="headerlink" title="__getattr__() 和 __getattribute__()"></a><code>__getattr__()</code> 和 <code>__getattribute__()</code></h3><h2 id="文件中的-main-py-和-init-py"><a href="#文件中的-main-py-和-init-py" class="headerlink" title="文件中的__main__.py 和 __init__.py"></a>文件中的<code>__main__.py</code> 和 <code>__init__.py</code></h2><pre><code>python3 xxx.py
+python3 -m xxx.py
+</code></pre><p>这是两种加载py文件的方式:</p>
+<ol>
+<li>叫做直接运行</li>
+<li>相当于import,叫做当做模块来启动，前提是已加入sys.path</li>
+</ol>
+<p>python 将一个文件夹作为 package 对待，那么这个文件夹中必须包含一个名为 <strong>init</strong>.py 的文件，即使它是空的<br>如果你需要 python 讲一个文件夹作为 package 执行，那么这个文件夹中必须包含一个名为 <strong>main</strong>.py 的文件，当执行 python3 -m hhlb 或者python3 hhlb 的时候，这个文件中的代码都会被执行。</p>
+<p>在 hhlb/<strong>init</strong>.py 中写入如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(&apos;__init__&apos;)</span><br><span class="line">print(&apos;__init__.__name__&apos;, __name__)</span><br><span class="line">print(&apos;__init__.__package__&apos;, __package__)</span><br></pre></td></tr></table></figure></p>
+<p>在 hhlb/<strong>main</strong>.py 中写入如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(&apos;__main__&apos;)</span><br><span class="line">print(&apos;__main__.__name__&apos;, __name__)</span><br><span class="line">print(&apos;__main__.__package__&apos;, __package__)</span><br></pre></td></tr></table></figure></p>
+<p>执行 python3 hhlb ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-&gt; % python3 hhlb</span><br><span class="line">__main__</span><br><span class="line">__main__.__name__ __main__</span><br><span class="line">__main__.__package__</span><br></pre></td></tr></table></figure></p>
+<p>这说明，将 hhlb 当作文件夹执行的时候，对于 <strong>main</strong>.py 来说，变量<strong>package</strong> 是一个空字符串。而 <strong>init</strong>.py 不会被执行。</p>
+<p>执行 python3 -m hhlb ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-&gt; % python3 -m hhlb</span><br><span class="line">__init__</span><br><span class="line">__init__.__name__ hhlb</span><br><span class="line">__init__.__package__ hhlb</span><br><span class="line">__main__</span><br><span class="line">__main__.__name__ __main__</span><br><span class="line">__main__.__package__ hhlb</span><br></pre></td></tr></table></figure></p>
+<p>当作为模块执行的时候，python 会先执行 <strong>init</strong>.py ，然后执行<strong>main</strong>.py 。而且，前者和后者对于 <strong>name</strong> 变量的理解是不同的。</p>
+<h2 id="alll"><a href="#alll" class="headerlink" title="alll"></a><strong>alll</strong></h2><p>对于from ModuleName import * 这种形式，要特别注意重名现象。</p>
+<p>Python中，对于一个模块，具有一个名为 <strong>all</strong>的属性，该属性的值就是被from ModuleName import *这样的语句绑定的属性列表；否则，这种类型的from语句将绑定模块中除了以下划线开始的属性（私有属性）外的所有属性。这样的话，对于同一个名空间里 面出现重名现象的概率就加大了，为了减少这种情况的发生，都会在模块开始处定义<strong>all</strong>属性的内容，写出可以被这种from类型导入的属性<br>下面的是os.py里面的一段代码：<br><strong>all</strong> = [“altsep”, “curdir”, “pardir”, “sep”, “pathsep”, “linesep”,”defpath”, “name”, “path”, “devnull”]</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p><strong>globals</strong>:global namespace in which this function was defined<br><strong>file</strong>:filename (missing for built-in modules)</p>
+<h2 id="内建特殊属性"><a href="#内建特殊属性" class="headerlink" title="内建特殊属性"></a>内建特殊属性</h2><p>用<code>dir(__builtins__)</code>查看内建特殊属性，特殊属性都是以双下划线开头和结尾<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;__build_class__&apos;, &apos;__debug__&apos;, &apos;__doc__&apos;, &apos;__import__&apos;, &apos;__loader__&apos;, &apos;__name__&apos;, &apos;__package__&apos;, &apos;__spec__&apos;</span><br></pre></td></tr></table></figure></p>
+<h3 id="inspect模块"><a href="#inspect模块" class="headerlink" title="inspect模块"></a>inspect模块</h3><p>type checking, getting source code, inspecting classes and functions, and examining the interpreter stack.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import inspect</span><br><span class="line">dir(inspet)</span><br></pre></td></tr></table></figure></p>
+<h4 id="inspect-getmembers"><a href="#inspect-getmembers" class="headerlink" title="inspect.getmembers()"></a>inspect.getmembers()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Help on function getmembers in module inspect:</span><br><span class="line"></span><br><span class="line">getmembers(object, predicate=None)</span><br><span class="line">    Return all members of an object as (name, value) pairs sorted by name.</span><br><span class="line">    Optionally, only return members that satisfy a given predicate.</span><br></pre></td></tr></table></figure>
+
         
       </div>
       
@@ -344,6 +365,18 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -364,8 +397,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -439,6 +481,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#构造和初始化"><span class="nav-number">1.</span> <span class="nav-text">构造和初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类属性调用原理"><span class="nav-number">2.</span> <span class="nav-text">类属性调用原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#getattr-和-getattribute"><span class="nav-number">2.1.</span> <span class="nav-text">__getattr__() 和 __getattribute__()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件中的-main-py-和-init-py"><span class="nav-number">3.</span> <span class="nav-text">文件中的__main__.py 和 __init__.py</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#alll"><span class="nav-number">4.</span> <span class="nav-text">alll</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">5.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内建特殊属性"><span class="nav-number">6.</span> <span class="nav-text">内建特殊属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#inspect模块"><span class="nav-number">6.1.</span> <span class="nav-text">inspect模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#inspect-getmembers"><span class="nav-number">6.1.1.</span> <span class="nav-text">inspect.getmembers()</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -613,6 +671,34 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'wlccgp3',
+            repo: 'gitment-comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '7435e2125063dda4afc448ca259f3bc10b985d9a',
+            
+                client_id: '7cb8ea1d61e76b5f39aa'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
     
 
 
