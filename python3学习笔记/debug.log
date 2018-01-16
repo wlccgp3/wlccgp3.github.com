@@ -1771,3 +1771,6 @@
 {"name":"hexo","hostname":"wanli-pc","pid":25139,"level":30,"msg":"Generated: \u001b[35mlib/font-awesome/fonts/fontawesome-webfont.eot\u001b[39m","time":"2018-01-12T12:21:49.732Z","v":0}
 {"name":"hexo","hostname":"wanli-pc","pid":25139,"level":30,"msg":"Generated: \u001b[35m2018/01/10/hello-world/index.html\u001b[39m","time":"2018-01-12T12:21:49.732Z","v":0}
 {"name":"hexo","hostname":"wanli-pc","pid":25139,"level":30,"msg":"Generated: \u001b[35mjs/src/schemes/pisces.js\u001b[39m","time":"2018-01-12T12:21:49.732Z","v":0}
+{"name":"hexo","hostname":"wanli-pc","pid":25139,"level":30,"msg":"Generated: \u001b[35mpython3学习笔记/debug.log\u001b[39m","time":"2018-01-12T12:21:49.734Z","v":0}
+{"name":"hexo","hostname":"wanli-pc","pid":25139,"level":30,"msg":"92 files generated in \u001b[36m1.52 s\u001b[39m","time":"2018-01-12T12:21:49.735Z","v":0}
+{"name":"hexo","hostname":"wanli-pc","pid":25139,"level":20,"msg":"Database saved","time":"2018-01-12T12:21:49.750Z","v":0}

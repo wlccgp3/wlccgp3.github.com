@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>102</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>集合</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11902,7 +11902,7 @@ $( document ).ready(function(){
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 打印所有单行变量</span>
@@ -11919,72 +11919,26 @@ $( document ).ready(function(){
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#23383;&#31526;&#20018;">&#23383;&#31526;&#20018;<a class="anchor-link" href="#&#23383;&#31526;&#20018;">&#182;</a></h2><p>在python中字符串用单引号<code>''</code>或双引号<code>""</code>，本身不能修改</p>
-<h3 id="&#23383;&#31526;&#20018;&#22522;&#26412;&#25805;&#20316;">&#23383;&#31526;&#20018;&#22522;&#26412;&#25805;&#20316;<a class="anchor-link" href="#&#23383;&#31526;&#20018;&#22522;&#26412;&#25805;&#20316;">&#182;</a></h3><p>字符串是一种序列，所有序列都有如下基本操作，这是序列共有的操作。</p>
-<table>
-<thead><tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">实例</th>
-<th style="text-align:center">结果</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">len()</td>
-<td style="text-align:center">len('abc')</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">求序列长度</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>+</code></td>
-<td style="text-align:center">'a'+'1'</td>
-<td style="text-align:center">a1</td>
-<td style="text-align:center">连接2个序列，必须是同类型数据</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>*</code></td>
-<td style="text-align:center">'a'*3</td>
-<td style="text-align:center">'aaa'</td>
-<td style="text-align:center">重复序列元素</td>
-</tr>
-<tr>
-<td style="text-align:center">in</td>
-<td style="text-align:center">'a'in'abc'<br>'d'in'abc'</td>
-<td style="text-align:center">True<br>False</td>
-<td style="text-align:center">判断元素是否存在于序列中</td>
-</tr>
-<tr>
-<td style="text-align:center">max()</td>
-<td style="text-align:center">max('abc')</td>
-<td style="text-align:center">'c'</td>
-<td style="text-align:center">返回最大值，大小排序符合字符编码</td>
-</tr>
-<tr>
-<td style="text-align:center">min()</td>
-<td style="text-align:center">min('abc')</td>
-<td style="text-align:center">'a'</td>
-<td style="text-align:center">返回最小值，大小排序符合字符编码</td>
-</tr>
-</tbody>
-</table>
-<blockquote><p>用比较运算符比较大小</p>
-</blockquote>
-<h3 id="&#32034;&#24341;&#21644;&#20999;&#29255;">&#32034;&#24341;&#21644;&#20999;&#29255;<a class="anchor-link" href="#&#32034;&#24341;&#21644;&#20999;&#29255;">&#182;</a></h3>
+<h2 id="&#38598;&#21512;">&#38598;&#21512;<a class="anchor-link" href="#&#38598;&#21512;">&#182;</a></h2><p>是一个<code>无序</code> <code>不重复</code>可变元素集(但元素必须是不可变的元素)，主要用作去重和关系测试，和字典一样使用<code>{}</code>，所以创建空集合不用{}，用set()</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#22522;&#26412;&#25805;&#20316;">&#22522;&#26412;&#25805;&#20316;<a class="anchor-link" href="#&#22522;&#26412;&#25805;&#20316;">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lang</span> <span class="o">=</span> <span class="s2">&quot;study python&quot;</span>
-
-<span class="n">lang</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># --&gt;</span>
-<span class="n">lang</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># --&gt;</span>
-<span class="s2">&quot;study python&quot;</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># --&gt;</span>
-<span class="n">lang</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span>  <span class="c1"># --&gt;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;aabb&#39;</span><span class="p">)</span>
+<span class="n">x</span>
 </pre></div>
 
 </div>
@@ -11997,52 +11951,13 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[46]:</div>
+<div class="prompt output_prompt">Out[2]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;s&#39;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[46]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;t&#39;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[46]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;s&#39;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[46]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>6</pre>
+<pre>{&#39;a&#39;, &#39;b&#39;}</pre>
 </div>
 
 </div>
@@ -12055,169 +11970,14 @@ $( document ).ready(function(){
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<table>
-<thead><tr>
-<th style="text-align:center">0</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-<th style="text-align:center">5</th>
-<th style="text-align:center">6</th>
-<th style="text-align:center">7</th>
-<th style="text-align:center">8</th>
-<th style="text-align:center">9</th>
-<th style="text-align:center">10</th>
-<th style="text-align:center">11</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">s</td>
-<td style="text-align:center">t</td>
-<td style="text-align:center">u</td>
-<td style="text-align:center">d</td>
-<td style="text-align:center">y</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">p</td>
-<td style="text-align:center">y</td>
-<td style="text-align:center">t</td>
-<td style="text-align:center">h</td>
-<td style="text-align:center">o</td>
-<td style="text-align:center">n</td>
-</tr>
-<tr>
-<td style="text-align:center">-12</td>
-<td style="text-align:center">-11</td>
-<td style="text-align:center">-10</td>
-<td style="text-align:center">-9</td>
-<td style="text-align:center">-8</td>
-<td style="text-align:center">-7</td>
-<td style="text-align:center">-6</td>
-<td style="text-align:center">-5</td>
-<td style="text-align:center">-4</td>
-<td style="text-align:center">-3</td>
-<td style="text-align:center">-2</td>
-<td style="text-align:center">-1</td>
-</tr>
-</tbody>
-</table>
-<blockquote><p>第一个不是用数字1表示，而是用数字0表示</p>
-</blockquote>
-<table>
-<thead><tr>
-<th style="text-align:center">切片</th>
-<th style="text-align:center">结果</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">str[start:end:step]</td>
-<td style="text-align:center">默认正向切片</td>
-<td style="text-align:center">切片取值：前包括后不包括<br>step为空时，缺省值为1<br>step&lt;0时，则反向切片</td>
-</tr>
-<tr>
-<td style="text-align:center">lang[1:]</td>
-<td style="text-align:center">'tudy python'</td>
-<td style="text-align:center">得到从1号到最末尾的字符,此时最后那个可以不写</td>
-</tr>
-<tr>
-<td style="text-align:center">lang[:]</td>
-<td style="text-align:center">'study python'</td>
-<td style="text-align:center">得到所有字符</td>
-</tr>
-<tr>
-<td style="text-align:center">lang[:10]</td>
-<td style="text-align:center">'study pyth'</td>
-<td style="text-align:center">得到从第一个到10号之前的字符</td>
-</tr>
-<tr>
-<td style="text-align:center">lang[1:4:2]</td>
-<td style="text-align:center">'td'</td>
-<td style="text-align:center">得到以step=2从1到4的字符</td>
-</tr>
-<tr>
-<td style="text-align:center">lang[::-1]</td>
-<td style="text-align:center">'nohtyp yduts'</td>
-<td style="text-align:center">反向得到所有字符</td>
-</tr>
-</tbody>
-</table>
-<h3 id="Python&#36716;&#20041;&#23383;&#31526;">Python&#36716;&#20041;&#23383;&#31526;<a class="anchor-link" href="#Python&#36716;&#20041;&#23383;&#31526;">&#182;</a></h3><p>在字符串中，总会有一些特殊的符号，就需要用转义符。所谓转义，就是不采用符号本来的含义，而采用另外一含义。下面表格中列出常用的转义符：</p>
-<table>
-<thead><tr>
-<th>转义字符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>\</code></td>
-<td>(在行尾时) 续行符</td>
-</tr>
-<tr>
-<td><code>\\</code></td>
-<td>反斜杠符号</td>
-</tr>
-<tr>
-<td><code>\'</code></td>
-<td>单引号</td>
-</tr>
-<tr>
-<td><code>\"</code></td>
-<td>双引号</td>
-</tr>
-<tr>
-<td>\a</td>
-<td>响铃</td>
-</tr>
-<tr>
-<td>\b</td>
-<td>退格(Backspace)</td>
-</tr>
-<tr>
-<td>\e</td>
-<td>转义</td>
-</tr>
-<tr>
-<td>\000</td>
-<td>空</td>
-</tr>
-<tr>
-<td>\n</td>
-<td>换行</td>
-</tr>
-<tr>
-<td>\v</td>
-<td>纵向制表符</td>
-</tr>
-<tr>
-<td>\t</td>
-<td>横向制表符</td>
-</tr>
-<tr>
-<td>\r</td>
-<td>回车</td>
-</tr>
-<tr>
-<td>\f</td>
-<td>换页</td>
-</tr>
-<tr>
-<td>\oyy</td>
-<td>八进制数，yy代表的字符，例如：\o12代表换行</td>
-</tr>
-<tr>
-<td>\xyy</td>
-<td>十六进制数，yy代表的字符，例如：\x0a代表换行</td>
-</tr>
-<tr>
-<td>\other</td>
-<td>其它的字符以普通格式输出</td>
-</tr>
-</tbody>
-</table>
+<p>如果创建集合时有可变元素则会报错</p>
+
+<pre><code>x = {1,[1, 2]}
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: unhashable type: 'list'</code></pre>
+<p>unhashable --&gt; 不可哈希 --&gt; 可变<br>
+hashable   --&gt; 可哈希   --&gt; 不可变</p>
 
 </div>
 </div>
@@ -12226,19 +11986,22 @@ $( document ).ready(function(){
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#24120;&#29992;&#30340;&#23383;&#31526;&#20018;&#26041;&#27861;">&#24120;&#29992;&#30340;&#23383;&#31526;&#20018;&#26041;&#27861;<a class="anchor-link" href="#&#24120;&#29992;&#30340;&#23383;&#31526;&#20018;&#26041;&#27861;">&#182;</a></h3><blockquote><p>dir(str)列出字符的属性和方法<br>
-hlep(str)查看帮助</p>
-</blockquote>
-
+<h3 id="&#20851;&#31995;&#27979;&#35797;">&#20851;&#31995;&#27979;&#35797;<a class="anchor-link" href="#&#20851;&#31995;&#27979;&#35797;">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">)]</span>  <span class="c1"># 列表解析式，这里不打印已__开头的特殊属性方法</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+
+<span class="n">x</span> <span class="o">|</span> <span class="n">y</span>  <span class="c1"># --&gt; 并集</span>
+<span class="n">x</span> <span class="o">&amp;</span> <span class="n">y</span>  <span class="c1"># --&gt; 交集</span>
+<span class="n">x</span> <span class="o">-</span> <span class="n">y</span>  <span class="c1"># --&gt; 差集</span>
+<span class="n">x</span> <span class="o">^</span> <span class="n">y</span>  <span class="c1">#--&gt; 对称差集</span>
 </pre></div>
 
 </div>
@@ -12251,138 +12014,52 @@ hlep(str)查看帮助</p>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[73]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;capitalize&#39;,
- &#39;casefold&#39;,
- &#39;center&#39;,
- &#39;count&#39;,
- &#39;encode&#39;,
- &#39;endswith&#39;,
- &#39;expandtabs&#39;,
- &#39;find&#39;,
- &#39;format&#39;,
- &#39;format_map&#39;,
- &#39;index&#39;,
- &#39;isalnum&#39;,
- &#39;isalpha&#39;,
- &#39;isdecimal&#39;,
- &#39;isdigit&#39;,
- &#39;isidentifier&#39;,
- &#39;islower&#39;,
- &#39;isnumeric&#39;,
- &#39;isprintable&#39;,
- &#39;isspace&#39;,
- &#39;istitle&#39;,
- &#39;isupper&#39;,
- &#39;join&#39;,
- &#39;ljust&#39;,
- &#39;lower&#39;,
- &#39;lstrip&#39;,
- &#39;maketrans&#39;,
- &#39;partition&#39;,
- &#39;replace&#39;,
- &#39;rfind&#39;,
- &#39;rindex&#39;,
- &#39;rjust&#39;,
- &#39;rpartition&#39;,
- &#39;rsplit&#39;,
- &#39;rstrip&#39;,
- &#39;split&#39;,
- &#39;splitlines&#39;,
- &#39;startswith&#39;,
- &#39;strip&#39;,
- &#39;swapcase&#39;,
- &#39;title&#39;,
- &#39;translate&#39;,
- &#39;upper&#39;,
- &#39;zfill&#39;]</pre>
+<pre>{1, 2, 3, 4}</pre>
 </div>
 
 </div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[74]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">startswith</span><span class="p">)</span>    <span class="c1"># 查看具体方法，startswith这里是没有括号的，带括号是调用该方法</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
 
 <div class="output_area">
 
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Help on built-in function startswith:
-
-startswith(...) method of builtins.str instance
-    S.startswith(prefix[, start[, end]]) -&gt; bool
-    
-    Return True if S starts with the specified prefix, False otherwise.
-    With optional start, test S beginning at that position.
-    With optional end, stop comparing S at that position.
-    prefix can also be a tuple of strings to try.
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="capitalize()">capitalize()<a class="anchor-link" href="#capitalize()">&#182;</a></h4><p>将字符串的第一个字符改为大写</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;abc&#39;</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[47]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;Abc&#39;</pre>
+<pre>{2, 3}</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{1}</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{1, 4}</pre>
 </div>
 
 </div>
@@ -12395,17 +12072,16 @@ startswith(...) method of builtins.str instance
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="casefold()">casefold()<a class="anchor-link" href="#casefold()">&#182;</a></h4><p>将整个字符串的所有字符改为小写,可用处理unicode</p>
-
+<h3 id="&#24120;&#29992;&#38598;&#21512;&#26041;&#27861;">&#24120;&#29992;&#38598;&#21512;&#26041;&#27861;<a class="anchor-link" href="#&#24120;&#29992;&#38598;&#21512;&#26041;&#27861;">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;ABc&#39;</span><span class="o">.</span><span class="n">casefold</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="nb">set</span><span class="p">())</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">)]</span>
 </pre></div>
 
 </div>
@@ -12418,13 +12094,29 @@ startswith(...) method of builtins.str instance
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[48]:</div>
+<div class="prompt output_prompt">Out[8]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;abc&#39;</pre>
+<pre>[&#39;add&#39;,
+ &#39;clear&#39;,
+ &#39;copy&#39;,
+ &#39;difference&#39;,
+ &#39;difference_update&#39;,
+ &#39;discard&#39;,
+ &#39;intersection&#39;,
+ &#39;intersection_update&#39;,
+ &#39;isdisjoint&#39;,
+ &#39;issubset&#39;,
+ &#39;issuperset&#39;,
+ &#39;pop&#39;,
+ &#39;remove&#39;,
+ &#39;symmetric_difference&#39;,
+ &#39;symmetric_difference_update&#39;,
+ &#39;union&#39;,
+ &#39;update&#39;]</pre>
 </div>
 
 </div>
@@ -12437,17 +12129,21 @@ startswith(...) method of builtins.str instance
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="center(width[,-fillchar])">center(width[, fillchar])<a class="anchor-link" href="#center(width[,-fillchar])">&#182;</a></h4><p>返回一个指定的宽度 width 居中的字符串，如果 width 小于字符串宽度直接返回字符串，否则使用 fillchar 去填充</p>
-
+<h4 id="add,-update">add, update<a class="anchor-link" href="#add,-update">&#182;</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;abc&#39;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">x</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+<span class="n">x</span>  <span class="c1"># --&gt;</span>
+
+<span class="n">x</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>  <span class="c1"># 拆分更新</span>
+<span class="n">x</span>  <span class="c1"># --&gt;</span>
 </pre></div>
 
 </div>
@@ -12460,13 +12156,26 @@ startswith(...) method of builtins.str instance
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[49]:</div>
+<div class="prompt output_prompt">Out[20]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;*abc*&#39;</pre>
+<pre>{&#39;abc&#39;, 1, 2, 3}</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[20]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;abc&#39;, 1, 2, 3, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;}</pre>
 </div>
 
 </div>
@@ -12479,17 +12188,18 @@ startswith(...) method of builtins.str instance
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="count(sub[,-start[,-end]])">count(sub[, start[, end]])<a class="anchor-link" href="#count(sub[,-start[,-end]])">&#182;</a></h4><p>返回 sub 在字符串里边出现的次数，start 和 end 参数表示范围，可选。</p>
+<h4 id="set.pop()">set.pop()<a class="anchor-link" href="#set.pop()">&#182;</a></h4><p>随机删除元素并返回该元素，不存在则报错</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;aabc&#39;</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">x</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>  <span class="c1"># --&gt;</span>
 </pre></div>
 
 </div>
@@ -12502,13 +12212,13 @@ startswith(...) method of builtins.str instance
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[50]:</div>
+<div class="prompt output_prompt">Out[15]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>2</pre>
+<pre>1</pre>
 </div>
 
 </div>
@@ -12521,17 +12231,20 @@ startswith(...) method of builtins.str instance
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="find(sub[,-start[,-end]])">find(sub[, start[, end]])<a class="anchor-link" href="#find(sub[,-start[,-end]])">&#182;</a></h4><p>检测 sub 是否包含在字符串中，如果有则返回索引值，否则返回 -1，start 和 end 参数表示范围。</p>
+<h4 id="set.remove(obj)">set.remove(obj)<a class="anchor-link" href="#set.remove(obj)">&#182;</a></h4><p>删除指定元素，若集合中没有该元素则报错，修改原集合<code>没有</code>返回值</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;abc&#39;</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">x</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">x</span>
 </pre></div>
 
 </div>
@@ -12544,13 +12257,13 @@ startswith(...) method of builtins.str instance
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[51]:</div>
+<div class="prompt output_prompt">Out[14]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>2</pre>
+<pre>{2, 3}</pre>
 </div>
 
 </div>
@@ -12563,17 +12276,20 @@ startswith(...) method of builtins.str instance
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="join(sub)">join(sub)<a class="anchor-link" href="#join(sub)">&#182;</a></h4><p>以字符串作为分隔符，插入到 sub 中所有的字符之间</p>
+<h4 id="set.discard(obj)">set.discard(obj)<a class="anchor-link" href="#set.discard(obj)">&#182;</a></h4><p>删除指定元素，集合中没有该元素不报错，修改原集合<code>没有</code>返回值</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">x</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span>  <span class="c1"># --&gt;</span>
+<span class="n">x</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># do nothing</span>
 </pre></div>
 
 </div>
@@ -12586,13 +12302,13 @@ startswith(...) method of builtins.str instance
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[52]:</div>
+<div class="prompt output_prompt">Out[21]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;a-b-c&#39;</pre>
+<pre>{2, 3}</pre>
 </div>
 
 </div>
@@ -12605,837 +12321,10 @@ startswith(...) method of builtins.str instance
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="lower()">lower()<a class="anchor-link" href="#lower()">&#182;</a></h4><p>转换字符串中所有大写字符为小写。只对 ASCII 也就是 'A-Z'有效</p>
+<h4 id="set.clear()">set.clear()<a class="anchor-link" href="#set.clear()">&#182;</a></h4><p>清空集合</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;ABC&#39;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[53]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;abc&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="upper()">upper()<a class="anchor-link" href="#upper()">&#182;</a></h4><p>转换字符串中的所有小写字符为大写。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;abc&#39;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[54]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;ABC&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="strip([chars])">strip([chars])<a class="anchor-link" href="#strip([chars])">&#182;</a></h4><p>删除字符串前边和后边所有的空白占位符(包括\n\t等)，chars 参数可以定制删除的字符</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;  a bc</span><span class="se">\t</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[55]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;a bc&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="replace(old,-new[,-count])">replace(old, new[, count])<a class="anchor-link" href="#replace(old,-new[,-count])">&#182;</a></h4><p>把字符串中的 old 子字符串替换成 new 子字符串，如果 count 指定，则替换不超过 count 次。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;aabbbc&#39;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[56]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;aaddbc&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#23383;&#31526;&#20018;&#26684;&#24335;&#21270;&#36755;&#20986;">&#23383;&#31526;&#20018;&#26684;&#24335;&#21270;&#36755;&#20986;<a class="anchor-link" href="#&#23383;&#31526;&#20018;&#26684;&#24335;&#21270;&#36755;&#20986;">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;I like </span><span class="si">%s</span><span class="s2"> and </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="s1">&#39;music&#39;</span><span class="p">)</span> <span class="c1"># 从左至右一一对应</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[57]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;I like python and music&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<table>
-<thead><tr>
-<th style="text-align:center">格式化符号</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">%c</td>
-<td style="text-align:left">格式化字符及其ASCII码</td>
-</tr>
-<tr>
-<td style="text-align:center">%s</td>
-<td style="text-align:left">格式化字符串</td>
-</tr>
-<tr>
-<td style="text-align:center">%d</td>
-<td style="text-align:left">格式化整数</td>
-</tr>
-<tr>
-<td style="text-align:center">%u</td>
-<td style="text-align:left">格式化无符号整型</td>
-</tr>
-<tr>
-<td style="text-align:center">%o</td>
-<td style="text-align:left">格式化无符号八进制数</td>
-</tr>
-<tr>
-<td style="text-align:center">%x</td>
-<td style="text-align:left">格式化无符号十六进制数</td>
-</tr>
-<tr>
-<td style="text-align:center">%X</td>
-<td style="text-align:left">格式化无符号十六进制数（大写）</td>
-</tr>
-<tr>
-<td style="text-align:center">%f</td>
-<td style="text-align:left">格式化浮点数字，可指定小数点后的精度</td>
-</tr>
-<tr>
-<td style="text-align:center">%e</td>
-<td style="text-align:left">用科学计数法格式化浮点数</td>
-</tr>
-<tr>
-<td style="text-align:center">%E</td>
-<td style="text-align:left">作用同%e，用科学计数法格式化浮点数</td>
-</tr>
-<tr>
-<td style="text-align:center">%p</td>
-<td style="text-align:left">用十六进制数格式化变量的地址</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="format()&#26041;&#27861;">format()&#26041;&#27861;<a class="anchor-link" href="#format()&#26041;&#27861;">&#182;</a></h4><h5 id="&#21311;&#21517;&#21442;&#25968;">&#21311;&#21517;&#21442;&#25968;<a class="anchor-link" href="#&#21311;&#21517;&#21442;&#25968;">&#182;</a></h5>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;I like </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;markdown&quot;</span><span class="p">)</span>  <span class="c1"># 默认从0开始</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[58]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;I like python and markdown&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;I like </span><span class="si">{1}</span><span class="s2"> and </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;markdown&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[59]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;I like markdown and python&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="&#21629;&#21517;&#21442;&#25968;&#65292;&#21442;&#25968;&#21487;&#37325;&#29992;">&#21629;&#21517;&#21442;&#25968;&#65292;&#21442;&#25968;&#21487;&#37325;&#29992;<a class="anchor-link" href="#&#21629;&#21517;&#21442;&#25968;&#65292;&#21442;&#25968;&#21487;&#37325;&#29992;">&#182;</a></h5>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;姓名：</span><span class="si">{name}</span><span class="s1">, 年龄：</span><span class="si">{age}</span><span class="s1">, 虚岁：</span><span class="si">{age}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;wanli&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">26</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[60]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;姓名：wanli, 年龄：26, 虚岁：26&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="&#22635;&#20805;&#21644;&#23545;&#40784;">&#22635;&#20805;&#21644;&#23545;&#40784;<a class="anchor-link" href="#&#22635;&#20805;&#21644;&#23545;&#40784;">&#182;</a></h4><p>既然是“格式化”，就要指定一些格式，让输出的结果符合指定的样式。<br>
-填充常跟对齐一起使用<code>^</code> <code>&lt;</code> <code>&gt;</code>分别是居中、左对齐、右对齐，后面带宽度<br>
-<code>:</code>后面带填充的字符，只能是一个字符，不指定的话默认是用空格填充</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="&#20256;&#20837;&#23383;&#31526;&#20018;(&#40664;&#35748;&#24038;&#23545;&#40784;)">&#20256;&#20837;&#23383;&#31526;&#20018;(&#40664;&#35748;&#24038;&#23545;&#40784;)<a class="anchor-link" href="#&#20256;&#20837;&#23383;&#31526;&#20018;(&#40664;&#35748;&#24038;&#23545;&#40784;)">&#182;</a></h5>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;I like </span><span class="si">{0:10}</span><span class="s2"> and </span><span class="si">{1:&gt;15}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;markdown&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[61]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;I like python     and        markdown&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;I like </span><span class="si">{0:&lt;10}</span><span class="s2"> and </span><span class="si">{1:^15}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;markdown&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[62]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;I like python     and    markdown    &#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;I like </span><span class="si">{0:.2}</span><span class="s2"> and </span><span class="si">{1:*^10.4}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;markdown&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[63]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;I like py and ***mark***&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><code>{0:10}</code> <code>{0:&lt;10}</code>：表示第一个位置，占10个字符长度，并且该位置字符左对齐，字符串默认是左对齐  </li>
-<li><code>{1:&gt;15}</code>：表示第二个位置，占15个字符长度，并且该位置字符右对齐。  </li>
-<li><code>{1:^15}</code>：表示第二个位置，占15个字符长度，并且该位置字符居中对齐。  </li>
-<li><code>{0:.2}</code>：在<code>:</code> <code>.</code>之间，没有任何数字，表示自适应放入字符，<code>.2</code>表示对于传入的字符串，截取前两个。  </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="&#20256;&#20837;&#25968;&#23383;(&#40664;&#35748;&#21491;&#23545;&#40784;)">&#20256;&#20837;&#25968;&#23383;(&#40664;&#35748;&#21491;&#23545;&#40784;)<a class="anchor-link" href="#&#20256;&#20837;&#25968;&#23383;(&#40664;&#35748;&#21491;&#23545;&#40784;)">&#182;</a></h5>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;π=</span><span class="si">{:10.4}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">3.14159265358979</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[64]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;π=     3.142&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;π=</span><span class="si">{:10.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">3.14159265358979</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[65]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;π=    3.1416&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;π=</span><span class="si">{:010.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">3.14159265358979</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[66]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;π=00003.1416&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;π=</span><span class="si">{:0&gt;10.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">3.14159265358979</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[67]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;π=00003.1416&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>{:10.4f}</code>：<code>.4f</code>表示传入的是float类型，且保留4位小数</p>
-<p>因为传入的是数字默认右对齐，所以<code>{:010.4f}</code>和<code>{:0&gt;10.4f}</code>结果一样，但是<code>{:010.4f}</code>很容易看懵逼</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="&#26681;&#25454;&#20998;&#38548;&#31526;&#20998;&#21106;&#23383;&#31526;&#20018;">&#26681;&#25454;&#20998;&#38548;&#31526;&#20998;&#21106;&#23383;&#31526;&#20018;<a class="anchor-link" href="#&#26681;&#25454;&#20998;&#38548;&#31526;&#20998;&#21106;&#23383;&#31526;&#20018;">&#182;</a></h4><p><code>split()</code>的作用是将字符串根据某个分割符进行分割，返回的是一个列表。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;I      LOVE PYTHON&quot;</span>
-<span class="n">a</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>  <span class="c1"># 不带参数时默认是空白占位符</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[68]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;I&#39;, &#39;LOVE&#39;, &#39;PYTHON&#39;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;www.baidu.com&quot;</span>
-<span class="n">b</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>  <span class="c1"># 以‘.’分割</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[69]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;www&#39;, &#39;baidu&#39;, &#39;com&#39;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="join()&#25340;&#25509;&#23383;&#31526;&#20018;">join()&#25340;&#25509;&#23383;&#31526;&#20018;<a class="anchor-link" href="#join()&#25340;&#25509;&#23383;&#31526;&#20018;">&#182;</a></h3><p><code>'sep'.join(seq)</code>：以sep作为分隔符，将seq所有的元素合并成一个新的字符串</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;www.baidu.com&#39;</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
-
-<span class="n">c</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[70]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;www&#39;, &#39;baidu&#39;, &#39;com&#39;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="s2">&quot;*&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[71]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;www.baidu.com&#39;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[71]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;www*baidu*com&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
     </div>
   </div>
