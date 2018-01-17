@@ -66,11 +66,22 @@ div.output_area pre {
 }
 
 /* 宽度自适应 */
-#notebook-container {
-    width: auto !important;
-    margin-right: 15%;
-    margin-left: 350px;
+@media only screen and (max-device-width: 900px) {
+    #notebook-container {
+        width: auto !important;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
+
+@media only screen and (min-device-width: 900px) {
+    #notebook-container {
+        width: auto !important;
+        margin-right: 15%;
+        margin-left: 350px;
+    }
+}
+
 
 @font-face {
     font-family: 'FontAwesome';
