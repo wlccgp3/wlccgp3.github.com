@@ -33,6 +33,10 @@
 
 <style type="text/css">
 
+table>tbody>tr:nth-child(odd) {
+    background: hsl(0, 0%, 96%);
+}
+
 table>tbody>tr:hover {
     background-color: hsl(176, 64%, 96%);
 }
@@ -68,7 +72,7 @@ div.output_area pre {
 /* 宽度自适应 */
 @media only screen and (max-device-width: 900px) {
     #notebook-container {
-        width: auto !important;
+        width: 500px !important;
         margin-right: auto;
         margin-left: auto;
     }
