@@ -1,110 +1,568 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title><![CDATA[README.md]]></title>
-    <url>%2F2018%2F01%2F11%2FREADME%2F</url>
-    <content type="text"><![CDATA[网站插件扩展 hexo-deployer-git hexo-generator-searchdb disqus 配置文件问题主题配置可以放在source/_data/next.yml中，会覆盖掉主题内的配置站点配置不能写在source/_data/next.yml中，有的不能生效 gitment在github设置中Settings/Developer settings 创建一个新OAuth app注意：Homepage URL和Authorization callback URL就写github page里面显示的域名，如果绑定了域名，github page也会显示成绑定的域名]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F01%2F10%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[test]]></title>
-    <url>%2F2013%2F07%2F13%2Ftest%2F</url>
-    <content type="text"><![CDATA[test123]]></content>
-      <categories>
-        <category>Diary</category>
-      </categories>
-      <tags>
-        <tag>PS3</tag>
-        <tag>Games</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[categories]]></title>
-    <url>%2Fcategories%2Findex.html</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[htmls]]></title>
-    <url>%2Fhtml%2Findex.html</url>
-    <content type="text"><![CDATA[bokeh快速入门]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2Fpython3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F107.html</url>
-    <content type="text"><![CDATA[python数据存储原理变量 引用 对象1x = 1 内存中只创建了对象1，变量x只是贴在对象1的标签，=是赋值即引用在python中一切皆对象，里面又有不可变对象和可变对象 数字和字符串对象引用1234567&gt;&gt;&gt; a = 5 # 内存中创建了一个对象5&gt;&gt;&gt; b = 5&gt;&gt;&gt; b --&gt; 5&gt;&gt;&gt; id(a) --&gt; 139774080&gt;&gt;&gt; id(b) --&gt; 139774080 # 一个对象贴了两个标签&gt;&gt;&gt; b = 3 # 内存中新建了一个对象3&gt;&gt;&gt; id(b) --&gt; 10923616 # 对象引用换成了b 组合对象的引用(除了数字和字符串) 可以创建多个”一样”的对象,但是id不同1234567&gt;&gt;&gt; x = [1, 2, 3]&gt;&gt;&gt; id(x) --&gt; 140150136275912&gt;&gt;&gt; y = x[:]&gt;&gt;&gt; y --&gt; [1, 2, 3]&gt;&gt;&gt; id(y) --&gt; 140150136287496&gt;&gt;&gt; z = [1, 2, 3]&gt;&gt;&gt; id(z) --&gt; 140150136287944 解析:123456789&gt;&gt;&gt; x = &apos;a&apos;&gt;&gt;&gt; y = [&apos;a&apos;, 1, [&apos;a&apos;, 1]]&gt;&gt;&gt; id(x) --&gt; 140363897810368 # 对象&apos;a&apos;&gt;&gt;&gt; id(y) --&gt; 140363897692872 # 列表对象&gt;&gt;&gt; id(y[0]) --&gt; 140363897810368&gt;&gt;&gt; id(y[1]) --&gt; 10923552 # 列表的子对象数字1&gt;&gt;&gt; id(y[2]) --&gt; 140363897680840 # 列表子对象列表[&apos;a&apos;, 1]&gt;&gt;&gt; id(y[2][0]) --&gt; 140363897810368 # 三个 &apos;a&apos; id一样&gt;&gt;&gt; id(y[2][1]) --&gt; 10923552 # 两个 1 id一样 修改列表内容：123&gt;&gt;&gt; y.remove([&apos;a&apos;, 1])&gt;&gt;&gt; y --&gt; [&apos;a&apos;, 1]&gt;&gt;&gt; id(y) --&gt; 140363897692872 # 因为是修改原对象，所有id不变 可变对象的浅拷贝123456789&gt;&gt;&gt; x = &#123;&apos;a&apos;:1, &apos;b&apos;:[1, 2, 3]&#125; # 最底层的对象只有1,2,3&gt;&gt;&gt; y = x.copy()&gt;&gt;&gt; y --&gt; &#123;&apos;a&apos;:1, &apos;b&apos;:[1, 2, 3]&#125;&gt;&gt;&gt; id(x) --&gt; 139791973166088&gt;&gt;&gt; id(y) --&gt; 139791973166024 # 父对象id显示不一样&gt;&gt;&gt; id(x[&apos;a&apos;]) --&gt; 10923552&gt;&gt;&gt; id(y[&apos;a&apos;]) --&gt; 10923552 # 子对象id一样&gt;&gt;&gt; id(x[&apos;b&apos;]) --&gt; 139791972639688&gt;&gt;&gt; id(y[&apos;b&apos;]) --&gt; 139791972639688 # 子对象id一样 从上面可以看出，浅复制只是创建一个新的父对象，子对象还是同一个对象 修改字典的列表1234567&gt;&gt;&gt; id(y[&apos;b&apos;][1]) --&gt; 10923584&gt;&gt;&gt; y[&apos;a&apos;] = 2 # 引用对象2&gt;&gt;&gt; id(y[&apos;a&apos;]) --&gt; 10923584&gt;&gt;&gt; y[&apos;b&apos;].remove(2)&gt;&gt;&gt; id(y[&apos;b&apos;]) --&gt; 139791972639688 # 列表子对象id没有改变&gt;&gt;&gt; y --&gt; &#123;&apos;b&apos;: [1, 3], &apos;a&apos;: 1&#125;&gt;&gt;&gt; x --&gt; &#123;&apos;b&apos;: [1, 3], &apos;a&apos;: 1&#125; 导入copy模块实现deep copy123456789&gt;&gt;&gt; import copy&gt;&gt;&gt; x = &#123;&apos;a&apos;:1, &apos;b&apos;:[1, 2, 3]&#125;&gt;&gt;&gt; y = copy.copy(x) # 浅拷贝和前面一样&gt;&gt;&gt; z = copy.deepcopy(x) # 深拷贝&gt;&gt;&gt; id(x[&apos;b&apos;]) --&gt; 140541619106696&gt;&gt;&gt; id(z[&apos;b&apos;]) --&gt; 140541618998536 # 创建了两个列表对象&gt;&gt;&gt; z[&apos;b&apos;].remove(2)&gt;&gt;&gt; x --&gt; &#123;&apos;a&apos;: 1, &apos;b&apos;: [1, 2, 3]&#125;&gt;&gt;&gt; z --&gt; &#123;&apos;a&apos;: 1, &apos;b&apos;: [1, 3]&#125; deepcopy可以创建两个id不一样的可变对象，但不影响不可变对象 变量python引用变量的顺序： 当前作用域局部变量-&gt;外层作用域变量-&gt;当前模块中的全局变量-&gt;python内置变量global和nonlocal12345a = 1 # 全局变量，可省略global关键字def y(): a = a + 1 # 全局变量可以在函数内部使用，但不能修改y() # 报错 变量解析规则在python的作用域规则里面，创建变量一定会在当前作用域里创建一个变量，但是访问或者修改变量时会先在当前作用域查找变量，没有找到匹配变量的话会依次向上在闭合的作用域里面进行查看找 声明全局变量，如果在局部要对全局变量修改，需要在局部也要先声明该全局变量 在局部如果不声明全局变量，并且不修改全局变量。则可以正常使用全局变量 nonlocal关键字用来在函数或其他作用域中使用外层(非全局)变量 避免出错的办法，就是尽量不重复使用]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2Fpython3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F108.html</url>
-    <content type="text"><![CDATA[列表相减解法一:用for循环123456789x = [1, 2, 3, 3, 2, 1]y = [1, 4]z = []for i in x: if i on in y: z.append(i)print(z) #--&gt; [2, 3, 3, 2] 解法二:用列表解析1234&gt;&gt;&gt; x = [1, 2, 3, 3, 2, 1]&gt;&gt;&gt; y = [1, 4]&gt;&gt;&gt; z = [i for i in x if i not in y]&gt;&gt;&gt; z #--&gt; [2, 3, 3, 2]]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2Fpython3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F121.html</url>
-    <content type="text"><![CDATA[语句一般所有高级语言，都包含如下语句，Python也不例外： 循环语句:容许一些语句反复运行数次。循环可依据一个默认的数目来决定运行这些语句的次数；或反复运行它们，直至某些条件改变。 条件语句:容许仅当某些条件成立时才运行某个区块。否则，这个区块中的语句会略去，然后按区块后的语句继续运行。 无条件分支语句容许运行顺序转移到程序的其他部分之中。包括跳跃（在很多语言中称为Goto）、副程序和Procedure等。 循环、条件分支和无条件分支都是控制流程。 import导入模块12&gt;&gt;&gt; import math # 可读性强&gt;&gt;&gt; math.pow(3,2) --&gt; 9.0 导入模块中单个或多个方法1234&gt;&gt;&gt; from math import pow # 可读性差&gt;&gt;&gt; from math import e, pi&gt;&gt;&gt; pow(3,2) --&gt; 9.0&gt;&gt;&gt; pow(e,pi) --&gt; 23.140692632779263 导入模块中的函数并自定义名称12&gt;&gt;&gt; from math import pow as pingfang&gt;&gt;&gt; pingfang(3,2) --&gt; 9.0 导入模块中的所有方法12345&gt;&gt;&gt; from math import *&gt;&gt;&gt; pow(3,2)9.0&gt;&gt;&gt; sqrt(9)3.0 赋值语句 编程中的“=”和数学中的“=”是完全不同的。在编程语言中，“=”表示赋值过程。 多重赋值语句1234&gt;&gt;&gt; x, y, z = 1, &quot;python&quot;, [&quot;hello&quot;, &quot;world&quot;]&gt;&gt;&gt; x --&gt; 1&gt;&gt;&gt; y --&gt; &apos;python&apos;&gt;&gt;&gt; z --&gt; [&apos;hello&apos;, &apos;world&apos;] 变量值互换12345&gt;&gt;&gt; a = 2&gt;&gt;&gt; b = 9&gt;&gt;&gt; a, b = b, a # 相当于标签互换&gt;&gt;&gt; a --&gt; 9&gt;&gt;&gt; b --&gt; 2 还有一种赋值方式，被称为“链式赋值”123&gt;&gt;&gt; m = n = &quot;python&quot;&gt;&gt;&gt; m --&gt; &quot;python&quot;&gt;&gt;&gt; n --&gt; &quot;python&quot;]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2Fpython3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F122.html</url>
-    <content type="text"><![CDATA[if条件语句基本语法:12if bool(conj): # 如果if后面的条件满足，则执行后面的语句块 do something # 统一缩进4个空格 if … elif … else基本样式结构：123456789if 条件1: # 满足条件1则执行语句块1 语句块1elif 条件2: # 满足条件2则执行语句块2 语句块2elif 条件3： 语句块3...else: # 上面条件都都不满足才执行 语句块4 三元操作符12345&gt;&gt;&gt; x = -1&gt;&gt;&gt; y = 1 if x &gt; 0 else 2&gt;&gt;&gt; y --&gt; 2&gt;&gt;&gt; x = 2&gt;&gt;&gt; y --&gt; 1]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2Fpython3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F123.html</url>
-    <content type="text"><![CDATA[for循环其基本结构是：12for 循环规则： # 冒号:结束 操作语句 # 缩进四个空格 字符串for循环：123456789&gt;&gt;&gt; hello = &quot;world&quot;&gt;&gt;&gt; for i in hello: # 冒号:结束... print(i) # print自带end=&apos;\n&apos;... world 循环的对象必须是可迭代的对象，判断是否存在:12&gt;&gt;&gt; &apos;__iter__&apos; in dir(1) --&gt; False&gt;&gt;&gt; &apos;__iter__&apos; in dir(list) --&gt; True range(start,stop[, step]) –&gt; range object start：开始数值，缺省则为0 stop：结束的数值，必须要写，取值为stop-1 step：变化的步长，缺省则为1 stop&gt;start : step&gt;0(非必须) stop&lt;start : step&lt;0(非必须) while循环12while 判断条件: # 冒号:结束 语句 # 缩进4个空格 break语句跳出 for 和 while 的循环体 continue语句跳过当前循环块中的剩余语句，然后继续进行下一轮循环 pass语句空语句，是为了保持程序结构的完整性，pass不做任何事情，一般用做占位语句]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2Fpython3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F124.html</url>
-    <content type="text"><![CDATA[并行迭代迭代两个以上的集合 zip(iter1 [,iter2 […]]) –&gt; zip object问题:多个矩阵元素互换12345678&gt;&gt;&gt; x = [1, 2, 3]&gt;&gt;&gt; y = [4, 5, 6]&gt;&gt;&gt; z = [7, 8, 9]&gt;&gt;&gt; xyz = list(zip(x, y, z))&gt;&gt;&gt; xyz #--&gt; [(1, 4, 7), (2, 5, 8), (3, 6, 9)]&gt;&gt;&gt; zyx = list(zip(*xyz)) # 参数加*解压&gt;&gt;&gt; zyx #--&gt; [(1, 2, 3), (4, 5, 6), (7, 8, 9)] 问题：有两个列表，分别是：a = [1, 2, 3, 4, 5], b = [9, 8, 7, 6, 5]，要计算这两个列表中对应元素的和。方法一:1234567&gt;&gt;&gt; a = [1, 2, 3, 4, 5]&gt;&gt;&gt; b = [9, 8, 7, 6, 5]&gt;&gt;&gt; c = []&gt;&gt;&gt; for i in range(len(a)):... c.append(a[i]+b[i])... &gt;&gt;&gt; c #--&gt; [10, 10, 10, 10, 10] 方法二:12345&gt;&gt;&gt; d = []&gt;&gt;&gt; for x,y in zip(a,b):... d.append(x+y)... &gt;&gt;&gt; d #--&gt; [10, 10, 10, 10, 10] 用列表解析:1234&gt;&gt;&gt; x = [a[i]+b[i] for i in range(len(a))]&gt;&gt;&gt; x #--&gt; [10, 10, 10, 10, 10]&gt;&gt;&gt; y = [x+y for x,y in zip(a,b)]&gt;&gt;&gt; y #--&gt; [10, 10, 10, 10, 10] 问题:字典键值互换用for循环:123456&gt;&gt;&gt; d = &#123;&apos;a&apos;:1, &apos;b&apos;:2, &apos;c&apos;:3&#125;&gt;&gt;&gt; m = &#123;&#125;&gt;&gt;&gt; for k, v in d.items():... m[v] = k # 以v为key,以k为values添加键值对...&gt;&gt;&gt; m #--&gt; &#123;1: &apos;a&apos;, 2: &apos;b&apos;, 3: &apos;c&apos;&#125; 因为字典有items方法,而zip只能获得key:12&gt;&gt;&gt; x = dict(zip(d.values(),d.keys()))&gt;&gt;&gt; x #--&gt; &#123;1: &apos;a&apos;, 2: &apos;b&apos;, 3: &apos;c&apos;&#125; 用dict解析:12&gt;&gt;&gt; y = &#123;v:k for k, v in d.items()&#125;&gt;&gt;&gt; y #--&gt; &#123;1: &apos;a&apos;, 2: &apos;b&apos;, 3: &apos;c&apos;&#125;]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2Fpython3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F126.html</url>
-    <content type="text"><![CDATA[文件打开文件1open(file, mode=&apos;r&apos;, buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opene r=None) 模式 描述 r 以读方式打开文件，可读取文件信息,默认模式 w 以写方式打开文件，可向文件写入信息。如文件存在，则清空该文件，再写入新内容 x 以写模式新建一个文件 a 以追加模式打开文件（文件指针自动移到文件末尾），如果文件不存在则创建 + 配合其他模式r,w,a等,以读和写模式 b 二进制模式 12&gt;&gt;&gt; f = open(&quot;130.txt&quot;) # 在当前文件夹打开已存在的文件&gt;&gt;&gt; dir(f) 在对文件进行写入操作之后，一定要牢记一个事情：file.close() with…as…用with语句不用关闭文件123&gt;&gt;&gt; with open(&quot;130.txt&quot;,&quot;a&quot;) as f:... f.write(&quot;\nThis is about &apos;with...as...&apos;&quot;)... 常用文件方法f.read([size])如果指定了参数size，就按照该指定长度从文件中读取内容，否则，就读取全文直到EOF f.readline([size]) 如果指定了参数size,则读取指定长度的内容,直到行尾才会读取下一行 如果不指定参数,则一行一行读取 f.readlines([hint]) 返回该文件中包含的所有行。 如果设置可选参数hint, 则读取指定长度的字节, 并且将这些字节按行分割 EOF(End-of-file) f.write(string)将 string 写入到文件中, 然后返回写入的字符数 f.tell()返回文件对象当前所处的位置, 它是从文件开头开始算起的字节数 f.seek(offset[, whence])这个函数的功能就是让指针移动。whence的值： 默认值是0，表示从文件开头开始计算指针偏移的量（简称偏移量）。此时offset必须是大于等于0的整数。 是1时，表示从当前位置开始计算偏移量。offset如果是负数，表示从当前位置向前移动，整数表示向后移动。 是2时，表示相对文件末尾移动。]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2Fpython3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F128.html</url>
-    <content type="text"><![CDATA[在使用Python的过程中，很容易混淆如下几个关联的概念： 容器(container) 可迭代对象(Iterable) 迭代器(Iterator) 生成器(generator) list, set, dict解析式 生成器表达式 容器（container)容器是用来储存元素的一种数据结构，它支持隶属测试，容器将所有数据保存在内存中，在Python中典型的容器有： list， deque, … set，frozesets，… dict, defaultdict, OrderedDict, Counter, … tuple, namedtuple, … str 用in,not in判断是否存在,字典容器通过检查是否包含键来进行判断,字符串通过检查是否包含某个子串来判断123&gt;&gt;&gt; 1 in [1,2,3] #--&gt; True&gt;&gt;&gt; 4 in [1,2,3] #--&gt; False&gt;&gt;&gt; 4 not in [1,2,3] #--&gt; True 注意：并非所有的容器都是可迭代对象。 可迭代对象正如前面所提到的，大部分容器都是可迭代的，但是还有其他一些对象也可以迭代，例如，文件对象以及管道对象等等123456&gt;&gt;&gt; x = [1,2,3]&gt;&gt;&gt; y = iter(x）&gt;&gt;&gt; next(y) #--&gt; 1&gt;&gt;&gt; next(y) #--&gt; 2&gt;&gt;&gt; type(x) #--&gt; &lt;class &apos;list&apos;&gt;&gt;&gt;&gt; type(y) #--&gt; &lt;class &apos;list_iterator&apos;&gt; 在这里，x是可迭代对象。而y是迭代器，可以从可迭代对象x中获取值。 注意：可迭代的类中，一般实现以下两个方法，__iter__()以及__next()__方法，__iter__()方法返回self。 实际调用过程如下： 迭代器(Iterators) 迭代器是一个可以记住遍历的位置的对象。 迭代器对象从第一个元素开始访问，直到所有的元素被访问完结束。 迭代器只能往前不会后退。 迭代器有两个基本的方法：__iter__() 和 __next__() itertools模块1234&gt;&gt;&gt; from itertools import count&gt;&gt;&gt; counter = count(start=13)&gt;&gt;&gt; next(counter) --&gt; 13&gt;&gt;&gt; next（counter) --&gt; 14 无限序列：123456&gt;&gt;&gt; from itertools import cycle&gt;&gt;&gt; colors = cycle([&quot;red&quot;,&quot;white&quot;,&quot;blue&quot;])&gt;&gt;&gt; next(colors) --&gt; &quot;red&quot;&gt;&gt;&gt; next(colors） --&gt; &quot;white&quot;&gt;&gt;&gt; next(colors) --&gt; &quot;blue&quot;&gt;&gt;&gt; next(colors) --&gt; &quot;red&quot; 无限序列生成有限序列：123456789&gt;&gt;&gt; from itertools import islice&gt;&gt;&gt; colors = cycle([&apos;red&apos;, &apos;white&apos;, &apos;blue&apos;]) # infinite&gt;&gt;&gt; limited = islice(colors, 0, 4) # finite&gt;&gt;&gt; for x in limited: # so safe to use for-loop on... print(x)redwhitebluered 生成器(generator)带有yield关键字的的函数在Python中被称之为 generator(生成器)。一个函数或者子程序都只能return一次，但是一个生成器能暂停执行并返回一个中间的结果。 生成器其实就是一种特殊的迭代器 生成器的另一个优点就是无须将对象的所有元素都存入内存之后，才开始进行操作。生成器仅在迭代至某个元素时才会将该元素放入内存，而在这之前或之后，元素可以不存在或者被销毁。这个特点使得它特别适合用于遍历一些巨大的或是无限的类序列对象，EG. 大文件/大集合/大字典/斐波那契数列等。这个特点被称为 延迟计算 或 惰性求值(Lazy evaluation)，可以有效的节省内存。 list解析式12[expr for iter_var in iterable] # 最终生成一个列表[expr][expr for iter_var in iterable if cond_expr] 代码实例：12345&gt;&gt;&gt; x = [(x+1,y+1) for x in range(2) for y in range(3)] &gt;&gt;&gt; x #--&gt; [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)]&gt;&gt;&gt; y = [x+10 for x in range(10) if x&gt;5]&gt;&gt;&gt; y #--&gt; [16, 17, 18, 19] 还有集合解析，类似列表解析，区别在于结果满足集合的特性 dict解析式123&gt;&gt;&gt; x = &#123;&quot;a&quot;:1, &quot;b&quot;:2, &quot;c&quot;:3, &quot;d&quot;:4&#125;&gt;&gt;&gt; y = &#123;v:k for k,v in x.items()&#125;&gt;&gt;&gt; y #--&gt; &#123;1: &apos;a&apos;, 2: &apos;b&apos;, 3: &apos;c&apos;, 4: &apos;d&apos;&#125; 生成器表达式12(expr for iter_var in iterable)(expr for iter_var in iterable if cond_expr) 当序列过长，而每次只需要获取一个元素时，应当考虑使用生成器表达式而不是列表解析。生成器表达式的语法和列表解析一样，只不过生成器表达式是被()括起来的，而不是[]1234567891011&gt;&gt;&gt; y = (x+10 for x in range(10) if x&gt;5)&gt;&gt;&gt; y&lt;generator object &lt;genexpr&gt; at 0x7faeee369d58&gt;&gt;&gt;&gt; y.__next__() #--&gt; 16&gt;&gt;&gt; y.__next__() #--&gt; 17&gt;&gt;&gt; y.__next__() #--&gt; 18&gt;&gt;&gt; y.__next__() #--&gt; 19&gt;&gt;&gt; y.__next__()StopIteration Traceback (most recent call last)&lt;ipython-input-18-989149fd7263&gt; in &lt;module&gt;()----&gt; 1 y.__next__() 生成器表达式并不真正创建数字列表， 而是返回一个生成器，这个生成器在每次计算出一个条目后，把这个条目“产生”(yield)出来。 生成器表达式使用了“惰性计算”(lazy evaluation)，只有在检索时才被赋值 (evaluated)，所以在列表比较长的情况下使用内存上更有效。]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2Fpython3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F130.html</url>
-    <content type="text"><![CDATA[自省 来源《Python自省指南》 联机帮助在交互模式下，用help向python请求帮助。1234567891011121314151617&gt;&gt;&gt; help()Welcome to Python 3.5&apos;s help utility!If this is your first time using Python, you should definitely check outthe tutorial on the Internet at http://docs.python.org/3.5/tutorial/.Enter the name of any module, keyword, or topic to get help on writingPython programs and using Python modules. To quit this help utility andreturn to the interpreter, just type &quot;quit&quot;.To get a list of available modules, keywords, symbols, or topics, type&quot;modules&quot;, &quot;keywords&quot;, &quot;symbols&quot;, or &quot;topics&quot;. Each module also comeswith a one-line summary of what it does; to list the modules whose nameor summary contain a given string such as &quot;spam&quot;, type &quot;modules spam&quot;.help&gt; 这时候就进入了联机帮助状态，根据提示输入keywords12345678910111213help&gt; keywordsHere is a list of the Python keywords. Enter any keyword to get more help.False def if raiseNone del import returnTrue elif in tryand else is whileas except lambda withassert finally nonlocal yieldbreak for notclass from orcontinue global pass 如果从文档说明界面返回到帮助界面，需要按q键。从联机帮助状态退回到python的交互模式，使用quit命令。 dir()dir() 函数可能是 Python 自省机制中最著名的部分了。它返回传递给它的任何对象的属性名称经过排序的列表。如果不指定对象，则 dir() 返回当前作用域中的名称。让我们将 dir() 函数应用于 keyword 模块，并观察它揭示了什么：123456&gt;&gt;&gt; import keyword&gt;&gt;&gt; dir(keyword)[&apos;__all__&apos;, &apos;__builtins__&apos;, &apos;__doc__&apos;, &apos;__file__&apos;, &apos;__name__&apos;, &apos;__package__&apos;, &apos;iskeyword&apos;, &apos;kwlist&apos;, &apos;main&apos;]&gt;&gt;&gt; __builtins__&lt;module &apos;__builtin__&apos; (built-in)&gt; 注：如果您在磁盘上寻找 __builtin__.py 文件，将空手而归。这个特殊的模块对象是 Python 解释器凭空创建的，因为它包含着解释器始终可用的项。尽管看不到物理文件，但我们仍可以将 dir() 函数应用于这个对象，以观察所有内置函数、错误对象以及它所包含的几个杂项属性。12&gt;&gt;&gt; dir(__builtins__)[省略...... &apos;__debug__&apos;, &apos;__doc__&apos;, &apos;__import__&apos;, &apos;__name__&apos;, &apos;__package__&apos;, &apos;abs&apos;, &apos;all&apos;, &apos;any&apos;, &apos;apply&apos;, &apos;ascii&apos;, &apos;basestring&apos;, &apos;bin&apos;, &apos;bool&apos;, &apos;buffer&apos;, &apos;bytearray&apos;, &apos;bytes&apos;, &apos;callable&apos;, &apos;chr&apos;, &apos;classmethod&apos;, &apos;cmp&apos;, &apos;coerce&apos;, &apos;compile&apos;, &apos;complex&apos;, &apos;copyright&apos;, &apos;credits&apos;, &apos;delattr&apos;, &apos;dict&apos;, &apos;dir&apos;, &apos;divmod&apos;, &apos;enumerate&apos;, &apos;eval&apos;, &apos;execfile&apos;, &apos;exit&apos;, &apos;file&apos;, &apos;filter&apos;, &apos;float&apos;, &apos;format&apos;, &apos;frozenset&apos;, &apos;getattr&apos;, &apos;globals&apos;, &apos;hasattr&apos;, &apos;hash&apos;, &apos;help&apos;, &apos;hex&apos;, &apos;id&apos;, &apos;input&apos;, &apos;int&apos;, &apos;intern&apos;, &apos;isinstance&apos;, &apos;issubclass&apos;, &apos;iter&apos;, &apos;len&apos;, &apos;license&apos;, &apos;list&apos;, &apos;locals&apos;, &apos;long&apos;, &apos;map&apos;, &apos;max&apos;, &apos;memoryview&apos;, &apos;min&apos;, &apos;next&apos;, &apos;ngettext&apos;, &apos;object&apos;, &apos;oct&apos;, &apos;open&apos;, &apos;ord&apos;, &apos;pow&apos;, &apos;print&apos;, &apos;property&apos;, &apos;quit&apos;, &apos;range&apos;, &apos;raw_input&apos;, &apos;reduce&apos;, &apos;reload&apos;, &apos;repr&apos;, &apos;reversed&apos;, &apos;round&apos;, &apos;set&apos;, &apos;setattr&apos;, &apos;slice&apos;, &apos;sorted&apos;, &apos;staticmethod&apos;, &apos;str&apos;, &apos;sum&apos;, &apos;super&apos;, &apos;tuple&apos;, &apos;type&apos;, &apos;unichr&apos;, &apos;unicode&apos;, &apos;vars&apos;, &apos;xrange&apos;, &apos;zip&apos;] dir() 函数适用于所有对象类型，包括字符串、整数、列表、元组、字典、函数、定制类、类实例和类方法 dir(42),dir([]),dir(()),dir({}),dir(dir) 检查python对象在计算机术语中，对象是拥有标识和值的事物，属于特定类型、具有特定特征和以特定方式执行操作。并且，对象从一个或多个父类继承了它们的许多属性。除了关键字和特殊符号（像运算符，如 + 、 - 、 、 * 、 / 、 % 、 &lt; 、 &gt; 等）外，Python 中的所有东西都是对象。Python具有一组丰富的对象类型：字符串、整数、浮点、列表、元组、字典、函数、类、类实例、模块、文件等。 当您有一个任意的对象（也许是一个作为参数传递给函数的对象）时，可能希望知道一些关于该对象的情况。如希望python告诉我们： 对象的名称是什么？ 这是哪种类型的对象？ 对象知道些什么？ 对象能做些什么？ 对象的父对象是谁？ 文档字符串__doc__属性__doc__ 这个属性是一个字符串，它包含了描述对象的注释。Python 称之为文档字符串或docstring如果模块、类、方法或函数定义的第一条语句是字符串，那么该字符串会作为对象的 __doc__ 属性与该对象关联起来。例如，看一下str类型对象的文档字符串。 名称__name__属性 如果模块是被导入，__name__的值为模块名字 如果是被直接执行，__name__的值为__main__ 此处所说的模块可以简单理解为一个.py文件 并非所有对象都有名称，但那些有名称的对象都将名称存储在其 __name__ 属性中。注：名称是从对象而不是引用该对象的变量中派生的。 12345678if __name__ == &apos;__main__&apos;: # Do something appropriate here, like calling a # main() function defined elsewhere in this module. main()else: # Do nothing. This module has been imported by another # module that wants to make use of the functions, # classes and other useful bits it has defined. 类型type()1234&gt;&gt;&gt; type(42) #--&gt; &lt;type &apos;int&apos;&gt;&gt;&gt;&gt; type([]) #--&gt; &lt;type &apos;list&apos;&gt;&gt;&gt;&gt; type(&#123;&#125;) #--&gt; &lt;type &apos;dict&apos;&gt;&gt;&gt;&gt; type(dir) #--&gt; &lt;type &apos;builtin_function_or_method&apos;&gt; 标识id()检测是否存在属性in/not in可调用callable() callable()方法用来检测对象是否可被调用，可被调用指的是对象能否使用()括号的方法调用。 可调用对象，在实际调用也可能调用失败；但是不可调用对象，调用肯定不成功。 类对象都是可被调用对象，类的实例对象是否可调用对象，取决于类是否定义了call方法。 实例在 type() 函数提供对象的类型时，还可以使用 isinstance() 函数测试对象，以确定它是否是某个特定类型或定制类的实例： 子类关于类的问题，有一个“继承”概念，有继承就有父子问题，这是在现实生活中很正常的，在编程语言中也是如此。虽然这是后面要说的，但是，为了本讲内容的完整，也姑且把这个内容放在这里。读者可以不看，留着以后看也行。我更建议还是阅读一下，有个印象。 在类这一级别，可以根据一个类来定义另一个类，同样地，这个新类会按照层次化的方式继承属性。Python 甚至支持多重继承，多重继承意味着可以用多个父类来定义一个类，这个新类继承了多个父类。 issubclass() 函数使我们可以查看一个类是不是继承了另一个类： python文档1.文档是一种对软件系统的书面描述；2.文档应当精确地描述软件系统；3.软件文档是软件工程师之间用作沟通交流的一种方式；4.文档的类型有很多种，包括软件需求文档，设计文档，测试文档，用户手册等；5.文档的呈现方式有很多种，可以是传统的书面文字形式或图表形式，也可是动态的网页形式 python文档的网址：https://docs.python.org/2/，这是python2.x，从这里也可以找到python3.x的文档。]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2Fpython3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F204.html</url>
-    <content type="text"><![CDATA[递归 递归（recursion），又译为递回，在数学与计算机科学中，是指在函数的定义中使用函数自身的方法。 根据斐波那契数列的定义，可以直接写成这样的斐波那契数列递归函数。12345678910111213141516#!/usr/bin/env python3# coding=utf-8def fib(n): &quot;&quot;&quot; This is Fibonacci by Recursion. &quot;&quot;&quot; if n==0: return 0 elif n==1: return 1 else: return fib(n-1) + fib(n-2)n = int(input(&apos;输入正整数:&apos;))print(fib(n)) 解析当n = 4时：12345fib(4) = fib(3) + fib(2) ↓ ↓ fib(2) + fib(1) fib(1) + fib(0) ↓ fib(1) + fib(0) 相当于fib(4) = 3fib(1) + 2fib(0) -&gt; 3 上面的代码每次递回下一级函数，都要判断一次判断一次if和elif 相当于 优化代码123456789101112#!/usr/bin/env python# coding=utf-8d = &#123;0:0, 1:1&#125; def fib(n): if not n in d: d[n] = fib(n-1) + fib(n-2) return d[n]n = int(input(&apos;输入正整数:&apos;))print(d(n)) 用递归函数要小心，因为很容易陷入死循环]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2Fpython3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F202.html</url>
-    <content type="text"><![CDATA[built-in function&gt;&gt;&gt; dir(__builtins__) [...省略... &apos;abs&apos;, &apos;all&apos;, &apos;any&apos;, &apos;ascii&apos;, &apos;bin&apos;, &apos;bool&apos;, &apos;bytearray&apos;, &apos;bytes&apos;, &apos;callable&apos;, &apos;chr&apos;, &apos;classmethod&apos;, &apos;compile&apos;, &apos;complex&apos;, &apos;copyright&apos;, &apos;credits&apos;, &apos;delattr&apos;, &apos;dict&apos;, &apos;dir&apos;, &apos;divmod&apos;, &apos;enumerate&apos;, &apos;eval&apos;, &apos;exec&apos;, &apos;exit&apos;, &apos;filter&apos;, &apos;float&apos;, &apos;format&apos;, &apos;frozenset&apos;, &apos;getattr&apos;, &apos;globals&apos;, &apos;hasattr&apos;, &apos;hash&apos;, &apos;help&apos;, &apos;hex&apos;, &apos;id&apos;, &apos;input&apos;, &apos;int&apos;, &apos;isinstance&apos;, &apos;issubclass&apos;, &apos;iter&apos;, &apos;len&apos;, &apos;license&apos;, &apos;list&apos;, &apos;locals&apos;, &apos;map&apos;, &apos;max&apos;, &apos;memoryview&apos;, &apos;min&apos;, &apos;next&apos;, &apos;object&apos;, &apos;oct&apos;, &apos;open&apos;, &apos;ord&apos;, &apos;pow&apos;, &apos;print&apos;, &apos;property&apos;, &apos;quit&apos;, &apos;range&apos;, &apos;repr&apos;, &apos;reversed&apos;, &apos;round&apos;, &apos;set&apos;, &apos;setattr&apos;, &apos;slice&apos;, &apos;sorted&apos;, &apos;staticmethod&apos;, &apos;str&apos;, &apos;sum&apos;, &apos;super&apos;, &apos;tuple&apos;, &apos;type&apos;, &apos;vars&apos;, &apos;zip&apos;] 常用内建函数[&apos;dir&apos;, &apos;format&apos;, &apos;help&apos;, &apos;id&apos;, &apos;input&apos;, &apos;open&apos;, &apos;print&apos;, &apos;quit&apos;, &apos;range&apos;, &apos;type&apos;, &apos;input&apos;, &apos;zip&apos;] 数学相关[&apos;abs&apos;, &apos;len&apos;, &apos;max&apos;, &apos;min&apos;, &apos;pow&apos;, &apos;round&apos;, &apos;reversed&apos;, &apos;sorted&apos;, &apos;sum&apos;, &apos;divmod&apos;] 数据类型[&apos;bool&apos;, &apos;complex&apos;, &apos;dict&apos;, &apos;list&apos;, &apos;str&apos;, &apos;int&apos;, &apos;float&apos;, &apos;tuple&apos;, &apos;set&apos;, &apos;iter&apos;] 函数式编程[&apos;filter&apos;, &apos;map&apos;] 0-255与相应ascii码转换[&apos;chr&apos;, &apos;ord&apos;] 进制转换[&apos;bin&apos;, &apos;hex&apos;, &apos;oct&apos;] 类相关[&apos;callable&apos;, &apos;classmethod&apos;, &apos;delattr&apos;, &apos;getattr&apos;, &apos;hasattr&apos;, &apos;issubclass&apos;, &apos;isinstance&apos;, &apos;setattr&apos;, &apos;staticmethod&apos;, &apos;super&apos;] 变量相关[&apos;globals&apos;, &apos;locals&apos;, &apos;vars&apos;] 内建函数简介 abs() 获取绝对值 all() 接受一个迭代器，如果迭代器的所有元素都为真，那么返回True，否则返回False any() 接受一个迭代器，如果迭代器里有一个元素为真，那么返回True,否则返回False ascii() 调用对象的repr()方法，获得该方法的返回值. bin() 将十进制数分别转换为2进制 oct() 将十进制数分别转换为8进制 hex() 将十进制数分别转换为16进制。 bool() 测试一个对象是True还是False. bytes() 将一个字符串转换成字节类型 str() 将字符类型/数值类型等转换为字符串类型 challable() 判断对象是否可以被调用，能被调用的对象就是一个callables对象，比如函数和带有call()的实例 char()，13. ord() 查看十进制数对应的ASCII字符/查看某个ASCII对应的十进制数 classmethod() 用来指定一个方法为类的方法，由类直接调用执行，只有一个cls参数,执行雷的方法时，自动将调用该方法的类赋值给cls.没有此参数指定的类的方法为实例方法 complie() 将字符串编译成python能识别或可以执行的代码，也可以将文字读成字符串再编译 complex() delattr() 删除对象的属性 dict() 创建数据字典 dir() 不带参数时返回当前范围内的变量，方法和定义的类型列表，带参数时返回参数的属性，方法列表 divmod() 分别取商和余数 enumerate() 返回一个可以枚举的对象，该对象的next()方法将返回一个元组 eval() 将字符串str当成有效的表达式来求值并返回计算结果 exec() 执行字符串或complie方法编译过的字符串，没有返回值 filter() 过滤器，构造一个序列，等价于[ item for item in iterables if function(item)]，在函数中设定过滤条件，逐一循环迭代器中的元素，将返回值为True时的元素留下，形成一个filter类型数据 float() 讲一个字符串或整数转换为浮点数 format() 格式化输出字符串 frozenset() 创建一个不可修改的集合 getattr() 获取对象的属性 globals() 返回一个描述当前全局变量的字典 hasattr() 判断对象object是否包含名为name的特性（hasattr是通过调用getattr(object，name)）是否抛出异常来实现的。 hash() 哈希值 help() 返回对象的帮助文档 id() 返回对象的内存地址 input() 获取用户输入内容 int() 将一个字符串或数值转换为一个普通整数 isinstance() 检查对象是否是类的对象，返回True或False issubclass() 检查一个类是否是另一个类的子类。返回True或False iter() 返回一个iterator对象 len() 返回对象长度 list() 列表构造函数 locals() 打印当前可用的局部变量的字典 map(function, iterable,…) 对于参数iterable中的每个元素都应用fuction函数，并将结果作为列表返回。 max() 返回给定元素里最大值 min() 返回给定元素里最小值 next() 返回一个可迭代数据结构（如列表）中的下一项 object() 获取一个新的，无特性(geatureless)对象。Object是所有类的基类。它提供的方法将在所有的类型实例中共享。 open() 打开文件 pow() 幂函数 property() range() 根据需要生成一个指定范围的数字，可以提供你需要的控制来迭代指定的次数 repr() 将任意值转换为字符串，供计时器读取的形式 reversed() 反转，逆序对象 round() 四舍五入 set() 集合构造函数 setattr() 与getattr()相对应 slice() 切片功能 sorted() 排序 staticmethod() str() 字符串构造函数 sum() 求和 super() 调用父类的方法 tuple() 元组构造函数 type() 显示对象所属的类型 vars() 返回 __dict__ 属性, 比如模块, 类, 实例, 或者其他 带有 __dict__ 属性的 object zip() 将对象逐一配对]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2Fpython3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F237.html</url>
-    <content type="text"><![CDATA[Python是支持多种范型的语言，可以进行所谓函数式编程，其突出体现在有这么几个函数：filter、map、reduce、lambda、yield。 匿名函数lambda 在lambda后面直接跟变量 变量后面是冒号 冒号后面是表达式，表达式计算结果就是本函数的返回值 123lambda x: x * x #--&gt; def func(x): return(x*x)lambda x: x%2lambda x, y: (x, y) #--&gt; def f(x, y): return (x, y) map(function, iterable[,iterable2])原理是: iterable的数量必须和function的参数一致 按顺序一一对应从可迭代对象传入参数3.函数返回的值是一个以list的形式的map对象 1234567&gt;&gt;&gt; lst1 = [1, 2, 3, 4, 5]&gt;&gt;&gt; lst2 = [6, 7, 8, 9, 0]&gt;&gt;&gt; lst3 = [7, 8, 9, 2, 1]&gt;&gt;&gt; x = map(lambda x,y,z: x+y+z, lst1, lst2, lst3) #--&gt; &lt;map object at 0x7f2a502419e8&gt;&gt;&gt;&gt; list(x) #--&gt; [14, 17, 20, 15, 6]&gt;&gt;&gt; y = [x+y+z for x, y, z in zip(lst1, lst2, lst3)]&gt;&gt;&gt; y #--&gt; [14, 17, 20, 15, 6] reduce12&gt;&gt;&gt; from functools import reduce&gt;&gt;&gt; reduce(lambda x,y: x*y,[1, 2, 3, 4, 5]) #--&gt; 120 filter1234&gt;&gt;&gt; numbers = range(-2,3)&gt;&gt;&gt; numbers #--&gt; [-2, -1, 0, 1, 2]&gt;&gt;&gt; filter(lambda x: x&gt;0, numbers) #--&gt; [1, 2]&gt;&gt;&gt; [x for x in numbers if x&gt;0] #--&gt; [1, 2]]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2Fpython3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F401.html</url>
-    <content type="text"><![CDATA[构造和初始化new(cls, […) new 是在一个对象实例化的时候所调用的第一个方法。它的第一个参数是这个类，其他的参数是用来直接传递给 init 方法。 new 方法相当不常用,但是它有自己的特性，特别是当继承一个不可变的类型比如一个tuple或者string。 init(self, […) 此方法为类的初始化方法。当构造函数被调用的时候的任何参数都将会传给它。 调用 x = SomeClass(10, ‘foo’)，那么 init 将会得到两个参数10和foo。 del(self) 如果 new 和 init 是对象的构造器的话，那么 del 就是析构器。它不实现语句 del x (以上代码将不会翻译为 x.del() )。它定义的是当一个对象进行垃圾回收时候的行为。当一个对象在删除的时需要更多的清洁工作的时候此方法会很有用，比如套接字对象或者是文件对象。注意，如果解释器退出的时候对象还存存在，就不能保证 del 能够被执行，所以 del can’t serve as a replacement for good coding practices ()~~ 特殊属性调用机制 类属性调用原理目的 所编写代码 Python 实际调用类构造器x = MyClass() –&gt; x.new()类析构器del x –&gt; x.del()只定义特定集合的某些属性x.slots()自定义散列值hash(x) x.hash()获取某个属性的值x.color type(x).dict[‘color’].get(x, type(x))设置某个属性的值x.color = ‘PapayaWhip’ type(x).dict[‘color’].set(x, ‘PapayaWhip’)删除某个属性del x.color type(x).dict[‘color’].del(x)控制某个对象是否是该对象的实例your class isinstance(x, MyClass) MyClass.instancecheck(x)控制某个类是否是该类的子类issubclass(C, MyClass) MyClass.subclasscheck(C)控制某个类是否是该抽象基类的子类issubclass(C, MyABC) MyABC.subclasshook(C) __getattr__() 和 __getattribute__()文件中的__main__.py 和 __init__.pypython3 xxx.py python3 -m xxx.py 这是两种加载py文件的方式: 叫做直接运行 相当于import,叫做当做模块来启动，前提是已加入sys.path python 将一个文件夹作为 package 对待，那么这个文件夹中必须包含一个名为 init.py 的文件，即使它是空的如果你需要 python 讲一个文件夹作为 package 执行，那么这个文件夹中必须包含一个名为 main.py 的文件，当执行 python3 -m hhlb 或者python3 hhlb 的时候，这个文件中的代码都会被执行。 在 hhlb/init.py 中写入如下内容：123print(&apos;__init__&apos;)print(&apos;__init__.__name__&apos;, __name__)print(&apos;__init__.__package__&apos;, __package__) 在 hhlb/main.py 中写入如下内容：123print(&apos;__main__&apos;)print(&apos;__main__.__name__&apos;, __name__)print(&apos;__main__.__package__&apos;, __package__) 执行 python3 hhlb ：1234-&gt; % python3 hhlb__main____main__.__name__ __main____main__.__package__ 这说明，将 hhlb 当作文件夹执行的时候，对于 main.py 来说，变量package 是一个空字符串。而 init.py 不会被执行。 执行 python3 -m hhlb ：1234567-&gt; % python3 -m hhlb__init____init__.__name__ hhlb__init__.__package__ hhlb__main____main__.__name__ __main____main__.__package__ hhlb 当作为模块执行的时候，python 会先执行 init.py ，然后执行main.py 。而且，前者和后者对于 name 变量的理解是不同的。 alll对于from ModuleName import * 这种形式，要特别注意重名现象。 Python中，对于一个模块，具有一个名为 all的属性，该属性的值就是被from ModuleName import *这样的语句绑定的属性列表；否则，这种类型的from语句将绑定模块中除了以下划线开始的属性（私有属性）外的所有属性。这样的话，对于同一个名空间里 面出现重名现象的概率就加大了，为了减少这种情况的发生，都会在模块开始处定义all属性的内容，写出可以被这种from类型导入的属性下面的是os.py里面的一段代码：all = [“altsep”, “curdir”, “pardir”, “sep”, “pathsep”, “linesep”,”defpath”, “name”, “path”, “devnull”] 其他globals:global namespace in which this function was definedfile:filename (missing for built-in modules) 内建特殊属性用dir(__builtins__)查看内建特殊属性，特殊属性都是以双下划线开头和结尾1&apos;__build_class__&apos;, &apos;__debug__&apos;, &apos;__doc__&apos;, &apos;__import__&apos;, &apos;__loader__&apos;, &apos;__name__&apos;, &apos;__package__&apos;, &apos;__spec__&apos; inspect模块type checking, getting source code, inspecting classes and functions, and examining the interpreter stack.12import inspectdir(inspet) inspect.getmembers()12345Help on function getmembers in module inspect:getmembers(object, predicate=None) Return all members of an object as (name, value) pairs sorted by name. Optionally, only return members that satisfy a given predicate.]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2Fpython3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2Findex.html</url>
-    <content type="text"><![CDATA[Python3学习笔记 Python3学习笔记 第壹章 基本数据类型 python3基本语法 字符串 列表和元组 字典 集合 python数据存储原理 实战 第贰章 语句和文件 语句 ==&gt; import, 赋值语句、增量赋值 条件语句 ==&gt; if…elif…else语句，三元操作 循环语句 ==&gt; for、while循环，break、continue语句，range() 迭代 ==&gt; 可迭代对象、迭代器、生成器、列表解析 并行迭代 ==&gt; for循环 vs zip() 文件 ==&gt; 文件打开，读取，写入，常用方法 自省 ==&gt; help()，dir()，文档字符串，检查对象，文档 第叁章 函数 函数==&gt;定义函数方法，调用函数方法，参数 内建函数 递归==&gt;递归、传递函数、嵌套函数 闭包、装饰器 函数5==&gt;filter、map、reduce、lambda 命名空间==&gt;全局变量和局部变量，作用域，命名空间 第肆章 类 特殊属性==&gt;内建和特殊属性 类2==&gt;新式类和旧式类，初步创建类和实例化 类3==&gt;类属性、创建实例、实例属性、self作用、类内外数据流转 类4==&gt;绑定方法和非绑定方法，类方法和静态方法 类5==&gt;继承，super，多重继承 多态和封装==&gt;多态，封装和私有化 定制类==&gt;类和类型，定制类 黑魔法==&gt;优化内存的__slots__，属性拦截 第伍章 错误和异常 错误和异常(1)==&gt;什么是错误和异常，常见异常类型，处理异常(try…except…)]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[tags]]></title>
-    <url>%2Ftags%2Findex.html</url>
-    <content type="text"></content>
-  </entry>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[README.md]]></title>
+      <url>/2018/01/11/README/</url>
+      <content type="html"><![CDATA[<h2 id="网站插件扩展"><a href="#网站插件扩展" class="headerlink" title="网站插件扩展"></a>网站插件扩展</h2><ul>
+<li>hexo-deployer-git</li>
+<li>hexo-generator-searchdb</li>
+<li>disqus</li>
+</ul>
+<h2 id="配置文件问题"><a href="#配置文件问题" class="headerlink" title="配置文件问题"></a>配置文件问题</h2><p>主题配置可以放在source/_data/next.yml中，会覆盖掉主题内的配置<br>站点配置不能写在source/_data/next.yml中，有的不能生效</p>
+<h2 id="gitment"><a href="#gitment" class="headerlink" title="gitment"></a>gitment</h2><p>在github设置中Settings/Developer settings 创建一个新OAuth app<br>注意：Homepage URL和Authorization callback URL就写github page里面显示的域名，<br>如果绑定了域名，github page也会显示成绑定的域名</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>/2018/01/10/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.<br><a id="more"></a></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[test]]></title>
+      <url>/2013/07/13/test/</url>
+      <content type="html"><![CDATA[<h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><h4 id="3"><a href="#3" class="headerlink" title="3"></a>3</h4>]]></content>
+      
+        <categories>
+            
+            <category> Diary </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> PS3 </tag>
+            
+            <tag> Games </tag>
+            
+        </tags>
+        
+    </entry>
+    
+  
+  
+    
+    <entry>
+      <title><![CDATA[categories]]></title>
+      <url>/categories/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[htmls]]></title>
+      <url>/html/index.html</url>
+      <content type="html"><![CDATA[<!-- [bokeh快速入门](./Bokeh/快速入门.html) -->
+<p><a href="./Bokeh/test.html">bokeh快速入门</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/python3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/107.html</url>
+      <content type="html"><![CDATA[<h2 id="python数据存储原理"><a href="#python数据存储原理" class="headerlink" title="python数据存储原理"></a>python数据存储原理</h2><p><strong>变量 引用 对象</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = 1</span><br></pre></td></tr></table></figure></p>
+<p>内存中只创建了对象<code>1</code>，变量x只是贴在对象<code>1</code>的标签，<code>=</code>是赋值即引用<br>在python中一切皆对象，里面又有不可变对象和可变对象</p>
+<h3 id="数字和字符串对象引用"><a href="#数字和字符串对象引用" class="headerlink" title="数字和字符串对象引用"></a>数字和字符串对象引用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = 5                   # 内存中创建了一个对象5</span><br><span class="line">&gt;&gt;&gt; b = 5</span><br><span class="line">&gt;&gt;&gt; b       --&gt; 5</span><br><span class="line">&gt;&gt;&gt; id(a)   --&gt; 139774080</span><br><span class="line">&gt;&gt;&gt; id(b)   --&gt; 139774080   # 一个对象贴了两个标签</span><br><span class="line">&gt;&gt;&gt; b = 3                   # 内存中新建了一个对象3</span><br><span class="line">&gt;&gt;&gt; id(b)   --&gt; 10923616    # 对象引用换成了b</span><br></pre></td></tr></table></figure>
+<h3 id="组合对象的引用-除了数字和字符串"><a href="#组合对象的引用-除了数字和字符串" class="headerlink" title="组合对象的引用(除了数字和字符串)"></a>组合对象的引用(除了数字和字符串)</h3><blockquote>
+<p>可以创建多个”一样”的对象,但是id不同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = [1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; id(x)         --&gt; 140150136275912</span><br><span class="line">&gt;&gt;&gt; y = x[:]</span><br><span class="line">&gt;&gt;&gt; y             --&gt; [1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; id(y)         --&gt; 140150136287496</span><br><span class="line">&gt;&gt;&gt; z = [1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; id(z)         --&gt; 140150136287944</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>解析:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = &apos;a&apos;</span><br><span class="line">&gt;&gt;&gt; y = [&apos;a&apos;, 1, [&apos;a&apos;, 1]]</span><br><span class="line">&gt;&gt;&gt; id(x)        --&gt; 140363897810368   # 对象&apos;a&apos;</span><br><span class="line">&gt;&gt;&gt; id(y)        --&gt; 140363897692872   # 列表对象</span><br><span class="line">&gt;&gt;&gt; id(y[0])     --&gt; 140363897810368</span><br><span class="line">&gt;&gt;&gt; id(y[1])     --&gt; 10923552          # 列表的子对象数字1</span><br><span class="line">&gt;&gt;&gt; id(y[2])     --&gt; 140363897680840   # 列表子对象列表[&apos;a&apos;, 1]</span><br><span class="line">&gt;&gt;&gt; id(y[2][0])  --&gt; 140363897810368   # 三个 &apos;a&apos; id一样</span><br><span class="line">&gt;&gt;&gt; id(y[2][1])  --&gt; 10923552          # 两个 1 id一样</span><br></pre></td></tr></table></figure></p>
+<p>修改列表内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; y.remove([&apos;a&apos;, 1])</span><br><span class="line">&gt;&gt;&gt; y     --&gt; [&apos;a&apos;, 1]</span><br><span class="line">&gt;&gt;&gt; id(y) --&gt; 140363897692872   # 因为是修改原对象，所有id不变</span><br></pre></td></tr></table></figure></p>
+<h4 id="可变对象的浅拷贝"><a href="#可变对象的浅拷贝" class="headerlink" title="可变对象的浅拷贝"></a>可变对象的浅拷贝</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = &#123;&apos;a&apos;:1, &apos;b&apos;:[1, 2, 3]&#125;          # 最底层的对象只有1,2,3</span><br><span class="line">&gt;&gt;&gt; y = x.copy()</span><br><span class="line">&gt;&gt;&gt; y            --&gt; &#123;&apos;a&apos;:1, &apos;b&apos;:[1, 2, 3]&#125;</span><br><span class="line">&gt;&gt;&gt; id(x)        --&gt; 139791973166088</span><br><span class="line">&gt;&gt;&gt; id(y)        --&gt; 139791973166024    # 父对象id显示不一样</span><br><span class="line">&gt;&gt;&gt; id(x[&apos;a&apos;])   --&gt; 10923552</span><br><span class="line">&gt;&gt;&gt; id(y[&apos;a&apos;])   --&gt; 10923552           # 子对象id一样</span><br><span class="line">&gt;&gt;&gt; id(x[&apos;b&apos;])   --&gt; 139791972639688</span><br><span class="line">&gt;&gt;&gt; id(y[&apos;b&apos;])   --&gt; 139791972639688    # 子对象id一样</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>从上面可以看出，浅复制只是创建一个新的父对象，子对象还是同一个对象</p>
+</blockquote>
+<p>修改字典的列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; id(y[&apos;b&apos;][1])   --&gt; 10923584</span><br><span class="line">&gt;&gt;&gt; y[&apos;a&apos;] = 2                           # 引用对象2</span><br><span class="line">&gt;&gt;&gt; id(y[&apos;a&apos;])      --&gt; 10923584</span><br><span class="line">&gt;&gt;&gt; y[&apos;b&apos;].remove(2)</span><br><span class="line">&gt;&gt;&gt; id(y[&apos;b&apos;])      --&gt; 139791972639688  # 列表子对象id没有改变</span><br><span class="line">&gt;&gt;&gt; y               --&gt; &#123;&apos;b&apos;: [1, 3], &apos;a&apos;: 1&#125;</span><br><span class="line">&gt;&gt;&gt; x               --&gt; &#123;&apos;b&apos;: [1, 3], &apos;a&apos;: 1&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="导入copy模块实现deep-copy"><a href="#导入copy模块实现deep-copy" class="headerlink" title="导入copy模块实现deep copy"></a>导入copy模块实现deep copy</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import copy</span><br><span class="line">&gt;&gt;&gt; x = &#123;&apos;a&apos;:1, &apos;b&apos;:[1, 2, 3]&#125;</span><br><span class="line">&gt;&gt;&gt; y = copy.copy(x)                # 浅拷贝和前面一样</span><br><span class="line">&gt;&gt;&gt; z = copy.deepcopy(x)            # 深拷贝</span><br><span class="line">&gt;&gt;&gt; id(x[&apos;b&apos;])  --&gt; 140541619106696</span><br><span class="line">&gt;&gt;&gt; id(z[&apos;b&apos;])  --&gt; 140541618998536 # 创建了两个列表对象</span><br><span class="line">&gt;&gt;&gt; z[&apos;b&apos;].remove(2)</span><br><span class="line">&gt;&gt;&gt; x           --&gt; &#123;&apos;a&apos;: 1, &apos;b&apos;: [1, 2, 3]&#125;</span><br><span class="line">&gt;&gt;&gt; z           --&gt; &#123;&apos;a&apos;: 1, &apos;b&apos;: [1, 3]&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>deepcopy可以创建两个id不一样的可变对象，但不影响不可变对象</p>
+</blockquote>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>python引用变量的顺序： 当前作用域局部变量-&gt;外层作用域变量-&gt;当前模块中的全局变量-&gt;python内置变量<br>global和nonlocal<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = 1           # 全局变量，可省略global关键字</span><br><span class="line">def y():</span><br><span class="line">    a = a + 1   # 全局变量可以在函数内部使用，但不能修改</span><br><span class="line"></span><br><span class="line">y()             # 报错</span><br></pre></td></tr></table></figure></p>
+<h4 id="变量解析规则"><a href="#变量解析规则" class="headerlink" title="变量解析规则"></a>变量解析规则</h4><p>在python的作用域规则里面，创建变量一定会在当前作用域里创建一个变量，但是访问或者修改变量时会先在当前作用域查找变量，没有找到匹配变量的话会依次向上在闭合的作用域里面进行查看找</p>
+<ul>
+<li>声明全局变量，如果在局部要对全局变量修改，需要在局部也要先声明该全局变量</li>
+<li>在局部如果不声明全局变量，并且不修改全局变量。则可以正常使用全局变量</li>
+<li>nonlocal关键字用来在函数或其他作用域中使用外层(非全局)变量</li>
+</ul>
+<blockquote>
+<p>避免出错的办法，就是尽量不重复使用</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/python3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/108.html</url>
+      <content type="html"><![CDATA[<h2 id="列表相减"><a href="#列表相减" class="headerlink" title="列表相减"></a>列表相减</h2><p>解法一:用for循环<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = [1, 2, 3, 3, 2, 1]</span><br><span class="line">y = [1, 4]</span><br><span class="line">z = []</span><br><span class="line"></span><br><span class="line">for i in x:</span><br><span class="line">    if i on in y:</span><br><span class="line">        z.append(i)</span><br><span class="line"></span><br><span class="line">print(z)            #--&gt; [2, 3, 3, 2]</span><br></pre></td></tr></table></figure></p>
+<p>解法二:用列表解析<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = [1, 2, 3, 3, 2, 1]</span><br><span class="line">&gt;&gt;&gt; y = [1, 4]</span><br><span class="line">&gt;&gt;&gt; z = [i for i in x if i not in y]</span><br><span class="line">&gt;&gt;&gt; z                                #--&gt; [2, 3, 3, 2]</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/python3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/121.html</url>
+      <content type="html"><![CDATA[<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><p>一般所有高级语言，都包含如下语句，Python也不例外：</p>
+<ul>
+<li>循环语句:容许一些语句反复运行数次。循环可依据一个默认的数目来决定运行这些语句的次数；或反复运行它们，直至某些条件改变。</li>
+<li>条件语句:容许仅当某些条件成立时才运行某个区块。否则，这个区块中的语句会略去，然后按区块后的语句继续运行。</li>
+<li>无条件分支语句容许运行顺序转移到程序的其他部分之中。包括跳跃（在很多语言中称为Goto）、副程序和Procedure等。</li>
+</ul>
+<p>循环、条件分支和无条件分支都是控制流程。</p>
+<h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><p>导入模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import math       # 可读性强</span><br><span class="line">&gt;&gt;&gt; math.pow(3,2)   --&gt; 9.0</span><br></pre></td></tr></table></figure></p>
+<p>导入模块中单个或多个方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from math import pow     # 可读性差</span><br><span class="line">&gt;&gt;&gt; from math import e, pi</span><br><span class="line">&gt;&gt;&gt; pow(3,2)                --&gt; 9.0</span><br><span class="line">&gt;&gt;&gt; pow(e,pi)               --&gt; 23.140692632779263</span><br></pre></td></tr></table></figure></p>
+<p>导入模块中的函数并自定义名称<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from math import pow as pingfang</span><br><span class="line">&gt;&gt;&gt; pingfang(3,2)           --&gt; 9.0</span><br></pre></td></tr></table></figure></p>
+<p>导入模块中的所有方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from math import *</span><br><span class="line">&gt;&gt;&gt; pow(3,2)</span><br><span class="line">9.0</span><br><span class="line">&gt;&gt;&gt; sqrt(9)</span><br><span class="line">3.0</span><br></pre></td></tr></table></figure></p>
+<h3 id="赋值语句"><a href="#赋值语句" class="headerlink" title="赋值语句"></a>赋值语句</h3><blockquote>
+<p>编程中的“=”和数学中的“=”是完全不同的。在编程语言中，“=”表示赋值过程。</p>
+</blockquote>
+<p>多重赋值语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x, y, z = 1, &quot;python&quot;, [&quot;hello&quot;, &quot;world&quot;]</span><br><span class="line">&gt;&gt;&gt; x       --&gt; 1</span><br><span class="line">&gt;&gt;&gt; y       --&gt; &apos;python&apos;</span><br><span class="line">&gt;&gt;&gt; z       --&gt; [&apos;hello&apos;, &apos;world&apos;]</span><br></pre></td></tr></table></figure></p>
+<p>变量值互换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = 2</span><br><span class="line">&gt;&gt;&gt; b = 9</span><br><span class="line">&gt;&gt;&gt; a, b = b, a        # 相当于标签互换</span><br><span class="line">&gt;&gt;&gt; a           --&gt; 9</span><br><span class="line">&gt;&gt;&gt; b           --&gt; 2</span><br></pre></td></tr></table></figure></p>
+<p>还有一种赋值方式，被称为“链式赋值”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; m = n = &quot;python&quot;</span><br><span class="line">&gt;&gt;&gt; m               --&gt; &quot;python&quot;</span><br><span class="line">&gt;&gt;&gt; n               --&gt; &quot;python&quot;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/python3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/122.html</url>
+      <content type="html"><![CDATA[<h3 id="if条件语句"><a href="#if条件语句" class="headerlink" title="if条件语句"></a>if条件语句</h3><p>基本语法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if bool(conj):      # 如果if后面的条件满足，则执行后面的语句块</span><br><span class="line">    do something    # 统一缩进4个空格</span><br></pre></td></tr></table></figure></p>
+<h3 id="if-…-elif-…-else"><a href="#if-…-elif-…-else" class="headerlink" title="if … elif … else"></a>if … elif … else</h3><p>基本样式结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if 条件1:     # 满足条件1则执行语句块1</span><br><span class="line">    语句块1</span><br><span class="line">elif 条件2:   # 满足条件2则执行语句块2</span><br><span class="line">    语句块2</span><br><span class="line">elif 条件3：</span><br><span class="line">    语句块3</span><br><span class="line">...</span><br><span class="line">else:       # 上面条件都都不满足才执行</span><br><span class="line">    语句块4</span><br></pre></td></tr></table></figure></p>
+<h3 id="三元操作符"><a href="#三元操作符" class="headerlink" title="三元操作符"></a>三元操作符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = -1</span><br><span class="line">&gt;&gt;&gt; y = 1 if x &gt; 0 else 2</span><br><span class="line">&gt;&gt;&gt; y                       --&gt; 2</span><br><span class="line">&gt;&gt;&gt; x = 2</span><br><span class="line">&gt;&gt;&gt; y                       --&gt; 1</span><br></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/python3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/123.html</url>
+      <content type="html"><![CDATA[<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>其基本结构是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for 循环规则：      # 冒号:结束</span><br><span class="line">    操作语句       # 缩进四个空格</span><br></pre></td></tr></table></figure></p>
+<p>字符串for循环：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; hello = &quot;world&quot;</span><br><span class="line">&gt;&gt;&gt; for i in hello:         # 冒号:结束</span><br><span class="line">...     print(i)            # print自带end=&apos;\n&apos;</span><br><span class="line">... </span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br></pre></td></tr></table></figure></p>
+<p><strong>循环的对象必须是可迭代的对象</strong>，判断是否存在:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &apos;__iter__&apos; in dir(1)        --&gt; False</span><br><span class="line">&gt;&gt;&gt; &apos;__iter__&apos; in dir(list)     --&gt; True</span><br></pre></td></tr></table></figure></p>
+<h3 id="range-start-stop-step-–-gt-range-object"><a href="#range-start-stop-step-–-gt-range-object" class="headerlink" title="range(start,stop[, step]) –&gt; range object"></a>range(start,stop[, step]) –&gt; range object</h3><ul>
+<li>start：开始数值，缺省则为0</li>
+<li>stop：结束的数值，必须要写，取值为stop-1</li>
+<li>step：变化的步长，缺省则为1<ul>
+<li>stop&gt;start : step&gt;0(非必须)</li>
+<li>stop&lt;start : step&lt;0(非必须)</li>
+</ul>
+</li>
+</ul>
+<h2 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while 判断条件:     # 冒号:结束</span><br><span class="line">    语句           # 缩进4个空格</span><br></pre></td></tr></table></figure>
+<h2 id="break语句"><a href="#break语句" class="headerlink" title="break语句"></a>break语句</h2><p>跳出 for 和 while 的循环体</p>
+<h2 id="continue语句"><a href="#continue语句" class="headerlink" title="continue语句"></a>continue语句</h2><p>跳过当前循环块中的剩余语句，然后继续进行下一轮循环</p>
+<h2 id="pass语句"><a href="#pass语句" class="headerlink" title="pass语句"></a>pass语句</h2><p>空语句，是为了保持程序结构的完整性，pass不做任何事情，一般用做占位语句</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/python3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/124.html</url>
+      <content type="html"><![CDATA[<h2 id="并行迭代"><a href="#并行迭代" class="headerlink" title="并行迭代"></a>并行迭代</h2><p>迭代两个以上的集合</p>
+<h3 id="zip-iter1-iter2-…-–-gt-zip-object"><a href="#zip-iter1-iter2-…-–-gt-zip-object" class="headerlink" title="zip(iter1 [,iter2 […]]) –&gt; zip object"></a>zip(iter1 [,iter2 […]]) –&gt; zip object</h3><h3 id="问题-多个矩阵元素互换"><a href="#问题-多个矩阵元素互换" class="headerlink" title="问题:多个矩阵元素互换"></a>问题:多个矩阵元素互换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = [1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; y = [4, 5, 6]</span><br><span class="line">&gt;&gt;&gt; z = [7, 8, 9]</span><br><span class="line">&gt;&gt;&gt; xyz = list(zip(x, y, z))</span><br><span class="line">&gt;&gt;&gt; xyz             #--&gt; [(1, 4, 7), (2, 5, 8), (3, 6, 9)]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; zyx = list(zip(*xyz))   # 参数加*解压</span><br><span class="line">&gt;&gt;&gt; zyx             #--&gt; [(1, 2, 3), (4, 5, 6), (7, 8, 9)]</span><br></pre></td></tr></table></figure>
+<h3 id="问题：有两个列表，分别是：a-1-2-3-4-5-b-9-8-7-6-5-，要计算这两个列表中对应元素的和。"><a href="#问题：有两个列表，分别是：a-1-2-3-4-5-b-9-8-7-6-5-，要计算这两个列表中对应元素的和。" class="headerlink" title="问题：有两个列表，分别是：a = [1, 2, 3, 4, 5], b = [9, 8, 7, 6, 5]，要计算这两个列表中对应元素的和。"></a>问题：有两个列表，分别是：a = [1, 2, 3, 4, 5], b = [9, 8, 7, 6, 5]，要计算这两个列表中对应元素的和。</h3><p>方法一:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = [1, 2, 3, 4, 5]</span><br><span class="line">&gt;&gt;&gt; b = [9, 8, 7, 6, 5]</span><br><span class="line">&gt;&gt;&gt; c = []</span><br><span class="line">&gt;&gt;&gt; for i in range(len(a)):</span><br><span class="line">...     c.append(a[i]+b[i])</span><br><span class="line">... </span><br><span class="line">&gt;&gt;&gt; c                       #--&gt; [10, 10, 10, 10, 10]</span><br></pre></td></tr></table></figure></p>
+<p>方法二:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d = []</span><br><span class="line">&gt;&gt;&gt; for x,y in zip(a,b):</span><br><span class="line">...     d.append(x+y)</span><br><span class="line">... </span><br><span class="line">&gt;&gt;&gt; d                       #--&gt; [10, 10, 10, 10, 10]</span><br></pre></td></tr></table></figure></p>
+<p>用列表解析:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = [a[i]+b[i] for i in range(len(a))]</span><br><span class="line">&gt;&gt;&gt; x                       #--&gt; [10, 10, 10, 10, 10]</span><br><span class="line">&gt;&gt;&gt; y = [x+y for x,y in zip(a,b)]</span><br><span class="line">&gt;&gt;&gt; y                       #--&gt; [10, 10, 10, 10, 10]</span><br></pre></td></tr></table></figure></p>
+<h3 id="问题-字典键值互换"><a href="#问题-字典键值互换" class="headerlink" title="问题:字典键值互换"></a>问题:字典键值互换</h3><p>用for循环:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d = &#123;&apos;a&apos;:1, &apos;b&apos;:2, &apos;c&apos;:3&#125;</span><br><span class="line">&gt;&gt;&gt; m = &#123;&#125;</span><br><span class="line">&gt;&gt;&gt; for k, v in d.items():</span><br><span class="line">...     m[v] = k            # 以v为key,以k为values添加键值对</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; m                       #--&gt; &#123;1: &apos;a&apos;, 2: &apos;b&apos;, 3: &apos;c&apos;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因为字典有items方法,而zip只能获得key:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = dict(zip(d.values(),d.keys()))</span><br><span class="line">&gt;&gt;&gt; x                       #--&gt; &#123;1: &apos;a&apos;, 2: &apos;b&apos;, 3: &apos;c&apos;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>用dict解析:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; y = &#123;v:k for k, v in d.items()&#125;</span><br><span class="line">&gt;&gt;&gt; y                       #--&gt; &#123;1: &apos;a&apos;, 2: &apos;b&apos;, 3: &apos;c&apos;&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/python3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/126.html</url>
+      <content type="html"><![CDATA[<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open(file, mode=&apos;r&apos;, buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opene r=None)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>以读方式打开文件，可读取文件信息,默认模式</td>
+</tr>
+<tr>
+<td>w</td>
+<td>以写方式打开文件，可向文件写入信息。如文件存在，则清空该文件，再写入新内容</td>
+</tr>
+<tr>
+<td>x</td>
+<td>以写模式新建一个文件</td>
+</tr>
+<tr>
+<td>a</td>
+<td>以追加模式打开文件（文件指针自动移到文件末尾），如果文件不存在则创建</td>
+</tr>
+<tr>
+<td>+</td>
+<td>配合其他模式r,w,a等,以读和写模式</td>
+</tr>
+<tr>
+<td>b</td>
+<td>二进制模式</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; f = open(&quot;130.txt&quot;)     # 在当前文件夹打开已存在的文件</span><br><span class="line">&gt;&gt;&gt; dir(f)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在对文件进行写入操作之后，一定要牢记一个事情：<code>file.close()</code></p>
+</blockquote>
+<h3 id="with…as…"><a href="#with…as…" class="headerlink" title="with…as…"></a>with…as…</h3><p>用with语句不用关闭文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; with open(&quot;130.txt&quot;,&quot;a&quot;) as f:</span><br><span class="line">...     f.write(&quot;\nThis is about &apos;with...as...&apos;&quot;)</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<h3 id="常用文件方法"><a href="#常用文件方法" class="headerlink" title="常用文件方法"></a>常用文件方法</h3><h4 id="f-read-size"><a href="#f-read-size" class="headerlink" title="f.read([size])"></a>f.read([size])</h4><p>如果指定了参数size，就按照该指定长度从文件中读取内容，否则，就读取全文直到EOF</p>
+<h4 id="f-readline-size"><a href="#f-readline-size" class="headerlink" title="f.readline([size])"></a>f.readline([size])</h4><ul>
+<li>如果指定了参数size,则读取指定长度的内容,直到行尾才会读取下一行</li>
+<li>如果不指定参数,则一行一行读取</li>
+</ul>
+<h4 id="f-readlines-hint"><a href="#f-readlines-hint" class="headerlink" title="f.readlines([hint])"></a>f.readlines([hint])</h4><ul>
+<li>返回该文件中包含的所有行。</li>
+<li>如果设置可选参数hint, 则读取指定长度的字节, 并且将这些字节按行分割</li>
+</ul>
+<blockquote>
+<p>EOF(End-of-file)</p>
+</blockquote>
+<h4 id="f-write-string"><a href="#f-write-string" class="headerlink" title="f.write(string)"></a>f.write(string)</h4><p>将 string 写入到文件中, 然后<code>返回</code>写入的字符数</p>
+<h4 id="f-tell"><a href="#f-tell" class="headerlink" title="f.tell()"></a>f.tell()</h4><p>返回文件对象当前所处的位置, 它是从文件开头开始算起的字节数</p>
+<h4 id="f-seek-offset-whence"><a href="#f-seek-offset-whence" class="headerlink" title="f.seek(offset[, whence])"></a>f.seek(offset[, whence])</h4><p>这个函数的功能就是让指针移动。<br>whence的值：</p>
+<ul>
+<li>默认值是0，表示从文件开头开始计算指针偏移的量（简称偏移量）。此时offset必须是大于等于0的整数。</li>
+<li>是1时，表示从当前位置开始计算偏移量。offset如果是负数，表示从当前位置向前移动，整数表示向后移动。</li>
+<li>是2时，表示相对文件末尾移动。</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/python3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/128.html</url>
+      <content type="html"><![CDATA[<p>在使用Python的过程中，很容易混淆如下几个关联的概念：</p>
+<ul>
+<li>容器(container)</li>
+<li>可迭代对象(Iterable)</li>
+<li>迭代器(Iterator)</li>
+<li>生成器(generator)</li>
+<li>list, set, dict解析式</li>
+<li>生成器表达式</li>
+</ul>
+<h3 id="容器（container"><a href="#容器（container" class="headerlink" title="容器（container)"></a>容器（container)</h3><p>容器是用来储存元素的一种数据结构，它支持隶属测试，容器将所有数据保存在内存中，在Python中典型的容器有：</p>
+<ul>
+<li>list， deque, …</li>
+<li>set，frozesets，…</li>
+<li>dict, defaultdict, OrderedDict, Counter, …</li>
+<li>tuple, namedtuple, …</li>
+<li>str</li>
+</ul>
+<p>用in,not in判断是否存在,字典容器通过检查是否包含键来进行判断<br>,字符串通过检查是否包含某个子串来判断<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 1 in [1,2,3]      #--&gt; True</span><br><span class="line">&gt;&gt;&gt; 4 in [1,2,3]      #--&gt; False</span><br><span class="line">&gt;&gt;&gt; 4 not in [1,2,3]  #--&gt; True</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>注意</strong>：并非所有的容器都是可迭代对象。</p>
+</blockquote>
+<h3 id="可迭代对象"><a href="#可迭代对象" class="headerlink" title="可迭代对象"></a>可迭代对象</h3><p>正如前面所提到的，大部分容器都是可迭代的，但是还有其他一些对象也可以迭代，例如，文件对象以及管道对象等等<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = [1,2,3]</span><br><span class="line">&gt;&gt;&gt; y = iter(x）</span><br><span class="line">&gt;&gt;&gt; next(y)     #--&gt; 1</span><br><span class="line">&gt;&gt;&gt; next(y)     #--&gt; 2</span><br><span class="line">&gt;&gt;&gt; type(x)     #--&gt; &lt;class &apos;list&apos;&gt;</span><br><span class="line">&gt;&gt;&gt; type(y)     #--&gt; &lt;class &apos;list_iterator&apos;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在这里，x是可迭代对象。而y是迭代器，可以从可迭代对象x中获取值。</p>
+<blockquote>
+<p><strong>注意</strong>：可迭代的类中，一般实现以下两个方法，<code>__iter__()</code>以及<code>__next()__</code>方法，<code>__iter__()</code>方法返回self。</p>
+</blockquote>
+<p>实际调用过程如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1677721-9453ca206b60475d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="迭代器-Iterators"><a href="#迭代器-Iterators" class="headerlink" title="迭代器(Iterators)"></a>迭代器(Iterators)</h3><ul>
+<li>迭代器是一个可以记住遍历的位置的对象。</li>
+<li>迭代器对象从第一个元素开始访问，直到所有的元素被访问完结束。</li>
+<li>迭代器只能往前不会后退。</li>
+<li>迭代器有两个基本的方法：<code>__iter__()</code> 和 <code>__next__()</code></li>
+</ul>
+<h4 id="itertools模块"><a href="#itertools模块" class="headerlink" title="itertools模块"></a>itertools模块</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from itertools import count</span><br><span class="line">&gt;&gt;&gt; counter = count(start=13)</span><br><span class="line">&gt;&gt;&gt; next(counter)               --&gt; 13</span><br><span class="line">&gt;&gt;&gt; next（counter)              --&gt; 14</span><br></pre></td></tr></table></figure>
+<p>无限序列：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from itertools import cycle</span><br><span class="line">&gt;&gt;&gt; colors = cycle([&quot;red&quot;,&quot;white&quot;,&quot;blue&quot;])</span><br><span class="line">&gt;&gt;&gt; next(colors)           --&gt; &quot;red&quot;</span><br><span class="line">&gt;&gt;&gt; next(colors）          --&gt; &quot;white&quot;</span><br><span class="line">&gt;&gt;&gt; next(colors)           --&gt; &quot;blue&quot;</span><br><span class="line">&gt;&gt;&gt; next(colors)           --&gt; &quot;red&quot;</span><br></pre></td></tr></table></figure></p>
+<p>无限序列生成有限序列：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from itertools import islice</span><br><span class="line">&gt;&gt;&gt; colors = cycle([&apos;red&apos;, &apos;white&apos;, &apos;blue&apos;])    # infinite</span><br><span class="line">&gt;&gt;&gt; limited = islice(colors, 0, 4)              # finite</span><br><span class="line">&gt;&gt;&gt; for x in limited:       # so safe to use for-loop on</span><br><span class="line">...     print(x)</span><br><span class="line">red</span><br><span class="line">white</span><br><span class="line">blue</span><br><span class="line">red</span><br></pre></td></tr></table></figure></p>
+<h3 id="生成器-generator"><a href="#生成器-generator" class="headerlink" title="生成器(generator)"></a>生成器(generator)</h3><p>带有<code>yield</code>关键字的的函数在Python中被称之为 generator(生成器)。<br>一个函数或者子程序都只能return一次，但是一个生成器能暂停执行并返回一个中间的结果。</p>
+<blockquote>
+<p>生成器其实就是一种特殊的迭代器</p>
+</blockquote>
+<p>生成器的另一个优点就是无须将对象的所有元素都存入内存之后，才开始进行操作。生成器仅在迭代至某个元素时才会将该元素放入内存，而在这之前或之后，元素可以不存在或者被销毁。这个特点使得它特别适合用于遍历一些巨大的或是无限的类序列对象，EG. 大文件/大集合/大字典/斐波那契数列等。这个特点被称为 延迟计算 或 惰性求值(Lazy evaluation)，可以有效的节省内存。</p>
+<h3 id="list解析式"><a href="#list解析式" class="headerlink" title="list解析式"></a>list解析式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[expr for iter_var in iterable]    # 最终生成一个列表[expr]</span><br><span class="line">[expr for iter_var in iterable if cond_expr]</span><br></pre></td></tr></table></figure>
+<p>代码实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = [(x+1,y+1) for x in range(2) for y in range(3)] </span><br><span class="line">&gt;&gt;&gt; x   #--&gt; [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; y = [x+10 for x in range(10) if x&gt;5]</span><br><span class="line">&gt;&gt;&gt; y   #--&gt; [16, 17, 18, 19]</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>还有集合解析，类似列表解析，区别在于结果满足集合的特性</p>
+</blockquote>
+<h3 id="dict解析式"><a href="#dict解析式" class="headerlink" title="dict解析式"></a>dict解析式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = &#123;&quot;a&quot;:1, &quot;b&quot;:2, &quot;c&quot;:3, &quot;d&quot;:4&#125;</span><br><span class="line">&gt;&gt;&gt; y = &#123;v:k for k,v in x.items()&#125;</span><br><span class="line">&gt;&gt;&gt; y   #--&gt; &#123;1: &apos;a&apos;, 2: &apos;b&apos;, 3: &apos;c&apos;, 4: &apos;d&apos;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="生成器表达式"><a href="#生成器表达式" class="headerlink" title="生成器表达式"></a>生成器表达式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(expr for iter_var in iterable)</span><br><span class="line">(expr for iter_var in iterable if cond_expr)</span><br></pre></td></tr></table></figure>
+<p>当序列过长，而每次只需要获取一个元素时，应当考虑使用生成器表达式而不是列表解析。生成器表达式的语法和列表解析一样，只不过生成器表达式是被<code>()</code>括起来的，而不是<code>[]</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; y = (x+10 for x in range(10) if x&gt;5)</span><br><span class="line">&gt;&gt;&gt; y</span><br><span class="line">&lt;generator object &lt;genexpr&gt; at 0x7faeee369d58&gt;</span><br><span class="line">&gt;&gt;&gt; y.__next__()    #--&gt; 16</span><br><span class="line">&gt;&gt;&gt; y.__next__()    #--&gt; 17</span><br><span class="line">&gt;&gt;&gt; y.__next__()    #--&gt; 18</span><br><span class="line">&gt;&gt;&gt; y.__next__()    #--&gt; 19</span><br><span class="line">&gt;&gt;&gt; y.__next__()</span><br><span class="line">StopIteration    Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input-18-989149fd7263&gt; in &lt;module&gt;()</span><br><span class="line">----&gt; 1 y.__next__()</span><br></pre></td></tr></table></figure></p>
+<p>生成器表达式并不真正创建数字列表， 而是返回一个生成器，这个生成器在每次计算出一个条目后，把这个条目“产生”(yield)出来。 生成器表达式使用了“惰性计算”(lazy evaluation)，只有在检索时才被赋值 (evaluated)，所以在列表比较长的情况下使用内存上更有效。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/python3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/204.html</url>
+      <content type="html"><![CDATA[<h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><blockquote>
+<p>递归（recursion），又译为递回，在数学与计算机科学中，是指在函数的定义中使用函数自身的方法。</p>
+</blockquote>
+<p>根据斐波那契数列的定义，可以直接写成这样的斐波那契数列递归函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"># coding=utf-8</span><br><span class="line"></span><br><span class="line">def fib(n):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    This is Fibonacci by Recursion.</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    if n==0:</span><br><span class="line">        return 0</span><br><span class="line">    elif n==1:</span><br><span class="line">        return 1</span><br><span class="line">    else:</span><br><span class="line">        return fib(n-1) + fib(n-2)</span><br><span class="line"></span><br><span class="line">n = int(input(&apos;输入正整数:&apos;))</span><br><span class="line">print(fib(n))</span><br></pre></td></tr></table></figure></p>
+<p>解析当n = 4时：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fib(4) = fib(3)       +     fib(2)</span><br><span class="line">             ↓                  ↓</span><br><span class="line">      fib(2) + fib(1)    fib(1) + fib(0)</span><br><span class="line">          ↓</span><br><span class="line">   fib(1) + fib(0)</span><br></pre></td></tr></table></figure></p>
+<p>相当于fib(4) = 3<em>fib(1) + 2</em>fib(0) -&gt; 3</p>
+<blockquote>
+<p>上面的代码每次递回下一级函数，都要判断一次判断一次if和elif</p>
+</blockquote>
+<p>相当于</p>
+<p>优化代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># coding=utf-8</span><br><span class="line"></span><br><span class="line">d = &#123;0:0, 1:1&#125;    </span><br><span class="line"></span><br><span class="line">def fib(n):</span><br><span class="line">    if not n in d:    </span><br><span class="line">        d[n] = fib(n-1) + fib(n-2)</span><br><span class="line">    return d[n]</span><br><span class="line"></span><br><span class="line">n = int(input(&apos;输入正整数:&apos;))</span><br><span class="line">print(d(n))</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>用递归函数要小心，因为很容易陷入死循环</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/python3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/130.html</url>
+      <content type="html"><![CDATA[<h2 id="自省"><a href="#自省" class="headerlink" title="自省"></a>自省</h2><blockquote>
+<p>来源<a href="http://www.ibm.com/developerworks/cn/linux/l-pyint/#ibm-pcon" target="_blank" rel="noopener">《Python自省指南》</a></p>
+</blockquote>
+<h3 id="联机帮助"><a href="#联机帮助" class="headerlink" title="联机帮助"></a>联机帮助</h3><p>在交互模式下，用help向python请求帮助。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; help()</span><br><span class="line"></span><br><span class="line">Welcome to Python 3.5&apos;s help utility!</span><br><span class="line"></span><br><span class="line">If this is your first time using Python, you should definitely check out</span><br><span class="line">the tutorial on the Internet at http://docs.python.org/3.5/tutorial/.</span><br><span class="line"></span><br><span class="line">Enter the name of any module, keyword, or topic to get help on writing</span><br><span class="line">Python programs and using Python modules.  To quit this help utility and</span><br><span class="line">return to the interpreter, just type &quot;quit&quot;.</span><br><span class="line"></span><br><span class="line">To get a list of available modules, keywords, symbols, or topics, type</span><br><span class="line">&quot;modules&quot;, &quot;keywords&quot;, &quot;symbols&quot;, or &quot;topics&quot;.  Each module also comes</span><br><span class="line">with a one-line summary of what it does; to list the modules whose name</span><br><span class="line">or summary contain a given string such as &quot;spam&quot;, type &quot;modules spam&quot;.</span><br><span class="line"></span><br><span class="line">help&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这时候就进入了联机帮助状态，根据提示输入<code>keywords</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">help&gt; keywords</span><br><span class="line"></span><br><span class="line">Here is a list of the Python keywords.  Enter any keyword to get more help.</span><br><span class="line"></span><br><span class="line">False               def                 if                  raise</span><br><span class="line">None                del                 import              return</span><br><span class="line">True                elif                in                  try</span><br><span class="line">and                 else                is                  while</span><br><span class="line">as                  except              lambda              with</span><br><span class="line">assert              finally             nonlocal            yield</span><br><span class="line">break               for                 not</span><br><span class="line">class               from                or</span><br><span class="line">continue            global              pass</span><br></pre></td></tr></table></figure></p>
+<p>如果从文档说明界面返回到帮助界面，需要按<code>q</code>键。<br>从联机帮助状态退回到python的交互模式，使用<code>quit</code>命令。</p>
+<h3 id="dir"><a href="#dir" class="headerlink" title="dir()"></a>dir()</h3><p>dir() 函数可能是 Python 自省机制中最著名的部分了。它返回传递给它的任何对象的属性名称经过排序的列表。如果不指定对象，则 dir() 返回当前作用域中的名称。让我们将 dir() 函数应用于 keyword 模块，并观察它揭示了什么：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import keyword</span><br><span class="line">&gt;&gt;&gt; dir(keyword)</span><br><span class="line">[&apos;__all__&apos;, &apos;__builtins__&apos;, &apos;__doc__&apos;, &apos;__file__&apos;, &apos;__name__&apos;, &apos;__package__&apos;, &apos;iskeyword&apos;, &apos;kwlist&apos;, &apos;main&apos;]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; __builtins__</span><br><span class="line">&lt;module &apos;__builtin__&apos; (built-in)&gt;</span><br></pre></td></tr></table></figure></p>
+<p>注：如果您在磁盘上寻找 <code>__builtin__.py</code> 文件，将空手而归。这个特殊的模块对象是 Python 解释器凭空创建的，因为它包含着解释器始终可用的项。尽管看不到物理文件，但我们仍可以将 dir() 函数应用于这个对象，以观察所有内置函数、错误对象以及它所包含的几个杂项属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; dir(__builtins__)</span><br><span class="line">[省略...... &apos;__debug__&apos;, &apos;__doc__&apos;, &apos;__import__&apos;, &apos;__name__&apos;, &apos;__package__&apos;, &apos;abs&apos;, &apos;all&apos;, &apos;any&apos;, &apos;apply&apos;, &apos;ascii&apos;, &apos;basestring&apos;, &apos;bin&apos;, &apos;bool&apos;, &apos;buffer&apos;, &apos;bytearray&apos;, &apos;bytes&apos;, &apos;callable&apos;, &apos;chr&apos;, &apos;classmethod&apos;, &apos;cmp&apos;, &apos;coerce&apos;, &apos;compile&apos;, &apos;complex&apos;, &apos;copyright&apos;, &apos;credits&apos;, &apos;delattr&apos;, &apos;dict&apos;, &apos;dir&apos;, &apos;divmod&apos;, &apos;enumerate&apos;, &apos;eval&apos;, &apos;execfile&apos;, &apos;exit&apos;, &apos;file&apos;, &apos;filter&apos;, &apos;float&apos;, &apos;format&apos;, &apos;frozenset&apos;, &apos;getattr&apos;, &apos;globals&apos;, &apos;hasattr&apos;, &apos;hash&apos;, &apos;help&apos;, &apos;hex&apos;, &apos;id&apos;, &apos;input&apos;, &apos;int&apos;, &apos;intern&apos;, &apos;isinstance&apos;, &apos;issubclass&apos;, &apos;iter&apos;, &apos;len&apos;, &apos;license&apos;, &apos;list&apos;, &apos;locals&apos;, &apos;long&apos;, &apos;map&apos;, &apos;max&apos;, &apos;memoryview&apos;, &apos;min&apos;, &apos;next&apos;, &apos;ngettext&apos;, &apos;object&apos;, &apos;oct&apos;, &apos;open&apos;, &apos;ord&apos;, &apos;pow&apos;, &apos;print&apos;, &apos;property&apos;, &apos;quit&apos;, &apos;range&apos;, &apos;raw_input&apos;, &apos;reduce&apos;, &apos;reload&apos;, &apos;repr&apos;, &apos;reversed&apos;, &apos;round&apos;, &apos;set&apos;, &apos;setattr&apos;, &apos;slice&apos;, &apos;sorted&apos;, &apos;staticmethod&apos;, &apos;str&apos;, &apos;sum&apos;, &apos;super&apos;, &apos;tuple&apos;, &apos;type&apos;, &apos;unichr&apos;, &apos;unicode&apos;, &apos;vars&apos;, &apos;xrange&apos;, &apos;zip&apos;]</span><br></pre></td></tr></table></figure></p>
+<p>dir() 函数适用于所有对象类型，包括字符串、整数、列表、元组、字典、函数、定制类、类实例和类方法</p>
+<blockquote>
+<p><code>dir(42)</code>,<code>dir([])</code>,<code>dir(())</code>,<code>dir({})</code>,<code>dir(dir)</code></p>
+</blockquote>
+<h3 id="检查python对象"><a href="#检查python对象" class="headerlink" title="检查python对象"></a>检查python对象</h3><p>在计算机术语中，对象是拥有标识和值的事物，属于特定类型、具有特定特征和以特定方式执行操作。并且，对象从一个或多个父类继承了它们的许多属性。除了关键字和特殊符号（像运算符，如 + 、 - 、 <em> 、 *</em> 、 / 、 % 、 &lt; 、 &gt; 等）外，Python 中的所有东西都是对象。Python具有一组丰富的对象类型：字符串、整数、浮点、列表、元组、字典、函数、类、类实例、模块、文件等。</p>
+<p>当您有一个任意的对象（也许是一个作为参数传递给函数的对象）时，可能希望知道一些关于该对象的情况。如希望python告诉我们：</p>
+<ul>
+<li>对象的名称是什么？</li>
+<li>这是哪种类型的对象？</li>
+<li>对象知道些什么？</li>
+<li>对象能做些什么？</li>
+<li>对象的父对象是谁？</li>
+</ul>
+<h3 id="文档字符串-doc-属性"><a href="#文档字符串-doc-属性" class="headerlink" title="文档字符串__doc__属性"></a>文档字符串<code>__doc__</code>属性</h3><p><code>__doc__</code> 这个属性是一个字符串，它包含了描述对象的注释。Python 称之为文档字符串或docstring<br>如果模块、类、方法或函数定义的第一条语句是字符串，那么该字符串会作为对象的 <code>__doc__</code> 属性与该对象关联起来。例如，看一下str类型对象的文档字符串。</p>
+<h3 id="名称-name-属性"><a href="#名称-name-属性" class="headerlink" title="名称__name__属性"></a>名称<code>__name__</code>属性</h3><ul>
+<li>如果模块是被导入，<code>__name__</code>的值为模块名字</li>
+<li>如果是被直接执行，<code>__name__</code>的值为<code>__main__</code></li>
+</ul>
+<blockquote>
+<p>此处所说的模块可以简单理解为一个.py文件</p>
+</blockquote>
+<p>并非所有对象都有名称，但那些有名称的对象都将名称存储在其 <code>__name__</code> 属性中。注：名称是从对象而不是引用该对象的变量中派生的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    # Do something appropriate here, like calling a</span><br><span class="line">    # main() function defined elsewhere in this module.</span><br><span class="line">    main()</span><br><span class="line">else:</span><br><span class="line">    # Do nothing. This module has been imported by another</span><br><span class="line">    # module that wants to make use of the functions,</span><br><span class="line">    # classes and other useful bits it has defined.</span><br></pre></td></tr></table></figure>
+<h3 id="类型type"><a href="#类型type" class="headerlink" title="类型type()"></a>类型type()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; type(42)    #--&gt; &lt;type &apos;int&apos;&gt;</span><br><span class="line">&gt;&gt;&gt; type([])    #--&gt; &lt;type &apos;list&apos;&gt;</span><br><span class="line">&gt;&gt;&gt; type(&#123;&#125;)    #--&gt; &lt;type &apos;dict&apos;&gt;</span><br><span class="line">&gt;&gt;&gt; type(dir)   #--&gt; &lt;type &apos;builtin_function_or_method&apos;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="标识id"><a href="#标识id" class="headerlink" title="标识id()"></a>标识id()</h3><h3 id="检测是否存在属性in-not-in"><a href="#检测是否存在属性in-not-in" class="headerlink" title="检测是否存在属性in/not in"></a>检测是否存在属性in/not in</h3><h3 id="可调用callable"><a href="#可调用callable" class="headerlink" title="可调用callable()"></a>可调用callable()</h3><ol>
+<li>callable()方法用来检测对象是否可被调用，可被调用指的是对象能否使用()括号的方法调用。</li>
+<li>可调用对象，在实际调用也可能调用失败；但是不可调用对象，调用肯定不成功。</li>
+<li>类对象都是可被调用对象，类的实例对象是否可调用对象，取决于类是否定义了<strong>call</strong>方法。</li>
+</ol>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>在 type() 函数提供对象的类型时，还可以使用 isinstance() 函数测试对象，以确定它是否是某个特定类型或定制类的实例：</p>
+<h3 id="子类"><a href="#子类" class="headerlink" title="子类"></a>子类</h3><p>关于类的问题，有一个“继承”概念，有继承就有父子问题，这是在现实生活中很正常的，在编程语言中也是如此。虽然这是后面要说的，但是，为了本讲内容的完整，也姑且把这个内容放在这里。读者可以不看，留着以后看也行。我更建议还是阅读一下，有个印象。</p>
+<p>在类这一级别，可以根据一个类来定义另一个类，同样地，这个新类会按照层次化的方式继承属性。Python 甚至支持多重继承，多重继承意味着可以用多个父类来定义一个类，这个新类继承了多个父类。 issubclass() 函数使我们可以查看一个类是不是继承了另一个类：</p>
+<h2 id="python文档"><a href="#python文档" class="headerlink" title="python文档"></a>python文档</h2><p>1.文档是一种对软件系统的书面描述；<br>2.文档应当精确地描述软件系统；<br>3.软件文档是软件工程师之间用作沟通交流的一种方式；<br>4.文档的类型有很多种，包括软件需求文档，设计文档，测试文档，用户手册等；<br>5.文档的呈现方式有很多种，可以是传统的书面文字形式或图表形式，也可是动态的网页形式</p>
+<p>python文档的网址：<a href="https://docs.python.org/2/" target="_blank" rel="noopener">https://docs.python.org/2/</a>，这是python2.x，从这里也可以找到python3.x的文档。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/python3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/202.html</url>
+      <content type="html"><![CDATA[<h2 id="built-in-function"><a href="#built-in-function" class="headerlink" title="built-in function"></a>built-in function</h2><pre><code>&gt;&gt;&gt; dir(__builtins__)
+[...省略... &apos;abs&apos;, &apos;all&apos;, &apos;any&apos;, &apos;ascii&apos;, &apos;bin&apos;, &apos;bool&apos;, &apos;bytearray&apos;, &apos;bytes&apos;, &apos;callable&apos;, &apos;chr&apos;, &apos;classmethod&apos;, &apos;compile&apos;, &apos;complex&apos;, &apos;copyright&apos;, &apos;credits&apos;, &apos;delattr&apos;, &apos;dict&apos;, &apos;dir&apos;, &apos;divmod&apos;, &apos;enumerate&apos;, &apos;eval&apos;, &apos;exec&apos;, &apos;exit&apos;, &apos;filter&apos;, &apos;float&apos;, &apos;format&apos;, &apos;frozenset&apos;, &apos;getattr&apos;, &apos;globals&apos;, &apos;hasattr&apos;, &apos;hash&apos;, &apos;help&apos;, &apos;hex&apos;, &apos;id&apos;, &apos;input&apos;, &apos;int&apos;, &apos;isinstance&apos;, &apos;issubclass&apos;, &apos;iter&apos;, &apos;len&apos;, &apos;license&apos;, &apos;list&apos;, &apos;locals&apos;, &apos;map&apos;, &apos;max&apos;, &apos;memoryview&apos;, &apos;min&apos;, &apos;next&apos;, &apos;object&apos;, &apos;oct&apos;, &apos;open&apos;, &apos;ord&apos;, &apos;pow&apos;, &apos;print&apos;, &apos;property&apos;, &apos;quit&apos;, &apos;range&apos;, &apos;repr&apos;, &apos;reversed&apos;, &apos;round&apos;, &apos;set&apos;, &apos;setattr&apos;, &apos;slice&apos;, &apos;sorted&apos;, &apos;staticmethod&apos;, &apos;str&apos;, &apos;sum&apos;, &apos;super&apos;, &apos;tuple&apos;, &apos;type&apos;, &apos;vars&apos;, &apos;zip&apos;]
+</code></pre><h3 id="常用内建函数"><a href="#常用内建函数" class="headerlink" title="常用内建函数"></a>常用内建函数</h3><pre><code>[&apos;dir&apos;, &apos;format&apos;, &apos;help&apos;, &apos;id&apos;, &apos;input&apos;, &apos;open&apos;, &apos;print&apos;, &apos;quit&apos;, &apos;range&apos;, &apos;type&apos;, &apos;input&apos;, &apos;zip&apos;]
+</code></pre><h3 id="数学相关"><a href="#数学相关" class="headerlink" title="数学相关"></a>数学相关</h3><pre><code>[&apos;abs&apos;, &apos;len&apos;, &apos;max&apos;, &apos;min&apos;, &apos;pow&apos;, &apos;round&apos;, &apos;reversed&apos;, &apos;sorted&apos;, &apos;sum&apos;, &apos;divmod&apos;]
+</code></pre><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><pre><code>[&apos;bool&apos;, &apos;complex&apos;, &apos;dict&apos;, &apos;list&apos;, &apos;str&apos;, &apos;int&apos;, &apos;float&apos;, &apos;tuple&apos;, &apos;set&apos;, &apos;iter&apos;]
+</code></pre><h3 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h3><pre><code>[&apos;filter&apos;, &apos;map&apos;]
+</code></pre><h3 id="0-255与相应ascii码转换"><a href="#0-255与相应ascii码转换" class="headerlink" title="0-255与相应ascii码转换"></a>0-255与相应ascii码转换</h3><pre><code>[&apos;chr&apos;, &apos;ord&apos;]
+</code></pre><h3 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h3><pre><code>[&apos;bin&apos;, &apos;hex&apos;, &apos;oct&apos;]
+</code></pre><h3 id="类相关"><a href="#类相关" class="headerlink" title="类相关"></a>类相关</h3><pre><code>[&apos;callable&apos;, &apos;classmethod&apos;, &apos;delattr&apos;, &apos;getattr&apos;, &apos;hasattr&apos;, &apos;issubclass&apos;, &apos;isinstance&apos;, &apos;setattr&apos;, &apos;staticmethod&apos;, &apos;super&apos;]
+</code></pre><h3 id="变量相关"><a href="#变量相关" class="headerlink" title="变量相关"></a>变量相关</h3><pre><code>[&apos;globals&apos;, &apos;locals&apos;, &apos;vars&apos;]
+</code></pre><h2 id="内建函数简介"><a href="#内建函数简介" class="headerlink" title="内建函数简介"></a>内建函数简介</h2><ol>
+<li>abs()　　获取绝对值</li>
+<li>all()　　接受一个迭代器，如果迭代器的所有元素都为真，那么返回True，否则返回False</li>
+<li>any()　　接受一个迭代器，如果迭代器里有一个元素为真，那么返回True,否则返回False</li>
+<li>ascii()　　调用对象的<strong>repr</strong>()方法，获得该方法的返回值.</li>
+<li>bin() 　将十进制数分别转换为2进制</li>
+<li>oct()   将十进制数分别转换为8进制</li>
+<li>hex()  　将十进制数分别转换为16进制。</li>
+<li>bool()　　测试一个对象是True还是False.</li>
+<li>bytes()　　将一个字符串转换成字节类型</li>
+<li>str()　　将字符类型/数值类型等转换为字符串类型</li>
+<li>challable()　　判断对象是否可以被调用，能被调用的对象就是一个callables对象，比如函数和带有<strong>call</strong>()的实例</li>
+<li>char()，13. ord()　　查看十进制数对应的ASCII字符/查看某个ASCII对应的十进制数</li>
+<li>classmethod()　　用来指定一个方法为类的方法，由类直接调用执行，只有一个cls参数,执行雷的方法时，自动将调用该方法的类赋值给cls.没有此参数指定的类的方法为实例方法</li>
+<li>complie()　　将字符串编译成python能识别或可以执行的代码，也可以将文字读成字符串再编译</li>
+<li>complex()</li>
+<li>delattr()　　删除对象的属性</li>
+<li>dict()　　创建数据字典</li>
+<li>dir()　　不带参数时返回当前范围内的变量，方法和定义的类型列表，带参数时返回参数的属性，方法列表</li>
+<li>divmod()　　分别取商和余数</li>
+<li>enumerate()　　返回一个可以枚举的对象，该对象的next()方法将返回一个元组</li>
+<li>eval()　　将字符串str当成有效的表达式来求值并返回计算结果</li>
+<li>exec()　　执行字符串或complie方法编译过的字符串，没有返回值</li>
+<li>filter()　　过滤器，构造一个序列，等价于[ item for item in iterables if function(item)]，在函数中设定过滤条件，逐一循环迭代器中的元素，将返回值为True时的元素留下，形成一个filter类型数据</li>
+<li>float()　　讲一个字符串或整数转换为浮点数</li>
+<li>format()　　格式化输出字符串</li>
+<li>frozenset()　　创建一个不可修改的集合</li>
+<li>getattr()　　获取对象的属性</li>
+<li>globals()　　返回一个描述当前全局变量的字典</li>
+<li>hasattr()   判断对象object是否包含名为name的特性（hasattr是通过调用getattr(object，name)）是否抛出异常来实现的。</li>
+<li>hash()　　哈希值</li>
+<li>help()　　返回对象的帮助文档</li>
+<li>id()　　返回对象的内存地址</li>
+<li>input()　　获取用户输入内容</li>
+<li>int()　　将一个字符串或数值转换为一个普通整数</li>
+<li>isinstance()　　检查对象是否是类的对象，返回True或False</li>
+<li>issubclass()　　检查一个类是否是另一个类的子类。返回True或False</li>
+<li>iter()  返回一个iterator对象</li>
+<li>len()　　返回对象长度</li>
+<li>list()　　列表构造函数</li>
+<li>locals()　　打印当前可用的局部变量的字典</li>
+<li>map(function, iterable,…) 对于参数iterable中的每个元素都应用fuction函数，并将结果作为列表返回。</li>
+<li>max()　　返回给定元素里最大值</li>
+<li>min()　　返回给定元素里最小值</li>
+<li>next()　　返回一个可迭代数据结构（如列表）中的下一项</li>
+<li>object()  获取一个新的，无特性(geatureless)对象。Object是所有类的基类。它提供的方法将在所有的类型实例中共享。</li>
+<li>open()　　打开文件</li>
+<li>pow()　　幂函数</li>
+<li>property()</li>
+<li>range()　　根据需要生成一个指定范围的数字，可以提供你需要的控制来迭代指定的次数</li>
+<li>repr()　　将任意值转换为字符串，供计时器读取的形式</li>
+<li>reversed()　　　反转，逆序对象</li>
+<li>round()　　四舍五入</li>
+<li>set()    集合构造函数</li>
+<li>setattr()　　与getattr()相对应</li>
+<li>slice()　　切片功能</li>
+<li>sorted()　　排序</li>
+<li>staticmethod()</li>
+<li>str()　　字符串构造函数</li>
+<li>sum()　　求和</li>
+<li>super()　　调用父类的方法</li>
+<li>tuple()　　元组构造函数</li>
+<li>type()　　显示对象所属的类型</li>
+<li>vars()　　返回 <code>__dict__</code> 属性, 比如模块, 类, 实例, 或者其他 带有 <code>__dict__</code> 属性的 object</li>
+<li>zip()　　将对象逐一配对</li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/python3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/237.html</url>
+      <content type="html"><![CDATA[<p>Python是支持多种范型的语言，可以进行所谓函数式编程，其突出体现在有这么几个函数：filter、map、reduce、lambda、yield。</p>
+<h3 id="匿名函数lambda"><a href="#匿名函数lambda" class="headerlink" title="匿名函数lambda"></a>匿名函数lambda</h3><ul>
+<li>在lambda后面直接跟变量</li>
+<li>变量后面是冒号</li>
+<li>冒号后面是表达式，表达式计算结果就是本函数的返回值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lambda x: x * x     #--&gt; def func(x): return(x*x)</span><br><span class="line">lambda x: x%2</span><br><span class="line">lambda x, y: (x, y)   #--&gt; def f(x, y): return (x, y)</span><br></pre></td></tr></table></figure>
+<h3 id="map-function-iterable-iterable2"><a href="#map-function-iterable-iterable2" class="headerlink" title="map(function, iterable[,iterable2])"></a>map(function, iterable[,iterable2])</h3><p>原理是: </p>
+<ol>
+<li>iterable的数量必须和function的参数一致</li>
+<li>按顺序一一对应从可迭代对象传入参数<br>3.函数返回的值是一个以list的形式的map对象</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lst1 = [1, 2, 3, 4, 5]</span><br><span class="line">&gt;&gt;&gt; lst2 = [6, 7, 8, 9, 0]</span><br><span class="line">&gt;&gt;&gt; lst3 = [7, 8, 9, 2, 1]</span><br><span class="line">&gt;&gt;&gt; x = map(lambda x,y,z: x+y+z, lst1, lst2, lst3) #--&gt; &lt;map object at 0x7f2a502419e8&gt;</span><br><span class="line">&gt;&gt;&gt; list(x)         #--&gt; [14, 17, 20, 15, 6]</span><br><span class="line">&gt;&gt;&gt; y = [x+y+z for x, y, z in zip(lst1, lst2, lst3)]</span><br><span class="line">&gt;&gt;&gt; y               #--&gt; [14, 17, 20, 15, 6]</span><br></pre></td></tr></table></figure>
+<h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from functools import reduce</span><br><span class="line">&gt;&gt;&gt; reduce(lambda x,y: x*y,[1, 2, 3, 4, 5])     #--&gt; 120</span><br></pre></td></tr></table></figure>
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; numbers = range(-2,3)</span><br><span class="line">&gt;&gt;&gt; numbers                         #--&gt; [-2, -1, 0, 1, 2]</span><br><span class="line">&gt;&gt;&gt; filter(lambda x: x&gt;0, numbers)  #--&gt; [1, 2]</span><br><span class="line">&gt;&gt;&gt; [x for x in numbers if x&gt;0]     #--&gt; [1, 2]</span><br></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/python3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/401.html</url>
+      <content type="html"><![CDATA[<h2 id="构造和初始化"><a href="#构造和初始化" class="headerlink" title="构造和初始化"></a>构造和初始化</h2><p><strong>new</strong>(cls, […) <strong>new</strong> 是在一个对象实例化的时候所调用的第一个方法。它的第一个参数是这个类，其他的参数是用来直接传递给 <strong>init</strong> 方法。 <strong>new</strong> 方法相当不常用,但是它有自己的特性，特别是当继承一个不可变的类型比如一个tuple或者string。</p>
+<p><strong>init</strong>(self, […) 此方法为类的初始化方法。当构造函数被调用的时候的任何参数都将会传给它。</p>
+<blockquote>
+<p>调用 x = SomeClass(10, ‘foo’)，那么 <strong>init</strong> 将会得到两个参数10和foo。</p>
+</blockquote>
+<p><strong>del</strong>(self) 如果 <strong>new</strong> 和 <strong>init</strong> 是对象的构造器的话，那么 <strong>del</strong> 就是析构器。它不实现语句 del x (以上代码将不会翻译为 x.<strong>del</strong>() )。它定义的是当一个对象进行垃圾回收时候的行为。当一个对象在删除的时需要更多的清洁工作的时候此方法会很有用，比如套接字对象或者是文件对象。注意，如果解释器退出的时候对象还存存在，就不能保证 <strong>del</strong> 能够被执行，所以 <strong>del</strong> can’t serve as a replacement for good coding practices ()<del>~</del>~</p>
+<p><a href="http://dipyzh.bitbucket.org/special-method-names.html" target="_blank" rel="noopener">特殊属性调用机制</a></p>
+<h2 id="类属性调用原理"><a href="#类属性调用原理" class="headerlink" title="类属性调用原理"></a>类属性调用原理</h2><p>目的    所编写代码    Python 实际调用<br>类构造器<br>x = MyClass() –&gt; x.<strong>new</strong>()<br>类析构器<br>del x –&gt; x.<strong>del</strong>()<br>只定义特定集合的某些属性<br>x.<strong>slots</strong>()<br>自定义散列值<br>hash(x)    x.<strong>hash</strong>()<br>获取某个属性的值<br>x.color    type(x).<strong>dict</strong>[‘color’].<strong>get</strong>(x, type(x))<br>设置某个属性的值<br>x.color = ‘PapayaWhip’    type(x).<strong>dict</strong>[‘color’].<strong>set</strong>(x, ‘PapayaWhip’)<br>删除某个属性<br>del x.color    type(x).<strong>dict</strong>[‘color’].<strong>del</strong>(x)<br>控制某个对象是否是该对象的实例<br>your class    isinstance(x, MyClass)    MyClass.<strong>instancecheck</strong>(x)<br>控制某个类是否是该类的子类<br>issubclass(C, MyClass)    MyClass.<strong>subclasscheck</strong>(C)<br>控制某个类是否是该抽象基类的子类<br>issubclass(C, MyABC)    MyABC.<strong>subclasshook</strong>(C)</p>
+<h3 id="getattr-和-getattribute"><a href="#getattr-和-getattribute" class="headerlink" title="__getattr__() 和 __getattribute__()"></a><code>__getattr__()</code> 和 <code>__getattribute__()</code></h3><h2 id="文件中的-main-py-和-init-py"><a href="#文件中的-main-py-和-init-py" class="headerlink" title="文件中的__main__.py 和 __init__.py"></a>文件中的<code>__main__.py</code> 和 <code>__init__.py</code></h2><pre><code>python3 xxx.py
+python3 -m xxx.py
+</code></pre><p>这是两种加载py文件的方式:</p>
+<ol>
+<li>叫做直接运行</li>
+<li>相当于import,叫做当做模块来启动，前提是已加入sys.path</li>
+</ol>
+<p>python 将一个文件夹作为 package 对待，那么这个文件夹中必须包含一个名为 <strong>init</strong>.py 的文件，即使它是空的<br>如果你需要 python 讲一个文件夹作为 package 执行，那么这个文件夹中必须包含一个名为 <strong>main</strong>.py 的文件，当执行 python3 -m hhlb 或者python3 hhlb 的时候，这个文件中的代码都会被执行。</p>
+<p>在 hhlb/<strong>init</strong>.py 中写入如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(&apos;__init__&apos;)</span><br><span class="line">print(&apos;__init__.__name__&apos;, __name__)</span><br><span class="line">print(&apos;__init__.__package__&apos;, __package__)</span><br></pre></td></tr></table></figure></p>
+<p>在 hhlb/<strong>main</strong>.py 中写入如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(&apos;__main__&apos;)</span><br><span class="line">print(&apos;__main__.__name__&apos;, __name__)</span><br><span class="line">print(&apos;__main__.__package__&apos;, __package__)</span><br></pre></td></tr></table></figure></p>
+<p>执行 python3 hhlb ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-&gt; % python3 hhlb</span><br><span class="line">__main__</span><br><span class="line">__main__.__name__ __main__</span><br><span class="line">__main__.__package__</span><br></pre></td></tr></table></figure></p>
+<p>这说明，将 hhlb 当作文件夹执行的时候，对于 <strong>main</strong>.py 来说，变量<strong>package</strong> 是一个空字符串。而 <strong>init</strong>.py 不会被执行。</p>
+<p>执行 python3 -m hhlb ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-&gt; % python3 -m hhlb</span><br><span class="line">__init__</span><br><span class="line">__init__.__name__ hhlb</span><br><span class="line">__init__.__package__ hhlb</span><br><span class="line">__main__</span><br><span class="line">__main__.__name__ __main__</span><br><span class="line">__main__.__package__ hhlb</span><br></pre></td></tr></table></figure></p>
+<p>当作为模块执行的时候，python 会先执行 <strong>init</strong>.py ，然后执行<strong>main</strong>.py 。而且，前者和后者对于 <strong>name</strong> 变量的理解是不同的。</p>
+<h2 id="alll"><a href="#alll" class="headerlink" title="alll"></a><strong>alll</strong></h2><p>对于from ModuleName import * 这种形式，要特别注意重名现象。</p>
+<p>Python中，对于一个模块，具有一个名为 <strong>all</strong>的属性，该属性的值就是被from ModuleName import *这样的语句绑定的属性列表；否则，这种类型的from语句将绑定模块中除了以下划线开始的属性（私有属性）外的所有属性。这样的话，对于同一个名空间里 面出现重名现象的概率就加大了，为了减少这种情况的发生，都会在模块开始处定义<strong>all</strong>属性的内容，写出可以被这种from类型导入的属性<br>下面的是os.py里面的一段代码：<br><strong>all</strong> = [“altsep”, “curdir”, “pardir”, “sep”, “pathsep”, “linesep”,”defpath”, “name”, “path”, “devnull”]</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p><strong>globals</strong>:global namespace in which this function was defined<br><strong>file</strong>:filename (missing for built-in modules)</p>
+<h2 id="内建特殊属性"><a href="#内建特殊属性" class="headerlink" title="内建特殊属性"></a>内建特殊属性</h2><p>用<code>dir(__builtins__)</code>查看内建特殊属性，特殊属性都是以双下划线开头和结尾<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;__build_class__&apos;, &apos;__debug__&apos;, &apos;__doc__&apos;, &apos;__import__&apos;, &apos;__loader__&apos;, &apos;__name__&apos;, &apos;__package__&apos;, &apos;__spec__&apos;</span><br></pre></td></tr></table></figure></p>
+<h3 id="inspect模块"><a href="#inspect模块" class="headerlink" title="inspect模块"></a>inspect模块</h3><p>type checking, getting source code, inspecting classes and functions, and examining the interpreter stack.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import inspect</span><br><span class="line">dir(inspet)</span><br></pre></td></tr></table></figure></p>
+<h4 id="inspect-getmembers"><a href="#inspect-getmembers" class="headerlink" title="inspect.getmembers()"></a>inspect.getmembers()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Help on function getmembers in module inspect:</span><br><span class="line"></span><br><span class="line">getmembers(object, predicate=None)</span><br><span class="line">    Return all members of an object as (name, value) pairs sorted by name.</span><br><span class="line">    Optionally, only return members that satisfy a given predicate.</span><br></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/python3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html</url>
+      <content type="html"><![CDATA[<h1 id="Python3学习笔记"><a href="#Python3学习笔记" class="headerlink" title="Python3学习笔记"></a>Python3学习笔记</h1><ol>
+<li><a href="./01.html">Python3学习笔记</a></li>
+</ol>
+<h2 id="第壹章-基本数据类型"><a href="#第壹章-基本数据类型" class="headerlink" title="第壹章 基本数据类型"></a>第壹章 基本数据类型</h2><ol>
+<li><a href="./python3基本语法.html">python3基本语法</a></li>
+<li><a href="./字符串.html">字符串</a></li>
+<li><a href="./列表和元组.html">列表和元组</a></li>
+<li><a href="./字典.html">字典</a></li>
+<li><a href="./集合.html">集合</a></li>
+<li><a href="./python数据存储原理.html">python数据存储原理</a></li>
+<li><a href="./108.html">实战</a></li>
+</ol>
+<h2 id="第贰章-语句和文件"><a href="#第贰章-语句和文件" class="headerlink" title="第贰章 语句和文件"></a>第贰章 语句和文件</h2><ol>
+<li><a href="./121.html">语句</a>   ==&gt; import, 赋值语句、增量赋值</li>
+<li><a href="./122.html">条件语句</a> ==&gt; if…elif…else语句，三元操作</li>
+<li><a href="./123.html">循环语句</a> ==&gt; for、while循环，break、continue语句，range()</li>
+<li><a href="./128.html">迭代</a>   ==&gt; 可迭代对象、迭代器、生成器、列表解析</li>
+<li><a href="./124.html">并行迭代</a> ==&gt; for循环 vs zip()</li>
+<li><a href="./126.html">文件</a>   ==&gt; 文件打开，读取，写入，常用方法</li>
+<li><a href="./130.html">自省</a>  ==&gt; help()，dir()，文档字符串，检查对象，文档</li>
+</ol>
+<h2 id="第叁章-函数"><a href="#第叁章-函数" class="headerlink" title="第叁章 函数"></a>第叁章 函数</h2><ol>
+<li><a href="./201.html">函数</a>==&gt;定义函数方法，调用函数方法，参数</li>
+<li><a href="./202.html">内建函数</a></li>
+<li><a href="./204.html">递归</a>==&gt;递归、传递函数、嵌套函数</li>
+<li><a href="./242.html">闭包、装饰器</a></li>
+<li><a href="./237.html">函数5</a>==&gt;filter、map、reduce、lambda</li>
+<li><a href="./241.html">命名空间</a>==&gt;全局变量和局部变量，作用域，命名空间</li>
+</ol>
+<h2 id="第肆章-类"><a href="#第肆章-类" class="headerlink" title="第肆章 类"></a>第肆章 类</h2><ol>
+<li><a href="./401.html">特殊属性</a>==&gt;内建和特殊属性</li>
+<li><a href="./207.html">类2</a>==&gt;新式类和旧式类，初步创建类和实例化</li>
+<li><a href="./208.html">类3</a>==&gt;类属性、创建实例、实例属性、self作用、类内外数据流转</li>
+<li><a href="./238.html">类4</a>==&gt;绑定方法和非绑定方法，类方法和静态方法</li>
+<li><a href="./209.html">类5</a>==&gt;继承，super，多重继承</li>
+<li><a href="./211.html">多态和封装</a>==&gt;多态，封装和私有化</li>
+<li><a href="./239.html">定制类</a>==&gt;类和类型，定制类</li>
+<li><a href="./240.html">黑魔法</a>==&gt;优化内存的<code>__slots__</code>，属性拦截</li>
+</ol>
+<h2 id="第伍章-错误和异常"><a href="#第伍章-错误和异常" class="headerlink" title="第伍章 错误和异常"></a>第伍章 错误和异常</h2><ol>
+<li><a href="./501.html">错误和异常(1)</a>==&gt;什么是错误和异常，常见异常类型，处理异常(try…except…)</li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+  
 </search>
