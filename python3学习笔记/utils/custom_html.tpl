@@ -33,17 +33,14 @@
 
 <style type="text/css">
 
-table>tbody>tr:nth-of-type(odd) {
-    background-color: #f9f9f9;
-}
 table>tbody>tr:hover {
-    background-color: #edfbfa;
+    background-color: hsl(176, 64%, 96%);
 }
 
 .rendered_html td, .rendered_html th {
     border: none;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     text-align: center;
     max-width: 320px !important;
 }
@@ -56,7 +53,7 @@ table>tbody>tr:hover {
 }
 /* 输出底部水平线 */
 div.output_subarea {
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid hsl(0, 0%, 93%);
 }
 /* 输出颜色 */
 div.output_area pre {
@@ -64,8 +61,8 @@ div.output_area pre {
 }
 
 /* md高亮 */
-.rendered_html code {
-    background-color: #7afbf54f;
+.rendered_html pre, .rendered_html code {
+    background-color: hsl(0, 0%, 91%);
 }
 
 /* 宽度自适应 */
