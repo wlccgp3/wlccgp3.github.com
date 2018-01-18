@@ -70,14 +70,14 @@ div.output_area pre {
 }
 
 /* 宽度自适应 */
-@media only screen and (max-device-width: 1300px) {
+@media only screen and (max-device-width: 800px) {
     #notebook-container {
         margin-right: auto;
         margin-left: auto;
     }
 }
 
-@media only screen and (min-device-width: 1300px) {
+@media only screen and (min-device-width: 800px) {
     #notebook-container {
         width: auto !important;
         margin-right: 15%;
