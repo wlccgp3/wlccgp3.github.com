@@ -118,7 +118,7 @@
 
 
 
-  <title>分类: Diary | 丿我欲疾风前行灬</title>
+  <title>README.md | 丿我欲疾风前行灬</title>
   
 
 
@@ -137,7 +137,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://git.coding.net/wlccgp3/wlccgp3.coding.me.git">
       <img style="position: absolute; top: 0; right: 0; border: 0;" src="images/forkme_light_background_right.png">
@@ -300,55 +300,199 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Diary<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wlccgp3.github.io/2018/01/18/README/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="丿我欲疾风前行灬">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="丿我欲疾风前行灬">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2013/07/13/test/" itemprop="url">
-              
-                <span itemprop="name">test</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">README.md</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2013-07-13T20:46:25+08:00"
-              content="2013-07-13" >
-          07-13
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T20:09:31+08:00">2018-01-18</time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/18/README/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/01/18/README/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/18/README/" class="leancloud_visitors" data-flag-title="README.md">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="网站插件扩展"><a href="#网站插件扩展" class="headerlink" title="网站插件扩展"></a>网站插件扩展</h2><ul>
+<li>hexo-deployer-git</li>
+<li>hexo-generator-searchdb</li>
+<li>disqus</li>
+</ul>
+<h2 id="配置文件问题"><a href="#配置文件问题" class="headerlink" title="配置文件问题"></a>配置文件问题</h2><p>主题配置可以放在source/_data/next.yml中，会覆盖掉主题内的配置<br>站点配置不能写在source/_data/next.yml中，有的不能生效</p>
+<h2 id="gitment"><a href="#gitment" class="headerlink" title="gitment"></a>gitment</h2><p>在github设置中Settings/Developer settings 创建一个新OAuth app<br>注意：Homepage URL和Authorization callback URL就写github page里面显示的域名，<br>如果绑定了域名，github page也会显示成绑定的域名</p>
+<h2 id="YAMLException-a-line-break-is-expected-at-line-3-column-3"><a href="#YAMLException-a-line-break-is-expected-at-line-3-column-3" class="headerlink" title="YAMLException: a line break is expected at line 3, column 3"></a>YAMLException: a line break is expected at line 3, column 3</h2><p>因为hexo内置的头部渲染是<code>---</code>，所以markdown的其他地方要画水平线，要用其他符号代替</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>随缘</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="丿我欲疾风前行灬 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="丿我欲疾风前行灬 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/18/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -356,6 +500,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -376,8 +534,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -451,6 +618,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网站插件扩展"><span class="nav-number">1.</span> <span class="nav-text">网站插件扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件问题"><span class="nav-number">2.</span> <span class="nav-text">配置文件问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitment"><span class="nav-number">3.</span> <span class="nav-text">gitment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#YAMLException-a-line-break-is-expected-at-line-3-column-3"><span class="nav-number">4.</span> <span class="nav-text">YAMLException: a line break is expected at line 3, column 3</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -580,6 +763,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
+
+
 
   
 
@@ -597,6 +784,18 @@
       <script id="dsq-count-scr" src="https://wlccgp3.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://wlccgp3.github.io/2018/01/18/README/';
+          this.page.identifier = '2018/01/18/README/';
+          this.page.title = 'README.md';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://wlccgp3.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
