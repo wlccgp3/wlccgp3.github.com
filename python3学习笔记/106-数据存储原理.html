@@ -11926,12 +11926,12 @@ $( document ).ready(function(){
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 打印所有单行变量</span>
-<span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="k">import</span> <span class="n">InteractiveShell</span>
-<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="k">import</span> <span class="n">InteractiveShell</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>              <span class="c1"># 美化输出数组</span>
+<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span>  <span class="c1"># 打印所有单行变量</span>
 </pre></div>
 
 </div>
@@ -11951,14 +11951,6 @@ $( document ).ready(function(){
 <p>内存中只创建了对象<code>1</code>，变量x只是贴在对象<code>1</code>的标签，<code>=</code>是赋值即引用<br>
 在python中一切皆对象，里面又有不可变对象和可变对象</p>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#25968;&#23383;&#21644;&#23383;&#31526;&#20018;&#23545;&#35937;&#24341;&#29992;">&#25968;&#23383;&#21644;&#23383;&#31526;&#20018;&#23545;&#35937;&#24341;&#29992;<a class="anchor-link" href="#&#25968;&#23383;&#21644;&#23383;&#31526;&#20018;&#23545;&#35937;&#24341;&#29992;">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -12082,7 +12074,265 @@ $( document ).ready(function(){
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#32452;&#21512;&#23545;&#35937;&#30340;&#24341;&#29992;(&#38500;&#20102;&#25968;&#23383;&#21644;&#23383;&#31526;&#20018;)">&#32452;&#21512;&#23545;&#35937;&#30340;&#24341;&#29992;(&#38500;&#20102;&#25968;&#23383;&#21644;&#23383;&#31526;&#20018;)<a class="anchor-link" href="#&#32452;&#21512;&#23545;&#35937;&#30340;&#24341;&#29992;(&#38500;&#20102;&#25968;&#23383;&#21644;&#23383;&#31526;&#20018;)">&#182;</a></h3><blockquote><p>可以创建多个"一样"的对象，但是id不同</p>
+<p>上例 a, b 共享了同一个 ID、同一个值、同一个类型。因此 a, b 表达的是同一个对象，但 a, b 又明显是不同的，比如一个叫 'a'，一个叫 'b'...既然是同一个对象，为什么又有不同的名字呢？难道名字不是对象的属性？</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#26631;&#35782;&#31526;">&#26631;&#35782;&#31526;<a class="anchor-link" href="#&#26631;&#35782;&#31526;">&#182;</a></h3><p>事实确实如此，这是 Python 比较特殊一点：如同'a' 'b' 这样的名称其实有一个共同的名字：identifier（注意不要与 ID 混淆了），中文名为“标识符”，来解释一下：</p>
+<p>标识符：各类对象的名称，比如函数名、方法名、类名，变量名、常量名等。</p>
+<p>在 Python 中赋值并不会直接复制数据，而只是将名称绑定到对象，对象本身是不知道也不需要关心（该关心这个的是程序猿）自己叫什么名字的。一个对象甚至可以指向不同的标识符，上例中的'a' 'b'便是如此。真正管理这些名子的事物叫“命名空间”。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#21629;&#21517;&#31354;&#38388;">&#21629;&#21517;&#31354;&#38388;<a class="anchor-link" href="#&#21629;&#21517;&#31354;&#38388;">&#182;</a></h3><p>命名空间（Namespace）：名字（标识符）到对象的映射。</p>
+<p>简而言之，命名空间可以理解为：记录对象和对象名字对应关系的空间；现今 Python 的大部分命名空间是通过字典来实现的，也即一个命名空间就是名字到对象的映射，标识符是键，对象则是值。</p>
+<h3 id="&#20316;&#29992;&#22495;">&#20316;&#29992;&#22495;<a class="anchor-link" href="#&#20316;&#29992;&#22495;">&#182;</a></h3><p>与命名空间相对的一个概念就是“作用域”，那么什么又是作用域呢？</p>
+<p>作用域（Scope）：本质是一块文本区域，Python 通过该文本区域可以直接访问相应的命名空间。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="LEGB-&#21629;&#21517;&#31354;&#38388;">LEGB &#21629;&#21517;&#31354;&#38388;<a class="anchor-link" href="#LEGB-&#21629;&#21517;&#31354;&#38388;">&#182;</a></h3><p>这四类命名空间可以简记为 LEGB:</p>
+<p>局部命名空间（local）：指的是一个函数或者一个类所定义的名称空间；包括函数的参数、局部变量、类的属性等。</p>
+<p>闭包命名空间（enclosing function）：闭包函数 的名称空间（Python 3 引入）。</p>
+<p>全局命名空间（global）：读入一个模块（也即一个.py文档）后产生的名称空间。</p>
+<p>内建命名空间（builtin）：Python 解释器启动时自动载入<strong>built</strong>模块后所形成的名称空间；诸如 str/list/dict...等内置对象的名称就处于这里。</p>
+
+<pre><code>scopes = {
+    "local": {"locals": None,
+             "non-local": {"locals": None,
+                          "global": {"locals": None,
+                                    "built-in": ["built-ins"]}}},
+}</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="LEGB-&#35775;&#38382;&#35268;&#21017;">LEGB &#35775;&#38382;&#35268;&#21017;<a class="anchor-link" href="#LEGB-&#35775;&#38382;&#35268;&#21017;">&#182;</a></h4><p>同样的标识符在各层命名空间中可以被重复使用而不会发生冲突，但 Python 寻找一个标识符的过程总是从当前层开始逐层往上找，直到首次找到这个标识符为止：</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="global&#12289;nonlocal&#12289;locals()&#12289;globals()">global&#12289;nonlocal&#12289;locals()&#12289;globals()<a class="anchor-link" href="#global&#12289;nonlocal&#12289;locals()&#12289;globals()">&#182;</a></h3><ul>
+<li>global：声明该标识符引用的对象来自于全局变量，但并不能直接在当前作用域创建该标识符</li>
+<li>nonlocal：声明该标识符引用的对象来自于父函数变量，并在当前作用域创建与父函数变量同名的标识符</li>
+<li>locals(): 返回是当前局部变量的深拷贝，修改locals() 中变量值的时候，实际上对于原变量本身是没有任何影响的。  </li>
+<li>globals(): 返回的是全局变量的字典，修改其中的内容，值会真正的发生改变</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">do_local</span><span class="p">():</span>
+        <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;local spam&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;do_local_scope:&#39;</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+    <span class="k">def</span> <span class="nf">do_nonlocal</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">spam</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;do_nonlocal_scope:&#39;</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+        <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;nonlocal spam&quot;</span>
+    <span class="k">def</span> <span class="nf">do_global</span><span class="p">():</span>
+        <span class="k">global</span> <span class="n">spam</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;do_global_scope:&#39;</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+        <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;global spam&quot;</span>
+        
+    <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;func_scope&quot;</span>
+    <span class="n">display</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
+    <span class="n">do_local</span><span class="p">()</span>
+    <span class="n">do_nonlocal</span><span class="p">()</span>
+    <span class="n">do_global</span><span class="p">()</span>
+
+<span class="n">func</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_text output_subarea ">
+<pre>{&#39;do_global&#39;: &lt;function __main__.func.&lt;locals&gt;.do_global&gt;,
+ &#39;do_local&#39;: &lt;function __main__.func.&lt;locals&gt;.do_local&gt;,
+ &#39;do_nonlocal&#39;: &lt;function __main__.func.&lt;locals&gt;.do_nonlocal&gt;,
+ &#39;spam&#39;: &#39;func_scope&#39;}</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>do_local_scope: {&#39;spam&#39;: &#39;local spam&#39;}
+do_nonlocal_scope: {&#39;spam&#39;: &#39;func_scope&#39;, &#39;b&#39;: 1}
+do_global_scope: {}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">do_local</span><span class="p">():</span>
+        <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;local spam&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;do_local_scope:&#39;</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">do_nonlocal</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">local</span> <span class="ow">in</span> <span class="n">func_locals</span><span class="p">:</span>  <span class="c1"># nonlocal spam</span>
+            <span class="k">if</span> <span class="s1">&#39;spam&#39;</span> <span class="ow">in</span> <span class="n">local</span><span class="p">:</span>
+                <span class="n">spam</span> <span class="o">=</span> <span class="n">local</span><span class="p">[</span><span class="s1">&#39;spam&#39;</span><span class="p">]</span>
+        <span class="n">new_locals</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span>
+        <span class="k">del</span> <span class="n">new_locals</span><span class="p">[</span><span class="s1">&#39;local&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">new_locals</span><span class="p">[</span><span class="s1">&#39;func_locals&#39;</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;do_nonlocal_scope:&#39;</span><span class="p">,</span> <span class="n">new_locals</span><span class="p">)</span>
+        <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;nonlocal spam&quot;</span>
+
+    <span class="k">def</span> <span class="nf">do_global</span><span class="p">():</span>
+        <span class="k">global</span> <span class="n">spam</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;do_global_scope:&#39;</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+        <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;global spam&quot;</span>
+
+    <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;func_scope&quot;</span>
+    <span class="n">func_locals</span> <span class="o">=</span> <span class="p">[{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">}</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+    <span class="n">do_local</span><span class="p">()</span>
+    <span class="n">do_nonlocal</span><span class="p">()</span>
+    <span class="n">do_global</span><span class="p">()</span>
+
+
+<span class="n">func</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>do_local_scope: {&#39;spam&#39;: &#39;local spam&#39;}
+do_nonlocal_scope: {&#39;spam&#39;: &#39;func_scope&#39;}
+do_global_scope: {}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">scope_test</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">do_local</span><span class="p">():</span>
+        <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;local spam&quot;</span>
+    <span class="k">def</span> <span class="nf">do_nonlocal</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">spam</span>
+        <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;nonlocal spam&quot;</span>
+    <span class="k">def</span> <span class="nf">do_global</span><span class="p">():</span>
+        <span class="k">global</span> <span class="n">spam</span>
+        <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;global spam&quot;</span>
+        
+    <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;test spam&quot;</span>
+    <span class="n">do_local</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After local assignment:&quot;</span><span class="p">,</span> <span class="n">spam</span><span class="p">)</span>
+    
+    <span class="n">do_nonlocal</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After nonlocal assignment:&quot;</span><span class="p">,</span> <span class="n">spam</span><span class="p">)</span>
+    
+    <span class="n">do_global</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After global assignment:&quot;</span><span class="p">,</span> <span class="n">spam</span><span class="p">)</span>
+
+<span class="n">scope_test</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In global scope:&quot;</span><span class="p">,</span> <span class="n">spam</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After local assignment: test spam
+After nonlocal assignment: nonlocal spam
+After global assignment: nonlocal spam
+In global scope: global spam
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#21487;&#21464;&#23545;&#35937;&#30340;&#24341;&#29992;(&#38500;&#20102;&#25968;&#23383;&#21644;&#23383;&#31526;&#20018;)">&#21487;&#21464;&#23545;&#35937;&#30340;&#24341;&#29992;(&#38500;&#20102;&#25968;&#23383;&#21644;&#23383;&#31526;&#20018;)<a class="anchor-link" href="#&#21487;&#21464;&#23545;&#35937;&#30340;&#24341;&#29992;(&#38500;&#20102;&#25968;&#23383;&#21644;&#23383;&#31526;&#20018;)">&#182;</a></h3><blockquote><p>可以创建多个"一样"的对象，但是id不同</p>
 </blockquote>
 
 </div>
@@ -12167,6 +12417,14 @@ $( document ).ready(function(){
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="locals()-&#21644;globals()&#20989;&#25968;">locals() &#21644;globals()&#20989;&#25968;<a class="anchor-link" href="#locals()-&#21644;globals()&#20989;&#25968;">&#182;</a></h3>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -12640,22 +12898,6 @@ $( document ).ready(function(){
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#21464;&#37327;">&#21464;&#37327;<a class="anchor-link" href="#&#21464;&#37327;">&#182;</a></h3><p>python引用变量的顺序： 当前作用域局部变量-&gt;外层作用域变量-&gt;当前模块中的全局变量-&gt;python内置变量 
-global和nonlocal</p>
-
-<pre><code>a = 1           # 全局变量，可省略global关键字
-def y():
-    a = a + 1   # 全局变量可以在函数内部使用，但不能修改
-
-y()             # 报错</code></pre>
-
-</div>
-</div>
 </div>
     </div>
   </div>
