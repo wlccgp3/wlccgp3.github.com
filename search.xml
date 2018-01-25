@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[学习路线]]></title>
+    <url>%2F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF.html</url>
+    <content type="text"><![CDATA[近况公司：深圳市电陶思创科技有限公司职位：python爬虫工程师工作内容：物联网搜索引擎 学习计划Markdown 学习笔记Python学习 爬虫 网络爬虫原理和策略 HTTP, HTML, CSS, DOM, Javascript 正则表达式 学习笔记 第三方库 requests, selenium, pymonogo, csv, json 爬虫框架 Scrapy scrapy-redis 数据库 redis, MongoDB 机器学习 numpy, pandas, matplotlib, bokeh, scikit-learn, tensorflow python web django, flask Linux 学习笔记Git 学习笔记Docker 学习笔记搭建自己的博客HexoNext 还有很多没有整理好未完待续…]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Docker学习笔记]]></title>
     <url>%2F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2FDocker.html</url>
     <content type="text"><![CDATA[软件安装 详细教程 命令行安装：curl -sSL https://get.docker.com/ | sh 软件包安装：deb包 sudo pip3 install docker-compose docker更改国内镜像 12345sudo vim /etc/docker/daemon.json，写入：&#123; &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]&#125;docker info查看是否有Registry Mirrors docker添加用户组 123sudo groupadd dockersudo usermod -aG docker $USERsudo service docker restart 常用操作 docker –help可以查看Management Commands和Commands 构建镜像并启动容器(如果镜像已存在，则直接启动容器) docker run -it 镜像名称 bash 进入运行时容器 docker exec -it 容器名称 bash 容器保存为镜像 docker commit 容器名称 镜像名称 // 如果改动很多，直接删除镜像重新构建 使用笔记 出现the input device is not a TTY docker取消-i参数 停止和删除所有运行的容器 docker stop $(docker ps -a -q) docker rm $(docker ps -a -q) 当Dockerfile改变，重新用docker-compose up出现错误Recreating 48802a01eb91_48802a01eb91_hexoblog_python_learning_1 … error因为docker-compose up启动服务后，直接用Ctrl-C有时不能停止服务，要用docker-compose down 运行docker image prune -f无法删除虚悬镜像(dangling image)先运行docker-compose down在执行清理命令，如果还是无法删除，则一个个删]]></content>
@@ -10,11 +15,6 @@
       <tags>
         <tag>docker</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[学习路线]]></title>
-    <url>%2F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF.html</url>
-    <content type="text"><![CDATA[近况公司：深圳市电陶思创科技有限公司职位：python爬虫工程师工作内容：物联网搜索引擎 学习计划Markdown学习笔记Python学习 爬虫 网络爬虫原理和策略 HTTP, HTML, CSS, DOM, Javascript 正则表达式 学习笔记 第三方库 requests, selenium, pymonogo, csv, json 爬虫框架 Scrapy scrapy-redis 数据库 redis, MongoDB 机器学习 numpy, pandas, matplotlib, bokeh, scikit-learn, tensorflow python web django, flask Linux 学习笔记Git 学习笔记Docker 学习笔记搭建自己的博客HexoNext 未完待续…]]></content>
   </entry>
   <entry>
     <title><![CDATA[Linux学习笔记]]></title>
