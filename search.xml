@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Docker学习笔记]]></title>
+    <url>%2F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2FDocker.html</url>
+    <content type="text"><![CDATA[软件安装 详细教程 命令行安装：curl -sSL https://get.docker.com/ | sh 软件包安装：deb包 sudo pip3 install docker-compose docker更改国内镜像 12345sudo vim /etc/docker/daemon.json，写入：&#123; &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]&#125;docker info查看是否有Registry Mirrors docker添加用户组 123sudo groupadd dockersudo usermod -aG docker $USERsudo service docker restart 常用操作 docker –help可以查看Management Commands和Commands 构建镜像并启动容器(如果镜像已存在，则直接启动容器) docker run -it 镜像名称 bash 进入运行时容器 docker exec -it 容器名称 bash 容器保存为镜像 docker commit 容器名称 镜像名称 // 如果改动很多，直接删除镜像重新构建 使用笔记 出现the input device is not a TTY docker取消-i参数 停止和删除所有运行的容器 docker stop $(docker ps -a -q) docker rm $(docker ps -a -q) 当Dockerfile改变，重新用docker-compose up出现错误Recreating 48802a01eb91_48802a01eb91_hexoblog_python_learning_1 … error因为docker-compose up启动服务后，直接用Ctrl-C有时不能停止服务，要用docker-compose down 运行docker image prune -f无法删除虚悬镜像(dangling image)先运行docker-compose down在执行清理命令，如果还是无法删除，则一个个删]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[学习路线]]></title>
     <url>%2F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF.html</url>
-    <content type="text"><![CDATA[学习计划Markdown学习笔记Python学习 爬虫 网络爬虫原理和策略 HTTP, HTML, CSS, DOM, Javascript 正则表达式 第三方库 requests, selenium, pymonogo, csv, json 爬虫框架 Scrapy scrapy-redis 数据库 redis, MongoDB 机器学习 numpy, pandas, matplotlib, bokeh, scikit-learn, tensorflow python web django, flask Git学习笔记Linux* Linux学习笔记 * deepin Wiki 搭建自己的博客HexoNext 未完待续…]]></content>
+    <content type="text"><![CDATA[近况公司：深圳市电陶思创科技有限公司职位：python爬虫工程师工作内容：物联网搜索引擎 学习计划Markdown学习笔记Python学习 爬虫 网络爬虫原理和策略 HTTP, HTML, CSS, DOM, Javascript 正则表达式 学习笔记 第三方库 requests, selenium, pymonogo, csv, json 爬虫框架 Scrapy scrapy-redis 数据库 redis, MongoDB 机器学习 numpy, pandas, matplotlib, bokeh, scikit-learn, tensorflow python web django, flask Linux 学习笔记Git 学习笔记Docker 学习笔记搭建自己的博客HexoNext 未完待续…]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux学习笔记]]></title>
+    <url>%2F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2FLinux.html</url>
+    <content type="text"><![CDATA[强制杀死进程pkill -f name 读取特定行sed -n &apos;3p&apos; filename sed -n &apos;3, 7p&apos; filename 删除特定行 sed -i &apos;3d&apos; filename 在某行插入数据 sed -i &apos;2a data&apos; filename 读取所有cat -n filename 统计文件中字符串出现的次数 grep &apos;/guangzhou/&apos; shunqi_0620.json |wc -l 创建软连接，必须用绝对路径，否则会报错sudo ln -s /home/wanli/Downloads/jdk/bin/java /usr/bin/ 创建多级目录，即使父目录已存在mkdir -p /1/2/3 查看指定文件夹下的指定文件ls -l /usr/bin/|grep mongo.* 注意:grep里面的的特殊字符是正则中的，其他命令特殊字符是shell中的，在shell中*代表任意 查找指定文件tree -f dirname | rg &apos;mongo.*&apos; 批量替换字符串（慎用）alias rg-replace=&apos;_rg(){rg $1 $3 &amp;&amp; (rg -l $1 $3 | xargs sed -i &quot;s/$1/$2/g&quot;)}; _rg&apos; 注：因为alias不支持传递参数，所以用用function解决 查看指定进程ps aux|rg mongod 创建空白文件touch filename sudo使用bug文件权限是所有，但是用了sudo后会被锁住 用cd无法进入文件夹必须要有x权限才能进入文件夹，有w权限才能修改删除 限制内存使用sudo gedit /etc/security/limits.conf 添加： * soft as 8000000 * hard as 14000000 打包文件夹tar -cvf atom.tar .atom 只打包，不压缩 批量重命名rename &apos;s/.txt/.md/&apos; ./* 复制文件夹和所有文件cp -r dir1 dir2 cp -r dir1/* dir2/ 重复打印字符串* str=$(printf &quot;%-100s&quot; &quot;*&quot;) | echo &quot;${str// /*}&quot; * printf &apos;%*s&apos; 100 | tr &apos;&apos; &apos;*&apos; scp远程复制文件scp [-r] user@host:remote-file-or-dir local-dir scp [-r] local-dir-or-file user@host:remote-dir chsh -s /bin/zsh # 修改默认的shell du -h -d 1 # 查看当前目录下第一层目录的磁盘占用，-d是目录深度 更新引导sudo update-grub2]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Jupyter Notebook学习笔记]]></title>
@@ -15,17 +37,6 @@
       <tags>
         <tag>jupyter</tag>
         <tag>ipython</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Docker学习笔记]]></title>
-    <url>%2F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2FDocker.html</url>
-    <content type="text"><![CDATA[软件安装 详细系列教程 命令行安装：curl -sSL https://get.docker.com/ | sh 软件包安装：deb包 sudo pip3 install docker-compose docker更改国内镜像 sudo vim /etc/docker/daemon.json，写入：{ “registry-mirrors”: [“https://registry.docker-cn.com“]} docker info查看是否有Registry Mirrors docker添加用户组 sudo groupadd docker sudo usermod -aG docker $USER sudo service docker restart 常用操作 docker –help可以查看Management Commands和Commands 构建镜像并启动容器(如果镜像已存在，则直接启动容器) docker run -it 镜像名称 bash 进入运行时容器 docker exec -it 容器名称 bash 容器保存为镜像 docker commit 容器名称 镜像名称 // 如果改动很多，直接删除镜像重新构建 使用笔记 出现the input device is not a TTY docker取消-i参数 停止和删除所有运行的容器 docker stop $(docker ps -a -q) docker rm $(docker ps -a -q) 当Dockerfile改变，重新用docker-compose up出现错误Recreating 48802a01eb91_48802a01eb91_hexoblog_python_learning_1 … error因为docker-compose up启动服务后，直接用Ctrl-C有时不能停止服务，要用docker-compose down 运行docker image prune -f无法删除虚悬镜像(dangling image)先运行docker-compose down在执行清理命令，如果还是无法删除，则一个个删]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
