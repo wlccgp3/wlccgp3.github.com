@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[学习路线]]></title>
+    <url>%2F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF.html</url>
+    <content type="text"><![CDATA[学习计划Markdown学习笔记Python学习 爬虫 网络爬虫原理和策略 HTTP, HTML, CSS, DOM, Javascript 正则表达式 第三方库 requests, selenium, pymonogo, csv, json 爬虫框架 Scrapy scrapy-redis 数据库 redis, MongoDB 机器学习 numpy, pandas, matplotlib, bokeh, scikit-learn, tensorflow python web django, flask Git学习笔记Linux* Linux学习笔记 * deepin Wiki 搭建自己的博客]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Jupyter Notebook学习笔记]]></title>
     <url>%2F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2FJupyter%20Notebook.html</url>
     <content type="text"><![CDATA[jupyter教程 jupyter配置jupyter notebook --generate-config 打开python，输入： from notebook.auth import passwd passwd() 根据提示输入密码，将加密后的密文输入到~/.jupyter/jupyter_notebook_config.py c.NotebookApp.password = &apos;sha1:XXXXXXX&apos; jupyter扩展安装pip3 install jupyter_contrib_nbextensions --user jupyter contrib nbextension install --user jupyter打印每一行变量from IPython.core.interactiveshell import InteractiveShell InteractiveShell.ast_node_interactivity = &quot;all&quot; 代码片段路径： ~/.local/share/jupyter/nbextensions/snippets/snippets.json 虚拟环境问题jupyter 默认使用的是本机的内核 pip3 install ipykernel ipython3 kernel install –user –name “python3_ml” –display-name “Python3_ML” –name命名必须是小写、数字和下划线 Configurable nbextensions插件管理关闭disable configuration for nbextensions without explicit compatibility这个选项，否则有些扩展不能使用 Widget插件安装jupyter nbextension enable widgetsnbextension –user –py 虚拟环境启动报错ImportError: No module named ‘jupyter_nbextensions_configurator’进入虚拟环境后：pipenv install jupyter_nbextensions_configurator –skip-lock jupyter自定义文件创建~/.jupyter/custom/custom.*文件，例如custom.js、custom.css等，会自动加载到jupyter notebook中]]></content>
@@ -44,11 +49,6 @@
       <tags>
         <tag>markdown</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[学习路线]]></title>
-    <url>%2F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF.html</url>
-    <content type="text"><![CDATA[学习计划Markdown学习笔记Python学习 爬虫 网络爬虫原理和策略 HTTP, HTML, CSS, DOM, Javascript 正则表达式 第三方库 requests, selenium, pymonogo, csv, json 爬虫框架 Scrapy scrapy-redis 数据库 redis, MongoDB 机器学习 numpy, pandas, matplotlib, bokeh, scikit-learn, tensorflow python web django, flask Git学习笔记Linux* Linux学习笔记 * deepin Wiki 搭建自己的博客]]></content>
   </entry>
   <entry>
     <title><![CDATA[test]]></title>
