@@ -1,96 +1,733 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title><![CDATA[学习路线]]></title>
-    <url>%2F%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF.html</url>
-    <content type="text"><![CDATA[近况公司：深圳市电陶思创科技有限公司职位：python爬虫工程师工作内容：物联网搜索引擎 学习计划Markdown 学习笔记Python学习 爬虫 网络爬虫原理和策略 HTTP, HTML, CSS, DOM, Javascript 正则表达式 学习笔记 第三方库 requests, selenium, pymonogo, csv, json 爬虫框架 Scrapy scrapy-redis 数据库 redis, MongoDB 机器学习 numpy, pandas, matplotlib, bokeh, scikit-learn, tensorflow python web django, flask Linux 学习笔记Git 学习笔记Docker 学习笔记搭建自己的博客HexoNext 还有很多没有整理好未完待续…]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Docker学习笔记]]></title>
-    <url>%2F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2FDocker.html</url>
-    <content type="text"><![CDATA[软件安装 详细教程 命令行安装：curl -sSL https://get.docker.com/ | sh 软件包安装：deb包 sudo pip3 install docker-compose docker更改国内镜像 12345sudo vim /etc/docker/daemon.json，写入：&#123; &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]&#125;docker info查看是否有Registry Mirrors docker添加用户组 123sudo groupadd dockersudo usermod -aG docker $USERsudo service docker restart 常用操作 docker –help可以查看Management Commands和Commands 构建镜像并启动容器(如果镜像已存在，则直接启动容器) docker run -it 镜像名称 bash 进入运行时容器 docker exec -it 容器名称 bash 容器保存为镜像 docker commit 容器名称 镜像名称 // 如果改动很多，直接删除镜像重新构建 使用笔记 出现the input device is not a TTY docker取消-i参数 停止和删除所有运行的容器 docker stop $(docker ps -a -q) docker rm $(docker ps -a -q) 当Dockerfile改变，重新用docker-compose up出现错误Recreating 48802a01eb91_48802a01eb91_hexoblog_python_learning_1 … error因为docker-compose up启动服务后，直接用Ctrl-C有时不能停止服务，要用docker-compose down 运行docker image prune -f无法删除虚悬镜像(dangling image)先运行docker-compose down在执行清理命令，如果还是无法删除，则一个个删]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Linux学习笔记]]></title>
-    <url>%2F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2FLinux.html</url>
-    <content type="text"><![CDATA[强制杀死进程pkill -f name 读取特定行sed -n &apos;3p&apos; filename sed -n &apos;3, 7p&apos; filename 删除特定行 sed -i &apos;3d&apos; filename 在某行插入数据 sed -i &apos;2a data&apos; filename 读取所有cat -n filename 统计文件中字符串出现的次数 grep &apos;/guangzhou/&apos; shunqi_0620.json |wc -l 创建软连接，必须用绝对路径，否则会报错sudo ln -s /home/wanli/Downloads/jdk/bin/java /usr/bin/ 创建多级目录，即使父目录已存在mkdir -p /1/2/3 查看指定文件夹下的指定文件ls -l /usr/bin/|grep mongo.* 注意:grep里面的的特殊字符是正则中的，其他命令特殊字符是shell中的，在shell中*代表任意 查找指定文件tree -f dirname | rg &apos;mongo.*&apos; 批量替换字符串（慎用）alias rg-replace=&apos;_rg(){rg $1 $3 &amp;&amp; (rg -l $1 $3 | xargs sed -i &quot;s/$1/$2/g&quot;)}; _rg&apos; 注：因为alias不支持传递参数，所以用用function解决 查看指定进程ps aux|rg mongod 创建空白文件touch filename sudo使用bug文件权限是所有，但是用了sudo后会被锁住 用cd无法进入文件夹必须要有x权限才能进入文件夹，有w权限才能修改删除 限制内存使用sudo gedit /etc/security/limits.conf 添加： * soft as 8000000 * hard as 14000000 打包文件夹tar -cvf atom.tar .atom 只打包，不压缩 批量重命名rename &apos;s/.txt/.md/&apos; ./* 复制文件夹和所有文件cp -r dir1 dir2 cp -r dir1/* dir2/ 重复打印字符串* str=$(printf &quot;%-100s&quot; &quot;*&quot;) | echo &quot;${str// /*}&quot; * printf &apos;%*s&apos; 100 | tr &apos;&apos; &apos;*&apos; scp远程复制文件scp [-r] user@host:remote-file-or-dir local-dir scp [-r] local-dir-or-file user@host:remote-dir chsh -s /bin/zsh # 修改默认的shell du -h -d 1 # 查看当前目录下第一层目录的磁盘占用，-d是目录深度 更新引导sudo update-grub2]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Jupyter Notebook学习笔记]]></title>
-    <url>%2F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2FJupyter%20Notebook.html</url>
-    <content type="text"><![CDATA[jupyter教程 jupyter配置jupyter notebook --generate-config 打开python，输入： from notebook.auth import passwd passwd() 根据提示输入密码，将加密后的密文输入到~/.jupyter/jupyter_notebook_config.py c.NotebookApp.password = &apos;sha1:XXXXXXX&apos; jupyter扩展安装pip3 install jupyter_contrib_nbextensions --user jupyter contrib nbextension install --user jupyter打印每一行变量from IPython.core.interactiveshell import InteractiveShell InteractiveShell.ast_node_interactivity = &quot;all&quot; 代码片段路径： ~/.local/share/jupyter/nbextensions/snippets/snippets.json 虚拟环境问题jupyter 默认使用的是本机的内核 pip3 install ipykernel ipython3 kernel install –user –name “python3_ml” –display-name “Python3_ML” –name命名必须是小写、数字和下划线 Configurable nbextensions插件管理关闭disable configuration for nbextensions without explicit compatibility这个选项，否则有些扩展不能使用 Widget插件安装jupyter nbextension enable widgetsnbextension –user –py 虚拟环境启动报错ImportError: No module named ‘jupyter_nbextensions_configurator’进入虚拟环境后：pipenv install jupyter_nbextensions_configurator –skip-lock jupyter自定义文件创建~/.jupyter/custom/custom.*文件，例如custom.js、custom.css等，会自动加载到jupyter notebook中]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>jupyter</tag>
-        <tag>ipython</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Git学习笔记]]></title>
-    <url>%2F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2FGit.html</url>
-    <content type="text"><![CDATA[初始化配置git config --global user.email &apos;1301281985@qq.com&apos; git config --global user.name &apos;wanli&apos; git config --global credential.helper store git status中文显示问题git config --global core.quotepath false 指定编辑器git config --global core.editor vim 生成秘钥ssh-keygen -t rsa -C &apos;1301281985@qq.com&apos; 加入到known_hostsssh -vT git@git.coding.net 一般流程mkdir -p dirname git init git remote add gitrep(本地仓库名) https://...(远程仓库地址) git push -u gitrep master -u：以后的push可以直接用git push默认只推送当前分支 push和pull出现的问题fatal: refusing to merge unrelated histories或者fatal: 拒绝合并无关的历史 git push -f -u [本地如origin] [远程如master] git pull [远程origin] [远程master] --allow-unrelated-histories push出现Failed to connect to 127.0.0.1 port 37956: 拒绝连接env|rg &apos;proxy&apos;可以看到https使用了代理，与lantern有关 unset https_proxy http_proxy 常用命令git remote -v 查看是否连接上服务器仓库 git remote 查看仓库名称 git remote add (仓库名) https://......（仓库https 地址） git remote remove (仓库名) 移除该仓库名连接 撤销git addgit reset HEAD file/dir 忽略特定文件夹和文件在git仓库的根目录创建.gitignore文件 返回旧版本先用 git log -g 查看版本 然后git reset --hard 3628164 # 最后是commit版本号 如果返回旧版本，而且又关了电脑，现在又想回到新版本git reflog 用来记录每一个命令，可以看到提交的版本信息 git reset --hard commit_id # commit_id可以缩写 放弃本地所有修改重新拉取远程仓库git fetch --all git reset --hard origin/master git pull 改乱了工作区某个文件的内容，想直接丢弃工作区的修改时git checkout -- file git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原” 电脑配置的公钥长时间不适用可能会失效，要重新添加到git远程公钥中vscode点击同步时出现冲突，解决方法：- F1打开命令菜单，git merge 选择orign/master --&gt; 处理冲突后commit --&gt; git push 修改.gitignore文件 不生效原因是.gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。那么解决方法就是先把本地缓存删除（改变成未track状态），然后再提交： git rm -r –cached . git add . git commit -m ‘update .gitignore’ git撤销删除分支git log -g 找到该分支的最后一次操作，记下commit_id git checkout -b {branch-name} {commit-id} 分支管理git branch -d {branch-name} # 删除本地分支，-D强制删除 git branch -vv # 查看所有分支的详细信息 git checkout -b {oldName} # 创建oldName，并切换到该分支 git branch -m {oldName} {newName} # 重命名分支 git push --delete {origin} {oldName} # 删除已有的远程分支]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Markdown学习笔记]]></title>
-    <url>%2F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2FMarkdown.html</url>
-    <content type="text"><![CDATA[READMEread me该文用来测试和展示书写README的各种markdown语法。GitHub的markdown语法在标准的markdown语法基础上做了扩充，称之为GitHub Flavored Markdown。简称GFM，GFM在GitHub上有广泛应用，除了README文件外，issues和wiki均支持markdown语法。 横线*** 标题一级标题———# 一级标题二级标题———-## 二级标题三级标题———### 三级标题四级标题———#### 四级标题五级标题———##### 五级标题六级标题———###### 六级标题文本普通文本这是一段普通的文本 单行文本Hello,大家好 在一行开头加入1个Tab或者4个空格。 文本块在连续几行的文本开头加入1个Tab或者4个空格，上下各空一行。 欢迎到访 很高兴见到您 祝您，早上好，中午好，下午好，晚安 该语法也可以实现代码高亮，见代码高亮 文字高亮文字高亮功能能使行内部分文字高亮，使用一对反引号。语法：1`linux` `网络编程` `socket` `epoll` 效果：linux 网络编程 socket epoll 也适合做一篇文章的tag 斜体、粗体、删除线 语法 效果 *斜体1* 斜体1 **粗体1** 粗体1 这是一个 ~~删除线~~ 这是一个 删除线 ***斜粗体1*** 斜粗体1 ***~~斜粗体删除线1~~*** 斜粗体删除线1 ~~***斜粗体删除线2***~~ 斜粗体删除线2 斜体、粗体、删除线可混合使用 图片基本格式：1![alt](URL title) alt和title即对应HTML中的alt和title属性（都可省略）： alt表示图片显示失败时的替换文本 title表示鼠标悬停在图片时的显示文本（注意这里要加引号） URL即图片的url地址，如果引用本仓库中的图片，直接使用相对路径就可了，如果引用其他github仓库中的图片要注意格式，即：仓库地址/raw/分支名/图片路径，如：1https://github.com/guodongxiaren/ImageCache/raw/master/Logo/foryou.gif 语法 效果 1 ![baidu](http://www.baidu.com/img/bdlogo.gif &quot;百度logo&quot;) 2 ![][foryou] 注意例2的写法使用了URL标识符的形式，在链接一节有介绍。 在文末有foryou的定义： 1[foryou]:https://github.com/guodongxiaren/ImageCache/raw/master/Logo/foryou.gif 链接链接外部URL 链接 代码 备注 百度 [百度](http://baidu.com) 语法[title](URL &quot;&quot;)鼠标悬停显示提示信息 百度 [百度][][百度]:http://www.baidu.com 换行可以用HTML的代码，插入代码&lt;br&gt;[百度][]后面[]可省略 百度 [百度][zhihu] [zhihu]:https://www.zhihu.com/ 显示的是百度但是URL标识符是zhihu所以打开的是知乎 http://www.baidu.com/ &lt;http://www.baidu.com/&gt; 自动链接 链接能高亮，鼠标悬停可以看到提示 第一种链接：[](URL &quot;&quot;)中括号里面是屏幕显示，小括号为链接地址，引号里面为悬停显示的提示 第二种链接：[][]第一个中括号内容为屏幕显示，第二个里面为URL标识符，此时鼠标悬停显示的是URL的提示 使用URL标识符能达到复用的目的，一般把全文所有的URL标识符统一放在文章末尾，这样看起来比较干净。 链接本仓库里的URL我的简介 图片链接 图片链接 代码 备注 ![](./img/zhihu.png) ![]()插入本地图片 [![](./img/zhihu.png)][zhihu] [![]()][]插入图片链接 [![](http://www.baidu.com/img/bdlogo.gif)][baidu] 插入图片与URL标识符混合可实现图片链接 [&lt;img src=&quot;http://www.baidu.com/img/bdlogo.gif&quot; width=&quot;100&quot;&gt;](http://www.baidu.com/) 自定义图片大小的链接 用法：![]() 此时鼠标悬停时显示的文字是图片的title，而非链接本身的title了。本文URL标识符都放置于文末图片链接和URL可以混合用，只需把图片链接当成一个整体放入URL链接中 锚点其实呢，每一个标题都是一个锚点，和HTML的锚点（#）类似，比如我们 语法 效果 备注 [回到顶部](#readme) 回到顶部 标题中的英文字母都被转化为小写字母了。 [回到顶部](#read-me) read me 标题中的空格用-代替 不过要注意，标题中的英文字母都被转化为小写字母了。 列表无序列表 昵称：果冻虾仁 别名：隔壁老王 英文名：Jelly 多级无序列表 编程语言 脚本语言 Python 有序列表一般效果就是在数字后面加一个点，再加一个空格。不过看起来起来可能不够明显。面向对象的三个基本特征： 封装 继承 多态 有序列表自动排序也可以在第一行指定1.，而接下来的几行用星号*（或者继续用数字1. ）就可以了，它会自动显示成2、3、4……。面向对象的七大原则： 开闭原则 里氏转换原则 依赖倒转原则 接口隔离原则 组合/聚合复用原则 “迪米特”法则 单一职责原则 多级有序列表和无序列表一样，有序列表也有多级结构： 这是一级的有序列表，数字1还是1 这是二级的有序列表，阿拉伯数字在显示的时候变成了罗马数字 这是三级的有序列表，数字在显示的时候变成了英文字母 四级的有序列表显示效果，就不再变化了，依旧是英文字母 复选框列表 需求分析 系统设计 详细设计 编码 测试 交付 您可以使用这个功能来标注某个项目各项任务的完成情况。 Tip: 在GitHub的issue中使用该语法是可以实时点击复选框来勾选或解除勾选的，而无需修改issue原文。 块引用常用于引用文本文本摘自《深入理解计算机系统》P27 令人吃惊的是，在哪种字节顺序是合适的这个问题上，人们表现得非常情绪化。实际上术语“little endian”（小端）和“big endian”（大端）出自Jonathan Swift的《格利佛游记》一书，其中交战的两个派别无法就应该从哪一端打开一个半熟的鸡蛋达成一致。因此，争论沦为关于社会政治的争论。只要选择了一种规则并且始终如一的坚持，其实对于哪种字节排序的选择都是任意的。 “端”（endian）的起源以下是Jonathan Swift在1726年关于大小端之争历史的描述：“……下面我要告诉你的是，Lilliput和Blefuscu这两大强国在过去36个月里一直在苦战。战争开始是由于以下的原因：我们大家都认为，吃鸡蛋前，原始的方法是打破鸡蛋较大的一端，可是当今的皇帝的祖父小时候吃鸡蛋，一次按古法打鸡蛋时碰巧将一个手指弄破了，因此他的父亲，当时的皇帝，就下了一道敕令，命令全体臣民吃鸡蛋时打破较小的一端，违令者重罚。” 块引用有多级结构 数据结构 树 二叉树 平衡二叉树 满二叉树 代码高亮在三个反引号后面加上编程语言的名字，另起一行开始写代码，最后一行再加上三个反引号。1public static void main(String[]args)&#123;&#125; //Java 1int main(int argc, char *argv[]) //C 表格 表头1 表头2 表格单元 表格单元 表格单元 表格单元 表头1 表头2 表格单元 表格单元 表格单元 表格单元 对齐表格可以指定对齐方式 左对齐 居中 右对齐 :---------- :-------------: ---: col 3 is some wordy text $1600 col 2 is centered $12 zebra stripes are neat $1]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[test]]></title>
-    <url>%2Ftest.html</url>
-    <content type="text"><![CDATA[test123]]></content>
-      <categories>
-        <category>Diary</category>
-      </categories>
-      <tags>
-        <tag>PS3</tag>
-        <tag>Games</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[categories]]></title>
-    <url>%2Fcategories%2Findex.html</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[About]]></title>
-    <url>%2Fabout%2Findex.html</url>
-    <content type="text"><![CDATA[Blog本博客纯属个人经验分享，不是技术博客，请大佬们多多指教 Reputation无名之辈 ContactWechat: wanli249259Email: 15070926843@163.com 开发环境deepin, zsh, tmux, pycharm, vscode, git 额外插件oh-my-zsh, tmuxp jupyter notebook注释声明# 普通注释 # --&gt; 该行有输出。如果有输出，但是没有该标志，是因为jupyter默认会打印最后一行，且是美化输出 # &lt;=&gt; 左边类似于右边 # &gt;_&lt; 报错 html样式声明为了美化jupyter notebook导出的html显示，更改了很多样式。详细信息请点击右上角fork me，切换到hexo_src分支查看 hexo源码git clone -b hexo_src https://git.coding.net/wlccgp3/wlccgp3.coding.me.git hexo_src 或直接下载zip 运行必需python3 &gt; linux和mac都自带，Windows需要手动下载git &gt; windows用户下载后，可以用git bash，类似linux的终端 极简模式python3 -m pip install --upgrade pip # 如果pip是最新的不用执行 pip3 install jupyter -i https://pypi.tuna.tsinghua.edu.cn/simple/ cd python3学习笔记 所在路径 jupyter notebook ./source/python3学习笔记/.jupyter是我个人的配置，如有需要请：linux复制到/home/your-user-name/windows复制到C:\Users\Administrator\ docker模式 建议windows用户不要使用该模式，直接用虚拟机还方便一点。(老司机请无视) docker官网安装docker个人笔记 pip3 install docker-compose -i https://pypi.tuna.tsinghua.edu.cn/simple/ cd hexo_src目录所在路径 docker-compose up 浏览器打开http://localhost:8888/，具体端口可以在docker-compose.yml中修改 该配置默认加载我个人的配置文件，如果想自己配置，请注释掉./source/python3学习笔记/Dockerfile中的最后一行]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[tags]]></title>
-    <url>%2Ftags%2Findex.html</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2Fpython3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2Findex.html</url>
-    <content type="text"><![CDATA[Python3学习笔记 本文纯属个人笔记，仅供参考。如需系统学习，请转到廖雪峰python3教程 Jupyter Notebook笔记 第壹章 基本数据类型 python3基本语法 字符串 列表和元组 字典 集合 python数据存储原理 第贰章 语句和文件 语句 –&gt; import, 赋值语句、增量赋值 迭代 –&gt; 可迭代对象、迭代器、生成器、列表解析 文件 –&gt; 文件打开，读取，写入，常用方法 自省 –&gt; help()，dir()，文档字符串，检查对象，文档 第叁章 函数 函数 –&gt; 定义函数方法，调用函数方法，参数 内建函数 闭包、装饰器 第肆章 类 特殊属性和方法 类 未完待续…]]></content>
-  </entry>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[学习路线]]></title>
+      <url>/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF.html</url>
+      <content type="html"><![CDATA[<h2 id="近况"><a href="#近况" class="headerlink" title="近况"></a>近况</h2><p>公司：深圳市电陶思创科技有限公司<br>职位：python爬虫工程师<br>工作内容：物联网搜索引擎</p>
+<h2 id="学习计划"><a href="#学习计划" class="headerlink" title="学习计划"></a>学习计划</h2><h3 id="Markdown-学习笔记"><a href="#Markdown-学习笔记" class="headerlink" title="Markdown 学习笔记"></a>Markdown <a href="./学习笔记/Markdown.html">学习笔记</a></h3><h3 id="Python学习"><a href="#Python学习" class="headerlink" title="Python学习"></a>Python学习</h3><ul>
+<li>爬虫<ul>
+<li>网络爬虫原理和策略</li>
+<li>HTTP, HTML, CSS, DOM, Javascript</li>
+<li>正则表达式 <a href="./正则表达式.html">学习笔记</a></li>
+<li>第三方库<ul>
+<li>requests, selenium, pymonogo, csv, json</li>
+</ul>
+</li>
+<li>爬虫框架<ul>
+<li>Scrapy</li>
+<li>scrapy-redis</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据库<ul>
+<li>redis, MongoDB</li>
+</ul>
+</li>
+<li>机器学习<ul>
+<li>numpy, pandas, matplotlib, bokeh, scikit-learn, tensorflow</li>
+</ul>
+</li>
+<li>python web<ul>
+<li>django, flask</li>
+</ul>
+</li>
+</ul>
+<h3 id="Linux-学习笔记"><a href="#Linux-学习笔记" class="headerlink" title="Linux 学习笔记"></a>Linux <a href="./Linux.html">学习笔记</a></h3><h3 id="Git-学习笔记"><a href="#Git-学习笔记" class="headerlink" title="Git 学习笔记"></a>Git <a href="./Git.html">学习笔记</a></h3><h3 id="Docker-学习笔记"><a href="#Docker-学习笔记" class="headerlink" title="Docker 学习笔记"></a>Docker <a href="./学习笔记/Docker.html">学习笔记</a></h3><h3 id="搭建自己的博客"><a href="#搭建自己的博客" class="headerlink" title="搭建自己的博客"></a>搭建自己的博客</h3><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a><br><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">Next</a></p>
+<blockquote>
+<p>还有很多没有整理好<br>未完待续…</p>
+</blockquote>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Docker学习笔记]]></title>
+      <url>/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Docker.html</url>
+      <content type="html"><![CDATA[<h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><blockquote>
+<p><a href="https://docker_practice.gitee.io/introduction/what.html" target="_blank" rel="noopener">详细教程</a></p>
+</blockquote>
+<ul>
+<li>命令行安装：curl -sSL <a href="https://get.docker.com/" target="_blank" rel="noopener">https://get.docker.com/</a> | sh</li>
+<li>软件包安装：<a href="https://download.docker.com/linux/debian/dists/jessie/pool/stable/amd64/" target="_blank" rel="noopener">deb包</a></li>
+<li>sudo pip3 install docker-compose</li>
+<li><p>docker更改国内镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/docker/daemon.json，写入：</span><br><span class="line">&#123;</span><br><span class="line">    &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">docker info查看是否有Registry Mirrors</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>docker添加用户组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -aG docker $USER</span><br><span class="line">sudo service docker restart</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><ul>
+<li>docker –help可以查看Management Commands和Commands</li>
+<li>构建镜像并启动容器(如果镜像已存在，则直接启动容器)<br>  docker run -it 镜像名称 bash</li>
+<li>进入运行时容器<br>  docker exec -it 容器名称 bash</li>
+<li>容器保存为镜像<br>  docker commit 容器名称 镜像名称 // 如果改动很多，直接删除镜像重新构建</li>
+</ul>
+<h3 id="使用笔记"><a href="#使用笔记" class="headerlink" title="使用笔记"></a>使用笔记</h3><ul>
+<li><p>出现the input device is not a TTY<br>  docker取消-i参数</p>
+</li>
+<li><p>停止和删除所有运行的容器<br>  docker stop $(docker ps -a -q)<br>  docker rm $(docker ps -a -q)</p>
+</li>
+</ul>
+<h3 id="当Dockerfile改变，重新用docker-compose-up出现错误"><a href="#当Dockerfile改变，重新用docker-compose-up出现错误" class="headerlink" title="当Dockerfile改变，重新用docker-compose up出现错误"></a>当Dockerfile改变，重新用docker-compose up出现错误</h3><p>Recreating 48802a01eb91_48802a01eb91_hexoblog_python_learning_1 … error<br>因为docker-compose up启动服务后，直接用Ctrl-C有时不能停止服务，要用docker-compose down</p>
+<h3 id="运行docker-image-prune-f无法删除虚悬镜像-dangling-image"><a href="#运行docker-image-prune-f无法删除虚悬镜像-dangling-image" class="headerlink" title="运行docker image prune -f无法删除虚悬镜像(dangling image)"></a>运行docker image prune -f无法删除虚悬镜像(dangling image)</h3><p>先运行docker-compose down在执行清理命令，如果还是无法删除，则一个个删</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Linux学习笔记]]></title>
+      <url>/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Linux.html</url>
+      <content type="html"><![CDATA[<h3 id="强制杀死进程"><a href="#强制杀死进程" class="headerlink" title="强制杀死进程"></a>强制杀死进程</h3><pre><code>pkill -f name
+</code></pre><h3 id="读取特定行"><a href="#读取特定行" class="headerlink" title="读取特定行"></a>读取特定行</h3><pre><code>sed -n &apos;3p&apos; filename
+sed -n &apos;3, 7p&apos; filename
+删除特定行
+sed -i &apos;3d&apos; filename
+在某行插入数据
+sed -i &apos;2a data&apos; filename
+</code></pre><h3 id="读取所有"><a href="#读取所有" class="headerlink" title="读取所有"></a>读取所有</h3><pre><code>cat -n filename
+统计文件中字符串出现的次数
+grep &apos;/guangzhou/&apos; shunqi_0620.json |wc -l
+</code></pre><h3 id="创建软连接，必须用绝对路径，否则会报错"><a href="#创建软连接，必须用绝对路径，否则会报错" class="headerlink" title="创建软连接，必须用绝对路径，否则会报错"></a>创建软连接，必须用绝对路径，否则会报错</h3><pre><code>sudo ln -s /home/wanli/Downloads/jdk/bin/java /usr/bin/
+</code></pre><h3 id="创建多级目录，即使父目录已存在"><a href="#创建多级目录，即使父目录已存在" class="headerlink" title="创建多级目录，即使父目录已存在"></a>创建多级目录，即使父目录已存在</h3><pre><code>mkdir -p /1/2/3
+</code></pre><h3 id="查看指定文件夹下的指定文件"><a href="#查看指定文件夹下的指定文件" class="headerlink" title="查看指定文件夹下的指定文件"></a>查看指定文件夹下的指定文件</h3><pre><code>ls -l /usr/bin/|grep mongo.*
+注意:grep里面的的特殊字符是正则中的，其他命令特殊字符是shell中的，在shell中*代表任意
+</code></pre><h3 id="查找指定文件"><a href="#查找指定文件" class="headerlink" title="查找指定文件"></a>查找指定文件</h3><pre><code>tree -f dirname | rg &apos;mongo.*&apos;
+</code></pre><h3 id="批量替换字符串（慎用）"><a href="#批量替换字符串（慎用）" class="headerlink" title="批量替换字符串（慎用）"></a>批量替换字符串（慎用）</h3><pre><code>alias rg-replace=&apos;_rg(){rg $1 $3 &amp;&amp; (rg -l $1 $3 | xargs sed -i &quot;s/$1/$2/g&quot;)}; _rg&apos;
+注：因为alias不支持传递参数，所以用用function解决
+</code></pre><h3 id="查看指定进程"><a href="#查看指定进程" class="headerlink" title="查看指定进程"></a>查看指定进程</h3><pre><code>ps aux|rg mongod
+</code></pre><h3 id="创建空白文件"><a href="#创建空白文件" class="headerlink" title="创建空白文件"></a>创建空白文件</h3><pre><code>touch filename
+</code></pre><h3 id="sudo使用bug"><a href="#sudo使用bug" class="headerlink" title="sudo使用bug"></a>sudo使用bug</h3><pre><code>文件权限是所有，但是用了sudo后会被锁住
+</code></pre><h3 id="用cd无法进入文件夹"><a href="#用cd无法进入文件夹" class="headerlink" title="用cd无法进入文件夹"></a>用cd无法进入文件夹</h3><pre><code>必须要有x权限才能进入文件夹，有w权限才能修改删除
+</code></pre><h3 id="限制内存使用"><a href="#限制内存使用" class="headerlink" title="限制内存使用"></a>限制内存使用</h3><pre><code>sudo gedit /etc/security/limits.conf
+添加：
+* soft as 8000000
+* hard as 14000000
+</code></pre><h3 id="打包文件夹"><a href="#打包文件夹" class="headerlink" title="打包文件夹"></a>打包文件夹</h3><pre><code>tar -cvf atom.tar .atom 只打包，不压缩
+</code></pre><h3 id="批量重命名"><a href="#批量重命名" class="headerlink" title="批量重命名"></a>批量重命名</h3><pre><code>rename &apos;s/.txt/.md/&apos; ./*
+</code></pre><h3 id="复制文件夹和所有文件"><a href="#复制文件夹和所有文件" class="headerlink" title="复制文件夹和所有文件"></a>复制文件夹和所有文件</h3><pre><code>cp -r dir1 dir2
+cp -r dir1/* dir2/
+</code></pre><h3 id="重复打印字符串"><a href="#重复打印字符串" class="headerlink" title="重复打印字符串"></a>重复打印字符串</h3><pre><code>* str=$(printf &quot;%-100s&quot; &quot;*&quot;) | echo &quot;${str// /*}&quot;
+* printf &apos;%*s&apos; 100 | tr &apos;&apos; &apos;*&apos;
+</code></pre><h3 id="scp远程复制文件"><a href="#scp远程复制文件" class="headerlink" title="scp远程复制文件"></a>scp远程复制文件</h3><pre><code>scp [-r] user@host:remote-file-or-dir local-dir
+scp [-r] local-dir-or-file user@host:remote-dir
+</code></pre><ul>
+<li>chsh -s /bin/zsh  # 修改默认的shell</li>
+<li>du -h -d 1        # 查看当前目录下第一层目录的磁盘占用，-d是目录深度</li>
+</ul>
+<h3 id="更新引导"><a href="#更新引导" class="headerlink" title="更新引导"></a>更新引导</h3><p>sudo update-grub2</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Jupyter Notebook学习笔记]]></title>
+      <url>/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Jupyter%20Notebook.html</url>
+      <content type="html"><![CDATA[<blockquote>
+<p><a href="http://blog.csdn.net/red_stone1/article/details/72858962" target="_blank" rel="noopener">jupyter教程</a></p>
+</blockquote>
+<h3 id="jupyter配置"><a href="#jupyter配置" class="headerlink" title="jupyter配置"></a>jupyter配置</h3><pre><code>jupyter notebook --generate-config
+打开python，输入：
+from notebook.auth import passwd
+passwd()
+根据提示输入密码，将加密后的密文输入到~/.jupyter/jupyter_notebook_config.py
+c.NotebookApp.password = &apos;sha1:XXXXXXX&apos;
+</code></pre><h3 id="jupyter扩展安装"><a href="#jupyter扩展安装" class="headerlink" title="jupyter扩展安装"></a>jupyter扩展安装</h3><pre><code>pip3 install jupyter_contrib_nbextensions --user
+jupyter contrib nbextension install --user
+</code></pre><h3 id="jupyter打印每一行变量"><a href="#jupyter打印每一行变量" class="headerlink" title="jupyter打印每一行变量"></a>jupyter打印每一行变量</h3><pre><code>from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = &quot;all&quot;
+</code></pre><h3 id="代码片段"><a href="#代码片段" class="headerlink" title="代码片段"></a>代码片段</h3><p>路径： ~/.local/share/jupyter/nbextensions/snippets/snippets.json</p>
+<h3 id="虚拟环境问题"><a href="#虚拟环境问题" class="headerlink" title="虚拟环境问题"></a>虚拟环境问题</h3><p>jupyter 默认使用的是本机的内核<br>    pip3 install ipykernel<br>    ipython3 kernel install –user –name “python3_ml” –display-name “Python3_ML”</p>
+<blockquote>
+<p>–name命名必须是小写、数字和下划线</p>
+</blockquote>
+<h3 id="Configurable-nbextensions插件管理"><a href="#Configurable-nbextensions插件管理" class="headerlink" title="Configurable nbextensions插件管理"></a>Configurable nbextensions插件管理</h3><p>关闭disable configuration for nbextensions without explicit compatibility这个选项，否则有些扩展不能使用</p>
+<h3 id="Widget插件安装"><a href="#Widget插件安装" class="headerlink" title="Widget插件安装"></a>Widget插件安装</h3><p>jupyter nbextension enable widgetsnbextension –user –py</p>
+<h3 id="虚拟环境启动报错ImportError-No-module-named-‘jupyter-nbextensions-configurator’"><a href="#虚拟环境启动报错ImportError-No-module-named-‘jupyter-nbextensions-configurator’" class="headerlink" title="虚拟环境启动报错ImportError: No module named ‘jupyter_nbextensions_configurator’"></a>虚拟环境启动报错ImportError: No module named ‘jupyter_nbextensions_configurator’</h3><p>进入虚拟环境后：pipenv install jupyter_nbextensions_configurator –skip-lock</p>
+<h3 id="jupyter自定义文件"><a href="#jupyter自定义文件" class="headerlink" title="jupyter自定义文件"></a>jupyter自定义文件</h3><p>创建~/.jupyter/custom/custom.*文件，例如custom.js、custom.css等，会自动加载到jupyter notebook中</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> jupyter </tag>
+            
+            <tag> ipython </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Git学习笔记]]></title>
+      <url>/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Git.html</url>
+      <content type="html"><![CDATA[<h3 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h3><pre><code>git config --global user.email &apos;1301281985@qq.com&apos;
+git config --global user.name &apos;wanli&apos;
+git config --global credential.helper store
+</code></pre><h3 id="git-status中文显示问题"><a href="#git-status中文显示问题" class="headerlink" title="git status中文显示问题"></a>git status中文显示问题</h3><pre><code>git config --global core.quotepath false
+</code></pre><h3 id="指定编辑器"><a href="#指定编辑器" class="headerlink" title="指定编辑器"></a>指定编辑器</h3><pre><code>git config --global core.editor vim
+</code></pre><h3 id="生成秘钥"><a href="#生成秘钥" class="headerlink" title="生成秘钥"></a>生成秘钥</h3><pre><code>ssh-keygen -t rsa -C &apos;1301281985@qq.com&apos;
+</code></pre><h3 id="加入到known-hosts"><a href="#加入到known-hosts" class="headerlink" title="加入到known_hosts"></a>加入到known_hosts</h3><pre><code>ssh -vT git@git.coding.net
+</code></pre><h3 id="一般流程"><a href="#一般流程" class="headerlink" title="一般流程"></a>一般流程</h3><pre><code>mkdir -p dirname
+git init
+git remote add gitrep(本地仓库名) https://...(远程仓库地址)
+git push -u gitrep master
+    -u：以后的push可以直接用git push默认只推送当前分支
+</code></pre><h3 id="push和pull出现的问题"><a href="#push和pull出现的问题" class="headerlink" title="push和pull出现的问题"></a>push和pull出现的问题</h3><pre><code>fatal: refusing to merge unrelated histories或者fatal: 拒绝合并无关的历史
+git push -f -u [本地如origin] [远程如master]
+git pull [远程origin] [远程master] --allow-unrelated-histories
+</code></pre><h3 id="push出现Failed-to-connect-to-127-0-0-1-port-37956-拒绝连接"><a href="#push出现Failed-to-connect-to-127-0-0-1-port-37956-拒绝连接" class="headerlink" title="push出现Failed to connect to 127.0.0.1 port 37956: 拒绝连接"></a>push出现Failed to connect to 127.0.0.1 port 37956: 拒绝连接</h3><pre><code>env|rg &apos;proxy&apos;可以看到https使用了代理，与lantern有关
+unset https_proxy http_proxy
+</code></pre><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre><code>git remote -v  查看是否连接上服务器仓库
+git remote  查看仓库名称
+git remote add (仓库名)  https://......（仓库https 地址）
+git remote remove (仓库名)  移除该仓库名连接
+</code></pre><h3 id="撤销git-add"><a href="#撤销git-add" class="headerlink" title="撤销git add"></a>撤销git add</h3><pre><code>git reset HEAD file/dir
+</code></pre><h3 id="忽略特定文件夹和文件"><a href="#忽略特定文件夹和文件" class="headerlink" title="忽略特定文件夹和文件"></a>忽略特定文件夹和文件</h3><pre><code>在git仓库的根目录创建.gitignore文件
+</code></pre><h3 id="返回旧版本"><a href="#返回旧版本" class="headerlink" title="返回旧版本"></a>返回旧版本</h3><pre><code>先用 git log -g 查看版本
+然后git reset --hard 3628164  # 最后是commit版本号
+</code></pre><h3 id="如果返回旧版本，而且又关了电脑，现在又想回到新版本"><a href="#如果返回旧版本，而且又关了电脑，现在又想回到新版本" class="headerlink" title="如果返回旧版本，而且又关了电脑，现在又想回到新版本"></a>如果返回旧版本，而且又关了电脑，现在又想回到新版本</h3><pre><code>git reflog 用来记录每一个命令，可以看到提交的版本信息
+git reset --hard commit_id  # commit_id可以缩写
+</code></pre><h3 id="放弃本地所有修改重新拉取远程仓库"><a href="#放弃本地所有修改重新拉取远程仓库" class="headerlink" title="放弃本地所有修改重新拉取远程仓库"></a>放弃本地所有修改重新拉取远程仓库</h3><pre><code>git fetch --all
+git reset --hard origin/master 
+git pull
+</code></pre><h3 id="改乱了工作区某个文件的内容，想直接丢弃工作区的修改时"><a href="#改乱了工作区某个文件的内容，想直接丢弃工作区的修改时" class="headerlink" title="改乱了工作区某个文件的内容，想直接丢弃工作区的修改时"></a>改乱了工作区某个文件的内容，想直接丢弃工作区的修改时</h3><pre><code>git checkout -- file
+git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”
+</code></pre><h3 id="电脑配置的公钥长时间不适用可能会失效，要重新添加到git远程公钥中"><a href="#电脑配置的公钥长时间不适用可能会失效，要重新添加到git远程公钥中" class="headerlink" title="电脑配置的公钥长时间不适用可能会失效，要重新添加到git远程公钥中"></a>电脑配置的公钥长时间不适用可能会失效，要重新添加到git远程公钥中</h3><h3 id="vscode点击同步时出现冲突，解决方法："><a href="#vscode点击同步时出现冲突，解决方法：" class="headerlink" title="vscode点击同步时出现冲突，解决方法："></a>vscode点击同步时出现冲突，解决方法：</h3><pre><code>- F1打开命令菜单，git merge 选择orign/master --&gt; 处理冲突后commit --&gt; git push
+</code></pre><h3 id="修改-gitignore文件-不生效"><a href="#修改-gitignore文件-不生效" class="headerlink" title="修改.gitignore文件 不生效"></a>修改.gitignore文件 不生效</h3><p>原因是.gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。<br>那么解决方法就是先把本地缓存删除（改变成未track状态），然后再提交：<br>    git rm -r –cached .<br>    git add .<br>    git commit -m ‘update .gitignore’</p>
+<h3 id="git撤销删除分支"><a href="#git撤销删除分支" class="headerlink" title="git撤销删除分支"></a>git撤销删除分支</h3><pre><code>git log -g 找到该分支的最后一次操作，记下commit_id
+git checkout -b {branch-name} {commit-id}
+</code></pre><h3 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h3><pre><code>git branch -d {branch-name}           # 删除本地分支，-D强制删除
+git branch -vv                        # 查看所有分支的详细信息
+git checkout -b {oldName}             # 创建oldName，并切换到该分支
+git branch -m {oldName} {newName}     # 重命名分支
+git push --delete {origin} {oldName}  # 删除已有的远程分支
+</code></pre>]]></content>
+      
+        <categories>
+            
+            <category> 笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Markdown学习笔记]]></title>
+      <url>/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Markdown.html</url>
+      <content type="html"><![CDATA[<h1 id="README"><a href="#README" class="headerlink" title="README"></a>README</h1><h1 id="read-me"><a href="#read-me" class="headerlink" title="read me"></a><a href="">read me</a></h1><p>该文用来测试和展示书写README的各种markdown语法。GitHub的markdown语法在标准的markdown语法基础上做了扩充，称之为<code>GitHub Flavored Markdown</code>。简称<code>GFM</code>，GFM在GitHub上有广泛应用，除了README文件外，issues和wiki均支持markdown语法。</p>
+<h2 id="横线"><a href="#横线" class="headerlink" title="横线"></a>横线</h2><p>***</p>
+<hr>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><h1 id="一级标题———-一级标题"><a href="#一级标题———-一级标题" class="headerlink" title="一级标题———# 一级标题"></a>一级标题———# 一级标题</h1><h2 id="二级标题———-二级标题"><a href="#二级标题———-二级标题" class="headerlink" title="二级标题———-## 二级标题"></a>二级标题———-## 二级标题</h2><h3 id="三级标题———-三级标题"><a href="#三级标题———-三级标题" class="headerlink" title="三级标题———### 三级标题"></a>三级标题———### 三级标题</h3><h4 id="四级标题———-四级标题"><a href="#四级标题———-四级标题" class="headerlink" title="四级标题———#### 四级标题"></a>四级标题———#### 四级标题</h4><h5 id="五级标题———-五级标题"><a href="#五级标题———-五级标题" class="headerlink" title="五级标题———##### 五级标题"></a>五级标题———##### 五级标题</h5><h6 id="六级标题———-六级标题"><a href="#六级标题———-六级标题" class="headerlink" title="六级标题———###### 六级标题"></a>六级标题———###### 六级标题</h6><h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><h3 id="普通文本"><a href="#普通文本" class="headerlink" title="普通文本"></a>普通文本</h3><p>这是一段普通的文本</p>
+<h3 id="单行文本"><a href="#单行文本" class="headerlink" title="单行文本"></a>单行文本</h3><pre><code>Hello,大家好
+</code></pre><p>在一行开头加入1个Tab或者4个空格。</p>
+<h3 id="文本块"><a href="#文本块" class="headerlink" title="文本块"></a>文本块</h3><p>在连续几行的文本开头加入1个Tab或者4个空格，上下各空一行。</p>
+<pre><code>欢迎到访
+很高兴见到您
+祝您，早上好，中午好，下午好，晚安
+</code></pre><p>该语法也可以实现代码高亮，见<a href="#代码高亮">代码高亮</a></p>
+<h3 id="文字高亮"><a href="#文字高亮" class="headerlink" title="文字高亮"></a>文字高亮</h3><p>文字高亮功能能使行内部分文字高亮，使用一对反引号。<br>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`linux` `网络编程` `socket` `epoll`</span><br></pre></td></tr></table></figure></p>
+<p>效果：<code>linux</code> <code>网络编程</code> <code>socket</code> <code>epoll</code></p>
+<p>也适合做一篇文章的tag</p>
+<h4 id="斜体、粗体、删除线"><a href="#斜体、粗体、删除线" class="headerlink" title="斜体、粗体、删除线"></a>斜体、粗体、删除线</h4><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*斜体1*</code></td>
+<td><em>斜体1</em></td>
+</tr>
+<tr>
+<td><code>**粗体1**</code></td>
+<td><strong>粗体1</strong></td>
+</tr>
+<tr>
+<td><code>这是一个 ~~删除线~~</code></td>
+<td>这是一个 <del>删除线</del></td>
+</tr>
+<tr>
+<td><code>***斜粗体1***</code></td>
+<td><strong><em>斜粗体1</em></strong></td>
+</tr>
+<tr>
+<td><code>***~~斜粗体删除线1~~***</code></td>
+<td><strong><em><del>斜粗体删除线1</del></em></strong></td>
+</tr>
+<tr>
+<td><code>~~***斜粗体删除线2***~~</code></td>
+<td><del><strong><em>斜粗体删除线2</em></strong></del></td>
+</tr>
+</tbody>
+</table>
+<p>斜体、粗体、删除线可混合使用</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>基本格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![alt](URL title)</span><br></pre></td></tr></table></figure></p>
+<p>alt和title即对应HTML中的alt和title属性（都可省略）：</p>
+<ul>
+<li>alt表示图片显示失败时的替换文本</li>
+<li>title表示鼠标悬停在图片时的显示文本（注意这里要加引号）</li>
+</ul>
+<p>URL即图片的url地址，如果引用本仓库中的图片，直接使用<strong>相对路径</strong>就可了，如果引用其他github仓库中的图片要注意格式，即：<code>仓库地址/raw/分支名/图片路径</code>，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/guodongxiaren/ImageCache/raw/master/Logo/foryou.gif</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>语法</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>![baidu](http://www.baidu.com/img/bdlogo.gif &quot;百度logo&quot;)</code></td>
+<td><img src="http://www.baidu.com/img/bdlogo.gif" alt="baidu" title="百度logo"></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>![][foryou]</code></td>
+<td><img src="https://github.com/guodongxiaren/ImageCache/raw/master/Logo/foryou.gif" alt=""></td>
+</tr>
+</tbody>
+</table>
+<p>注意例2的写法使用了<strong>URL标识符</strong>的形式，在<a href="#链接">链接</a>一节有介绍。</p>
+<blockquote>
+<p>在文末有foryou的定义：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[foryou]:https://github.com/guodongxiaren/ImageCache/raw/master/Logo/foryou.gif</span><br></pre></td></tr></table></figure>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h3 id="链接外部URL"><a href="#链接外部URL" class="headerlink" title="链接外部URL"></a>链接外部URL</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">链接</th>
+<th style="text-align:left">代码</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="http://baidu.com" title="悬停显示文字提示" target="_blank" rel="noopener">百度</a></td>
+<td style="text-align:left"><code>[百度](http://baidu.com)</code></td>
+<td style="text-align:left">语法<code>[title](URL &quot;&quot;)</code>鼠标悬停显示提示信息</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.baidu.com" target="_blank" rel="noopener">百度</a></td>
+<td style="text-align:left"><code>[百度][]</code><br><code>[百度]:http://www.baidu.com</code></td>
+<td style="text-align:left">换行可以用HTML的代码，插入代码<code>&lt;br&gt;</code><br><code>[百度][]</code>后面<code>[]</code>可省略</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://www.zhihu.com/" target="_blank" rel="noopener">百度</a></td>
+<td style="text-align:left"><code>[百度][zhihu]</code><br> <code>[zhihu]:https://www.zhihu.com/</code></td>
+<td style="text-align:left">显示的是百度但是URL标识符<br>是zhihu所以打开的是知乎</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.baidu.com/" target="_blank" rel="noopener">http://www.baidu.com/</a></td>
+<td style="text-align:left"><code>&lt;http://www.baidu.com/&gt;</code></td>
+<td style="text-align:left">自动链接</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>链接能高亮，鼠标悬停可以看到提示</li>
+<li>第一种链接：<code>[](URL &quot;&quot;)</code>中括号里面是屏幕显示，小括号为链接地址，引号里面为悬停显示的提示</li>
+<li>第二种链接：<code>[][]</code>第一个中括号内容为屏幕显示，第二个里面为URL标识符，此时鼠标悬停显示的是URL的提示</li>
+</ul>
+<blockquote>
+<p>使用URL标识符能达到复用的目的，一般把全文所有的URL标识符统一放在文章末尾，这样看起来比较干净。</p>
+</blockquote>
+<h3 id="链接本仓库里的URL"><a href="#链接本仓库里的URL" class="headerlink" title="链接本仓库里的URL"></a>链接本仓库里的URL</h3><p><a href="./example/profile.md">我的简介</a></p>
+<h3 id="图片链接"><a href="#图片链接" class="headerlink" title="图片链接"></a>图片链接</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">图片链接</th>
+<th>代码</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="./img/zhihu.png" alt="" title="图片title"></td>
+<td><code>![](./img/zhihu.png)</code></td>
+<td><code>![]()</code>插入本地图片</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://www.zhihu.com/" target="_blank" rel="noopener"><img src="./img/zhihu.png" alt=""></a></td>
+<td><code>[![](./img/zhihu.png)][zhihu]</code></td>
+<td><code>[![]()][]</code>插入图片链接</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.baidu.com" title="百度" target="_blank" rel="noopener"><img src="http://www.baidu.com/img/bdlogo.gif" alt=""></a></td>
+<td><code>[![](http://www.baidu.com/img/bdlogo.gif)][baidu]</code></td>
+<td>插入图片与URL标识符混合可实现图片链接</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.baidu.com/" target="_blank" rel="noopener"><img src="http://www.baidu.com/img/bdlogo.gif" width="100"></a></td>
+<td><code>[&lt;img src=&quot;http://www.baidu.com/img/bdlogo.gif&quot; width=&quot;100&quot;&gt;](http://www.baidu.com/)</code></td>
+<td>自定义图片大小的链接</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>用法：<code>![]()</code><blockquote>
+<p>此时鼠标悬停时显示的文字是图片的title，而非链接本身的title了。<br>本文URL标识符都放置于文末<br>图片链接和URL可以混合用，只需把图片链接当成一个整体放入URL链接中</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h3><p>其实呢，每一个标题都是一个锚点，和HTML的锚点（<code>#</code>）类似，比如我们</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">语法</th>
+<th style="text-align:center">效果</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>[回到顶部](#readme</code>)</td>
+<td style="text-align:center"><a href="#readme">回到顶部</a></td>
+<td style="text-align:center">标题中的英文字母都被转化为<strong>小写字母</strong>了。</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>[回到顶部](#read-me</code>)</td>
+<td style="text-align:center"><a href="#read-me">read me</a></td>
+<td style="text-align:center">标题中的空格用<code>-</code>代替</td>
+</tr>
+</tbody>
+</table>
+<p>不过要注意，标题中的英文字母都被转化为<strong>小写字母</strong>了。</p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><ul>
+<li>昵称：果冻虾仁</li>
+</ul>
+<ul>
+<li>别名：隔壁老王</li>
+</ul>
+<ul>
+<li>英文名：Jelly</li>
+</ul>
+<h3 id="多级无序列表"><a href="#多级无序列表" class="headerlink" title="多级无序列表"></a>多级无序列表</h3><ul>
+<li>编程语言<ul>
+<li>脚本语言<ul>
+<li>Python</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><h4 id="一般效果"><a href="#一般效果" class="headerlink" title="一般效果"></a>一般效果</h4><p>就是在数字后面加一个点，再加一个空格。不过看起来起来可能不够明显。<br>面向对象的三个基本特征：</p>
+<ol>
+<li>封装</li>
+<li>继承</li>
+<li>多态</li>
+</ol>
+<h4 id="有序列表自动排序"><a href="#有序列表自动排序" class="headerlink" title="有序列表自动排序"></a>有序列表自动排序</h4><p>也可以在第一行指定<code>1.</code>，而接下来的几行用星号<code>*</code>（或者继续用数字1. ）就可以了，它会自动显示成2、3、4……。<br>面向对象的七大原则：</p>
+<ol>
+<li>开闭原则</li>
+<li>里氏转换原则</li>
+<li>依赖倒转原则</li>
+<li>接口隔离原则</li>
+<li>组合/聚合复用原则</li>
+<li>“迪米特”法则</li>
+<li>单一职责原则</li>
+</ol>
+<h4 id="多级有序列表"><a href="#多级有序列表" class="headerlink" title="多级有序列表"></a>多级有序列表</h4><p>和无序列表一样，有序列表也有多级结构：</p>
+<ol>
+<li>这是一级的有序列表，数字1还是1<ol>
+<li>这是二级的有序列表，阿拉伯数字在显示的时候变成了罗马数字<ol>
+<li>这是三级的有序列表，数字在显示的时候变成了英文字母<ol>
+<li>四级的有序列表显示效果，就不再变化了，依旧是英文字母</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="复选框列表"><a href="#复选框列表" class="headerlink" title="复选框列表"></a>复选框列表</h3><ul>
+<li style="list-style: none"><input type="checkbox" checked> 需求分析</li>
+<li style="list-style: none"><input type="checkbox" checked> 系统设计</li>
+<li style="list-style: none"><input type="checkbox" checked> 详细设计</li>
+</ul>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 编码</li>
+</ul>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 测试</li>
+</ul>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 交付</li>
+</ul>
+<p>您可以使用这个功能来标注某个项目各项任务的完成情况。</p>
+<blockquote>
+<p>Tip:</p>
+<blockquote>
+<p>在GitHub的<strong>issue</strong>中使用该语法是可以实时点击复选框来勾选或解除勾选的，而无需修改issue原文。</p>
+</blockquote>
+</blockquote>
+<h2 id="块引用"><a href="#块引用" class="headerlink" title="块引用"></a>块引用</h2><h3 id="常用于引用文本"><a href="#常用于引用文本" class="headerlink" title="常用于引用文本"></a>常用于引用文本</h3><h4 id="文本摘自《深入理解计算机系统》P27"><a href="#文本摘自《深入理解计算机系统》P27" class="headerlink" title="文本摘自《深入理解计算机系统》P27"></a>文本摘自《深入理解计算机系统》P27</h4><p>　令人吃惊的是，在哪种字节顺序是合适的这个问题上，人们表现得非常情绪化。实际上术语“little endian”（小端）和“big endian”（大端）出自Jonathan Swift的《格利佛游记》一书，其中交战的两个派别无法就应该从哪一端打开一个半熟的鸡蛋达成一致。因此，争论沦为关于社会政治的争论。只要选择了一种规则并且始终如一的坚持，其实对于哪种字节排序的选择都是任意的。</p>
+<blockquote>
+<p><strong>“端”（endian）的起源</strong><br>以下是Jonathan Swift在1726年关于大小端之争历史的描述：<br>“……下面我要告诉你的是，Lilliput和Blefuscu这两大强国在过去36个月里一直在苦战。战争开始是由于以下的原因：我们大家都认为，吃鸡蛋前，原始的方法是打破鸡蛋较大的一端，可是当今的皇帝的祖父小时候吃鸡蛋，一次按古法打鸡蛋时碰巧将一个手指弄破了，因此他的父亲，当时的皇帝，就下了一道敕令，命令全体臣民吃鸡蛋时打破较小的一端，违令者重罚。”</p>
+</blockquote>
+<h3 id="块引用有多级结构"><a href="#块引用有多级结构" class="headerlink" title="块引用有多级结构"></a>块引用有多级结构</h3><blockquote>
+<p>数据结构</p>
+<blockquote>
+<p>树</p>
+<blockquote>
+<p>二叉树</p>
+<blockquote>
+<p>平衡二叉树</p>
+<blockquote>
+<p>满二叉树</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h2><p>在三个反引号后面加上编程语言的名字，另起一行开始写代码，最后一行再加上三个反引号。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[]args)</span></span>&#123;&#125; <span class="comment">//Java</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> <span class="comment">//C</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><table>
+<thead>
+<tr>
+<th>表头1</th>
+<th>表头2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>表格单元</td>
+<td>表格单元</td>
+</tr>
+<tr>
+<td>表格单元</td>
+<td>表格单元</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>表头1</th>
+<th>表头2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>表格单元</td>
+<td>表格单元</td>
+</tr>
+<tr>
+<td>表格单元</td>
+<td>表格单元</td>
+</tr>
+</tbody>
+</table>
+<h3 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h3><p>表格可以指定对齐方式</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">左对齐</th>
+<th style="text-align:center">居中</th>
+<th style="text-align:right">右对齐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>:----------</code></td>
+<td style="text-align:center"><code>:-------------:</code></td>
+<td style="text-align:right"><code>---:</code></td>
+</tr>
+<tr>
+<td style="text-align:left">col 3 is</td>
+<td style="text-align:center">some wordy text</td>
+<td style="text-align:right">$1600</td>
+</tr>
+<tr>
+<td style="text-align:left">col 2 is</td>
+<td style="text-align:center">centered</td>
+<td style="text-align:right">$12</td>
+</tr>
+<tr>
+<td style="text-align:left">zebra stripes</td>
+<td style="text-align:center">are neat</td>
+<td style="text-align:right">$1</td>
+</tr>
+</tbody>
+</table>
+<hr>
+]]></content>
+      
+        <categories>
+            
+            <category> 笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> markdown </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[test]]></title>
+      <url>/test.html</url>
+      <content type="html"><![CDATA[<h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><h4 id="3"><a href="#3" class="headerlink" title="3"></a>3</h4>]]></content>
+      
+        <categories>
+            
+            <category> Diary </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> PS3 </tag>
+            
+            <tag> Games </tag>
+            
+        </tags>
+        
+    </entry>
+    
+  
+  
+    
+    <entry>
+      <title><![CDATA[categories]]></title>
+      <url>/categories/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[About]]></title>
+      <url>/about/index.html</url>
+      <content type="html"><![CDATA[<h2 id="Blog"><a href="#Blog" class="headerlink" title="Blog"></a>Blog</h2><p>本博客纯属个人经验分享，不是技术博客，请大佬们多多指教</p>
+<h2 id="Reputation"><a href="#Reputation" class="headerlink" title="Reputation"></a>Reputation</h2><p>无名之辈</p>
+<h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h2><p>Wechat: wanli249259<br>Email: 15070926843@163.com</p>
+<h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><p>deepin, zsh, tmux, pycharm, vscode, git</p>
+<blockquote>
+<p>额外插件oh-my-zsh, tmuxp</p>
+</blockquote>
+<h2 id="jupyter-notebook注释声明"><a href="#jupyter-notebook注释声明" class="headerlink" title="jupyter notebook注释声明"></a>jupyter notebook注释声明</h2><pre><code># 普通注释
+# --&gt; 该行有输出。如果有输出，但是没有该标志，是因为jupyter默认会打印最后一行，且是美化输出
+# &lt;=&gt; 左边类似于右边
+# &gt;_&lt; 报错
+</code></pre><h2 id="html样式声明"><a href="#html样式声明" class="headerlink" title="html样式声明"></a>html样式声明</h2><p>为了美化jupyter notebook导出的html显示，更改了很多样式。详细信息请点击右上角fork me，切换到hexo_src分支查看</p>
+<h2 id="hexo源码"><a href="#hexo源码" class="headerlink" title="hexo源码"></a>hexo源码</h2><pre><code>git clone -b hexo_src https://git.coding.net/wlccgp3/wlccgp3.coding.me.git hexo_src
+或直接下载zip
+</code></pre><h3 id="运行必需"><a href="#运行必需" class="headerlink" title="运行必需"></a>运行必需</h3><p><a href="https://www.python.org/" target="_blank" rel="noopener">python3</a> &gt; linux和mac都自带，Windows需要手动下载<br><a href="https://git-scm.com/" target="_blank" rel="noopener">git</a> &gt; windows用户下载后，可以用git bash，类似linux的终端</p>
+<h3 id="极简模式"><a href="#极简模式" class="headerlink" title="极简模式"></a>极简模式</h3><pre><code>python3 -m pip install --upgrade pip  # 如果pip是最新的不用执行
+pip3 install jupyter -i https://pypi.tuna.tsinghua.edu.cn/simple/
+cd python3学习笔记 所在路径
+jupyter notebook
+</code></pre><blockquote>
+<p>./source/python3学习笔记/.jupyter是我个人的配置，如有需要请：<br>linux复制到/home/your-user-name/<br>windows复制到C:\Users\Administrator\</p>
+</blockquote>
+<h3 id="docker模式"><a href="#docker模式" class="headerlink" title="docker模式"></a>docker模式</h3><blockquote>
+<p>建议windows用户不要使用该模式，直接用虚拟机还方便一点。(老司机请无视)</p>
+</blockquote>
+<p><a href="https://docs.docker.com/engine/installation/" target="_blank" rel="noopener">docker官网安装</a><br><a href="./学习笔记/Docker.html">docker个人笔记</a></p>
+<pre><code>pip3 install docker-compose -i https://pypi.tuna.tsinghua.edu.cn/simple/
+cd hexo_src目录所在路径
+docker-compose up
+浏览器打开http://localhost:8888/，具体端口可以在docker-compose.yml中修改
+</code></pre><blockquote>
+<p>该配置默认加载我个人的配置文件，如果想自己配置，请注释掉./source/python3学习笔记/Dockerfile中的最后一行</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/python3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html</url>
+      <content type="html"><![CDATA[<h2 id="Python3学习笔记"><a href="#Python3学习笔记" class="headerlink" title="Python3学习笔记"></a>Python3学习笔记</h2><blockquote>
+<p>本文纯属个人笔记，仅供参考。如需系统学习，请转到<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">廖雪峰python3教程</a></p>
+</blockquote>
+<ol>
+<li><a href="../学习笔记/Jupyter Notebook.html">Jupyter Notebook笔记</a></li>
+</ol>
+<h3 id="第壹章-基本数据类型"><a href="#第壹章-基本数据类型" class="headerlink" title="第壹章 基本数据类型"></a>第壹章 基本数据类型</h3><ol>
+<li><a href="./101-基本语法.html">python3基本语法</a></li>
+<li><a href="./102-字符串.html">字符串</a></li>
+<li><a href="./103-列表和元组.html">列表和元组</a></li>
+<li><a href="./104-字典.html">字典</a></li>
+<li><a href="./105-集合.html">集合</a></li>
+<li><a href="./03-数据存储原理.html">python数据存储原理</a></li>
+</ol>
+<h3 id="第贰章-语句和文件"><a href="#第贰章-语句和文件" class="headerlink" title="第贰章 语句和文件"></a>第贰章 语句和文件</h3><ol>
+<li><a href="./201-语句.html">语句</a>   –&gt; import, 赋值语句、增量赋值</li>
+<li><a href="./202-迭代.html">迭代</a>    –&gt;  可迭代对象、迭代器、生成器、列表解析</li>
+<li><a href="./203-文件.html">文件</a>    –&gt;  文件打开，读取，写入，常用方法</li>
+<li><a href="./204-自省.html">自省</a>   –&gt;  help()，dir()，文档字符串，检查对象，文档</li>
+</ol>
+<h3 id="第叁章-函数"><a href="#第叁章-函数" class="headerlink" title="第叁章 函数"></a>第叁章 函数</h3><ol>
+<li><a href="./301-函数.html">函数</a>   –&gt;   定义函数方法，调用函数方法，参数</li>
+<li><a href="./302-內建函数.html">内建函数</a></li>
+<li><a href="./303-闭包和装饰器.html">闭包、装饰器</a></li>
+</ol>
+<h3 id="第肆章-类"><a href="#第肆章-类" class="headerlink" title="第肆章 类"></a>第肆章 类</h3><ol>
+<li><a href="./04-特殊属性和方法.html">特殊属性和方法</a></li>
+<li><a href="./401-类.html">类</a></li>
+</ol>
+<blockquote>
+<p>未完待续…</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+  
 </search>
