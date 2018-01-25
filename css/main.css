@@ -1936,7 +1936,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #db30b0;
+  background: #9409ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3249,15 +3249,14 @@ pre .javascript .function {
   }
 }
 .site-author-image {
-  display: block;
-  margin: 0 auto;
-  padding: 2px;
-  max-width: 120px;
-  height: auto;
-  border: 1px solid #eee;
-/* 头像圆形 */
   border-radius: 80px;
   -webkit-border-radius: 80px;
   -moz-border-radius: 80px;
   box-shadow: inset 0 -1px 0 #333 sf;
+}
+#wechat:hover p {
+  animation: initial;
+}
+#alipay:hover p {
+  animation: initial;
 }

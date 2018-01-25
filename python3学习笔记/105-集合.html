@@ -11747,8 +11747,8 @@ div.output_area pre {
     color: hsl(245, 92%, 51%);
 }
 
-/* md高亮 */
-.rendered_html pre, .rendered_html code {
+/* md代码高亮 */
+.rendered_html pre, .rendered_html pre code {
     background-color: hsl(0, 0%, 91%);
 }
 
@@ -12025,7 +12025,7 @@ hashable   --&gt; 可哈希   --&gt; 不可变</p>
 <span class="n">x</span> <span class="o">|</span> <span class="n">y</span>  <span class="c1"># --&gt; 并集</span>
 <span class="n">x</span> <span class="o">&amp;</span> <span class="n">y</span>  <span class="c1"># --&gt; 交集</span>
 <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>  <span class="c1"># --&gt; 差集</span>
-<span class="n">x</span> <span class="o">^</span> <span class="n">y</span>  <span class="c1">#--&gt; 对称差集</span>
+<span class="n">x</span> <span class="o">^</span> <span class="n">y</span>  <span class="c1"># --&gt; 对称差集</span>
 </pre></div>
 
 </div>
@@ -12312,7 +12312,7 @@ hashable   --&gt; 可哈希   --&gt; 不可变</p>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
 <span class="n">x</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">x</span>  <span class="c1"># --&gt;</span>
+<span class="n">x</span>             <span class="c1"># --&gt;</span>
 <span class="n">x</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># do nothing</span>
 </pre></div>
 

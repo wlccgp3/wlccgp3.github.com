@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>303-闭包和装饰器</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>04-特殊属性和方法</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11924,34 +11924,11 @@ $( document ).ready(function(){
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 打印所有单行变量</span>
-<span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="k">import</span> <span class="n">InteractiveShell</span>
-<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<blockquote><p>个人理解:<br>
-python一切皆对象，可以分为静态对象和动态对象。<br>
-静态对象：数字，字符串(现实中的大小，颜色等)<br>
-动态对象：函数(现实中各种动作，扔东西会下落，打玻璃会碎等)</p>
-</blockquote>
-<p>既然函数也是对象，所以函数作为其他函数的参数，或者被return</p>
-<blockquote><p>前面经常用的dir()和help()就是把函数对象作为参数</p>
-</blockquote>
-
+<h2 id="&#29305;&#27530;&#23646;&#24615;&#21644;&#26041;&#27861;">&#29305;&#27530;&#23646;&#24615;&#21644;&#26041;&#27861;<a class="anchor-link" href="#&#29305;&#27530;&#23646;&#24615;&#21644;&#26041;&#27861;">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -11959,734 +11936,139 @@ python一切皆对象，可以分为静态对象和动态对象。<br>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#38381;&#21253;">&#38381;&#21253;<a class="anchor-link" href="#&#38381;&#21253;">&#182;</a></h2><blockquote><p>在一些语言中，在函数中可以（嵌套）定义另一个函数时，如果内部的函数引用了外部的函数的变量，则可能产生闭包。</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># --&gt;</span>
-<span class="nb">abs</span>       <span class="c1"># abs(-10)是函数调用，而abs是函数本身</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[32]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>10</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[32]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;function abs&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">abs</span><span class="o">.</span><span class="vm">__name__</span>  <span class="c1"># --&gt;</span>
-<span class="n">f</span> <span class="o">=</span> <span class="nb">abs</span>       <span class="c1"># 对象指向f标签</span>
-<span class="n">f</span>             <span class="c1"># --&gt;</span>
-<span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>        <span class="c1"># --&gt;</span>
-<span class="n">f</span><span class="o">.</span><span class="vm">__name__</span>    <span class="c1"># --&gt; 本质还是原来的abs对象</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[33]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;abs&#39;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[33]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;function abs&gt;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[33]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>10</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[33]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;abs&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">c</span>  <span class="c1"># 向上层作用域搜索a,b,c</span>
-    <span class="k">return</span> <span class="n">bar</span>                   <span class="c1"># 返回一个函数对象</span>
-
-<span class="n">y</span> <span class="o">=</span> <span class="n">foo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-
-<span class="n">y</span>            <span class="c1"># --&gt; </span>
-<span class="n">y</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>  <span class="c1"># --&gt;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[34]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;function __main__.foo.&lt;locals&gt;.bar&gt;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[34]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>94</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="o">.</span><span class="vm">__closure__</span>                   <span class="c1"># --&gt; cell对象的元组</span>
-<span class="n">y</span><span class="o">.</span><span class="vm">__closure__</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cell_contents</span>  <span class="c1"># --&gt; 每个cell对象携带着外部参数</span>
-<span class="n">y</span><span class="o">.</span><span class="vm">__closure__</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cell_contents</span>  <span class="c1"># --&gt;</span>
-<span class="n">y</span><span class="o">.</span><span class="vm">__closure__</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">cell_contents</span>  <span class="c1"># --&gt;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[35]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(&lt;cell at 0x7f04bc298be8: int object at 0x559466dd3f60&gt;,
- &lt;cell at 0x7f04bc298648: int object at 0x559466dd3f80&gt;,
- &lt;cell at 0x7f04bc298e58: int object at 0x559466dd3fa0&gt;)</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[35]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>2</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[35]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[35]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Decorator(&#35013;&#39280;&#22120;&#65289;">Decorator(&#35013;&#39280;&#22120;&#65289;<a class="anchor-link" href="#Decorator(&#35013;&#39280;&#22120;&#65289;">&#182;</a></h2><blockquote><p>装饰模式有很多经典的使用场景，例如插入日志、性能测试、事务处理等等，有了装饰器，就可以提取大量函数中与本身功能无关的类似代码，从而达到代码重用的目的</p>
-</blockquote>
-<p>装饰器通常用于在不改变原有函数代码和功能的情况下，为其添加额外的功能</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>                <span class="c1"># 创建基础函数</span>
-    <span class="k">return</span> <span class="s1">&#39;hello world&#39;</span>
-
-<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
-        <span class="k">return</span> <span class="s2">&quot;&lt;i&gt;&quot;</span> <span class="o">+</span> <span class="n">func</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;&lt;/i&gt;&quot;</span>  <span class="c1"># 调用形参</span>
-    <span class="k">return</span> <span class="n">bar</span>                          <span class="c1"># 返回函数对象</span>
-
-<span class="n">hello</span><span class="o">.</span><span class="vm">__name__</span>      <span class="c1"># --&gt;</span>
-<span class="n">hello</span> <span class="o">=</span> <span class="n">foo</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>  <span class="c1"># hello变量指向了foo.&lt;locals&gt;.bar</span>
-<span class="n">hello</span><span class="o">.</span><span class="vm">__name__</span>      <span class="c1"># --&gt;</span>
-<span class="n">hello</span><span class="p">()</span>             <span class="c1"># --&gt; 本质是调用了foo.&lt;locals&gt;.bar</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[36]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;hello&#39;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[36]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;bar&#39;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[36]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;&lt;i&gt;hello world&lt;/i&gt;&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="@-&#35821;&#27861;&#31958;">@ &#35821;&#27861;&#31958;<a class="anchor-link" href="#@-&#35821;&#27861;&#31958;">&#182;</a></h3><p>使用装饰器提供的 @ 语法糖（Syntactic Sugar）简化代码:</p>
-
-<pre><code>@decorator  # &lt;=&gt; func = decorator(func)
-def func():
-    pass</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
-        <span class="k">return</span> <span class="s2">&quot;&lt;i&gt;&quot;</span> <span class="o">+</span> <span class="n">func</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;&lt;/i&gt;&quot;</span>
-    <span class="k">return</span> <span class="n">bar</span>
-
-<span class="nd">@foo</span>          <span class="c1"># 语法糖会处理最近的函数等效与hello = foo(hello)</span>
-<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s1">&#39;hello world&#39;</span>
-
-<span class="n">hello</span>           <span class="c1"># --&gt;</span>
-<span class="n">hello</span><span class="o">.</span><span class="vm">__name__</span>  <span class="c1"># --&gt; 这里的hello只是一个指向foo.&lt;locals&gt;.bar函数的变量</span>
-<span class="n">hello</span><span class="p">()</span>         <span class="c1"># --&gt;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[37]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;function __main__.foo.&lt;locals&gt;.bar&gt;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[37]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;bar&#39;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[37]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;&lt;i&gt;hello world&lt;/i&gt;&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#23545;&#24102;&#21442;&#25968;&#30340;&#20989;&#25968;&#36827;&#34892;&#35013;&#39280;">&#23545;&#24102;&#21442;&#25968;&#30340;&#20989;&#25968;&#36827;&#34892;&#35013;&#39280;<a class="anchor-link" href="#&#23545;&#24102;&#21442;&#25968;&#30340;&#20989;&#25968;&#36827;&#34892;&#35013;&#39280;">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="o">*</span><span class="n">arg</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">arg</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="s2">&quot;&lt;i&gt;&quot;</span> <span class="o">+</span> <span class="n">ret</span> <span class="o">+</span> <span class="s2">&quot;&lt;/i&gt;&quot;</span>
-    <span class="k">return</span> <span class="n">bar</span>
-
-<span class="nd">@foo</span>
-<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s1">&#39;hello </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-
-<span class="nd">@foo</span>
-<span class="k">def</span> <span class="nf">say</span><span class="p">(</span><span class="n">name1</span><span class="p">,</span> <span class="n">name2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s1">&#39;hello </span><span class="si">{0}</span><span class="s1"> and </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name1</span><span class="p">,</span><span class="n">name2</span><span class="p">)</span>
-
-<span class="n">hello</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>            <span class="c1"># --&gt;</span>
-<span class="n">say</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;markdwon&#39;</span><span class="p">)</span>  <span class="c1"># --&gt;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[38]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;&lt;i&gt;hello python&lt;/i&gt;&#39;</pre>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[38]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;&lt;i&gt;hello python and markdwon&lt;/i&gt;&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#24102;&#21442;&#25968;&#30340;&#35013;&#39280;&#22120;">&#24102;&#21442;&#25968;&#30340;&#35013;&#39280;&#22120;<a class="anchor-link" href="#&#24102;&#21442;&#25968;&#30340;&#35013;&#39280;&#22120;">&#182;</a></h3><p>带参数的装饰器</p>
-
-<pre><code>@foo(arg1, arg2)  # &lt;=&gt; func = foo(arg1, arg2)(func)
-def func():
-    pass</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">bar_tags</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-        <span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="o">*</span><span class="n">arg</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-            <span class="n">ret</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">arg</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-            <span class="k">return</span> <span class="s1">&#39;&lt;&#39;</span> <span class="o">+</span> <span class="n">tag</span> <span class="o">+</span> <span class="s1">&#39;&gt;&#39;</span> <span class="o">+</span> <span class="n">ret</span> <span class="o">+</span> <span class="s1">&#39;&lt;/&#39;</span> <span class="o">+</span> <span class="n">tag</span> <span class="o">+</span> <span class="s1">&#39;&gt;&#39;</span>
-        <span class="k">return</span> <span class="n">bar</span>
-    <span class="k">return</span> <span class="n">foo</span>
-
-<span class="nd">@bar_tags</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>  <span class="c1"># 根据不同参数返回不同的装饰器</span>
-<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s1">&#39;hello </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-
-<span class="n">hello</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[39]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;&lt;b&gt;hello python&lt;/b&gt;&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#22810;&#20010;&#35013;&#39280;&#22120;">&#22810;&#20010;&#35013;&#39280;&#22120;<a class="anchor-link" href="#&#22810;&#20010;&#35013;&#39280;&#22120;">&#182;</a></h3><p>装饰器可以定义多个，离函数定义最近的装饰器先被调用</p>
-
-<pre><code>@foo      # &lt;=&gt; func = foo(bar(func))
-@bar
-def func():
-    pass</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
-        <span class="k">return</span> <span class="s2">&quot;&lt;i&gt;&quot;</span> <span class="o">+</span> <span class="n">func</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;&lt;/i&gt;&quot;</span>
-    <span class="k">return</span> <span class="n">bar</span>
-
-<span class="k">def</span> <span class="nf">add_tag</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
-        <span class="k">return</span> <span class="s1">&#39;&lt;b&gt;&#39;</span> <span class="o">+</span> <span class="n">func</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;&lt;/b&gt;&#39;</span>
-    <span class="k">return</span> <span class="n">bar</span>
-
-<span class="nd">@foo</span>
-<span class="nd">@add_tag</span>
-<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s1">&#39;hello world&#39;</span>
-
-<span class="n">hello</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[40]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;&lt;i&gt;&lt;b&gt;hello world&lt;/b&gt;&lt;/i&gt;&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#22522;&#20110;&#31867;&#30340;&#35013;&#39280;&#22120;">&#22522;&#20110;&#31867;&#30340;&#35013;&#39280;&#22120;<a class="anchor-link" href="#&#22522;&#20110;&#31867;&#30340;&#35013;&#39280;&#22120;">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Bold</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
-
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s1">&#39;&lt;b&gt;&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&lt;/b&gt;&#39;</span>
-
-<span class="nd">@Bold</span>
-<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s1">&#39;hello </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">name</span>
-
-<span class="n">hello</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[41]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;&lt;b&gt;hello world&lt;/b&gt;&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>类 Bold 有两个方法：</p>
-<ul>
-<li><code>__init__()</code>：它接收一个函数作为参数，也就是被装饰的函数  </li>
-<li><code>__call__()</code>：让类对象可调用，就像函数调用一样，在调用被装饰函数时被调用</li>
+<h3 id="__file__"><code>__file__</code><a class="anchor-link" href="#__file__">&#182;</a></h3><p>脚本执行的完整路径</p>
+<h3 id="__name__"><code>__name__</code><a class="anchor-link" href="#__name__">&#182;</a></h3><ul>
+<li>当用python test.py，则文件的<code>__name__</code>为<code>'__main__'</code>  </li>
+<li>当脚本作为模块时，用python -m test.py，则文件的<code>__name__</code>为<code>'test'</code></li>
 </ul>
-<blockquote><p>如果类装饰器有参数，则 <code>__init__</code>接收参数，而 <code>__call__</code> 接收 func</p>
-<p>使用装饰器有一个瑕疵，就是被装饰的函数，它的函数名称已经不是原来的名称,为了消除这样的副作用，Python 中的 functool 包提供了一个 wraps 的装饰器</p>
+<h3 id="&#25991;&#20214;&#22841;&#19979;&#30340;__main__.py-&#21644;-__init__.py">&#25991;&#20214;&#22841;&#19979;&#30340;<code>__main__.py</code> &#21644; <code>__init__.py</code><a class="anchor-link" href="#&#25991;&#20214;&#22841;&#19979;&#30340;__main__.py-&#21644;-__init__.py">&#182;</a></h3>
+<pre><code>python3 xxx.py
+python3 -m xxx.py
+
+</code></pre>
+<p>这是两种加载py文件的方式:</p>
+<ol>
+<li>叫做直接运行</li>
+<li>相当于import,叫做当做模块来启动，前提是已加入sys.path</li>
+</ol>
+<p>python 将一个文件夹作为 package 对待，那么这个文件夹中必须包含一个名为 <code>__init__.py</code> 的文件，即使它是空的<br>
+如果你需要 python 将一个文件夹作为 package 执行，那么这个文件夹中必须包含一个名为 <code>__main__.py</code> 的文件</p>
+<h3 id="__all__"><code>__all__</code><a class="anchor-link" href="#__all__">&#182;</a></h3><p>对于from ModuleName import * 这种形式，要特别注意重名现象。</p>
+<p>Python中，对于一个模块，具有一个名为 <code>__all__</code>的属性，该属性的值就是被from ModuleName import *这样的语句绑定的属性列表；否则，这种类型的from语句将绑定模块中除了以下划线开始的属性（私有属性）外的所有属性。这样的话，对于同一个名空间里 面出现重名现象的概率就加大了，为了减少这种情况的发生，都会在模块开始处定义<code>__all__</code>属性的内容，写出可以被这种from类型导入的属性
+下面的是os.py里面的一段代码：</p>
+
+<pre><code>__all__ = ["altsep", "curdir", "pardir", "sep", "pathsep", "linesep","defpath", "name", "path", "devnull"]
+
+</code></pre>
+<h3 id="&#20854;&#20182;">&#20854;&#20182;<a class="anchor-link" href="#&#20854;&#20182;">&#182;</a></h3>
+<pre><code>__globals__: global namespace in which this function was defined
+__file__: filename (missing for built-in modules)
+
+</code></pre>
+<h3 id="&#20869;&#24314;&#29305;&#27530;&#23646;&#24615;">&#20869;&#24314;&#29305;&#27530;&#23646;&#24615;<a class="anchor-link" href="#&#20869;&#24314;&#29305;&#27530;&#23646;&#24615;">&#182;</a></h3><p>用<code>dir(__builtins__)</code>查看内建特殊属性，特殊属性都是以双下划线开头和结尾</p>
+
+<pre><code>'__build_class__', '__debug__', '__doc__', '__import__', '__loader__', '__name__', '__package__', '__spec__'</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#31867;&#23646;&#24615;&#35843;&#29992;&#21407;&#29702;">&#31867;&#23646;&#24615;&#35843;&#29992;&#21407;&#29702;<a class="anchor-link" href="#&#31867;&#23646;&#24615;&#35843;&#29992;&#21407;&#29702;">&#182;</a></h3><table>
+<thead><tr>
+<th style="text-align:center">目的</th>
+<th style="text-align:center">所编写代码</th>
+<th>Python 实际调用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">类构造器</td>
+<td style="text-align:center">x = MyClass()</td>
+<td><code>x.__new__()</code></td>
+</tr>
+<tr>
+<td style="text-align:center">类析构器</td>
+<td style="text-align:center">del x</td>
+<td><code>x.__del__()</code></td>
+</tr>
+<tr>
+<td style="text-align:center">只定义特定集合的某些属性</td>
+<td style="text-align:center"></td>
+<td><code>x.__slots__()</code></td>
+</tr>
+<tr>
+<td style="text-align:center">自定义散列值</td>
+<td style="text-align:center">hash(x)</td>
+<td><code>x.__hash__()</code></td>
+</tr>
+<tr>
+<td style="text-align:center">获取某个属性的值</td>
+<td style="text-align:center">x.color</td>
+<td><code>type(x).__dict__['color'].__get__(x, type(x))</code></td>
+</tr>
+<tr>
+<td style="text-align:center">设置某个属性的值</td>
+<td style="text-align:center">x.color = 'PapayaWhip'</td>
+<td><code>type(x).__dict__['color'].__set__(x, 'PapayaWhip')</code></td>
+</tr>
+<tr>
+<td style="text-align:center">删除某个属性</td>
+<td style="text-align:center">del x.color</td>
+<td><code>type(x).__dict__['color'].__del__(x)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">控制某个对象是否是该对象的实例</td>
+<td style="text-align:center">isinstance(x, MyClass)</td>
+<td><code>MyClass.__instancecheck__(x)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">控制某个类是否是该类的子类</td>
+<td style="text-align:center">issubclass(C, MyClass)</td>
+<td><code>MyClass.__subclasscheck__(C)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">控制某个类是否是该抽象基类的子类</td>
+<td style="text-align:center">issubclass(C, MyABC)</td>
+<td><code>MyABC.__subclasshook__(C)</code></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="__new__(cls,-[...)"><code>__new__(cls, [...)</code><a class="anchor-link" href="#__new__(cls,-[...)">&#182;</a></h3><p><code>__new__</code> 是在一个对象实例化的时候所调用的第一个方法。它的第一个参数是这个类，其他的参数是用来直接传递给 <code>__init__</code> 方法。 <code>__new__</code> 方法相当不常用,但是它有自己的特性，特别是当继承一个不可变的类型比如一个tuple或者string。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="__init__(self,-[&#8230;)"><code>__init__(self, [&#8230;)</code><a class="anchor-link" href="#__init__(self,-[&#8230;)">&#182;</a></h3><p>此方法为类的初始化方法。当构造函数被调用的时候的任何参数都将会传给它。</p>
+<blockquote><p>调用 x = SomeClass(10, 'foo')，那么 <strong>init</strong> 将会得到两个参数10和foo。</p>
 </blockquote>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Tag</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tag</span> <span class="o">=</span> <span class="n">tag</span>
-
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-        <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-            <span class="k">return</span> <span class="s2">&quot;&lt;</span><span class="si">{tag}</span><span class="s2">&gt;</span><span class="si">{res}</span><span class="s2">&lt;/</span><span class="si">{tag}</span><span class="s2">&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="n">res</span><span class="o">=</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">),</span> <span class="n">tag</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tag</span>
-            <span class="p">)</span>
-        <span class="k">return</span> <span class="n">wrapped</span>
-
-<span class="nd">@Tag</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s1">&#39;hello </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">name</span>
-
-<span class="n">hello</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">)</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="__del__(self)"><code>__del__(self)</code><a class="anchor-link" href="#__del__(self)">&#182;</a></h3><p>如果 <code>__new__</code> 和 <code>__init__</code> 是对象的构造器的话，那么 <code>__del__</code> 就是析构器。它不实现语句 del x (以上代码将不会翻译为 <code>x.__del__()</code> )。它定义的是当一个对象进行垃圾回收时候的行为。当一个对象在删除的时需要更多的清洁工作的时候此方法会很有用，比如套接字对象或者是文件对象。注意，如果解释器退出的时候对象还存存在，就不能保证 <code>__del__</code> 能够被执行，所以 <code>__del__</code> can’t serve as a replacement for good coding practices ()<del>~</del>~</p>
+<p><a href="http://dipyzh.bitbucket.org/special-method-names.html">特殊属性调用机制</a></p>
 
 </div>
 </div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[44]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;&lt;i&gt;hello world&lt;/i&gt;&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
     </div>
   </div>
