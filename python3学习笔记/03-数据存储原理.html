@@ -384,6 +384,87 @@ In global scope: global spam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#29702;&#35299;a-=-a-+-1">&#29702;&#35299;a = a + 1<a class="anchor-link" href="#&#29702;&#35299;a-=-a-+-1">&#182;</a></h3><p>如果在现实中数学去理解，肯定会很困惑。但是在python中，或者是面向对象的编程语言中，一切就说的通，例如：</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># 上→中→右→左</span>
+
+<span class="n">a</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[2]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="&#19978;">&#19978;<a class="anchor-link" href="#&#19978;">&#182;</a></h4><p>上就是<code>a = 1</code>，该赋值发生在全局作用域，a标志符和1在内存中的对象建立联系</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="&#20013;">&#20013;<a class="anchor-link" href="#&#20013;">&#182;</a></h4><p>中就是<code>=</code>这个赋值操作发生在哪，也是在全局作用域，<code>这一步很关键</code>，确定了后面的操作是在哪进行</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="&#21491;">&#21491;<a class="anchor-link" href="#&#21491;">&#182;</a></h4><p>因为在上一步<code>中</code>里确定了是全局作用域，那么<code>a + 1</code>就会去全局作用域中找a对应的对象（1在内存中对应的对象）参与计算，结果是2</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="&#24038;">&#24038;<a class="anchor-link" href="#&#24038;">&#182;</a></h4><p>这一步要做什么是由<code>中</code>这一步决定的，这里是赋值。左边的标志符（a）和上一步<code>右</code>的结果（2在内存中对应的对象）建立联系</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#21487;&#21464;&#23545;&#35937;&#30340;&#24341;&#29992;(&#38500;&#20102;&#25968;&#23383;&#21644;&#23383;&#31526;&#20018;)">&#21487;&#21464;&#23545;&#35937;&#30340;&#24341;&#29992;(&#38500;&#20102;&#25968;&#23383;&#21644;&#23383;&#31526;&#20018;)<a class="anchor-link" href="#&#21487;&#21464;&#23545;&#35937;&#30340;&#24341;&#29992;(&#38500;&#20102;&#25968;&#23383;&#21644;&#23383;&#31526;&#20018;)">&#182;</a></h3><blockquote><p>可以创建多个"一样"的对象，但是id不同</p>
 </blockquote>
 
