@@ -48,6 +48,7 @@
 
 {% block body %}
 <body>
+  <div class="myToc" id="toc"></div>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 {{ super() }}
