@@ -121,7 +121,7 @@
 
 
 
-  <title>Jupyter Notebook学习笔记 | Just Do It</title>
+  <title>Linux学习笔记 | Just Do It</title>
   
 
 
@@ -333,7 +333,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wlccgp3.coding.me/学习笔记/Jupyter Notebook.html">
+    <link itemprop="mainEntityOfPage" href="http://wlccgp3.coding.me/notebook/Linux.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="丿我欲疾风前行灬">
@@ -350,7 +350,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Jupyter Notebook学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">Linux学习笔记</h1>
         
 
         <div class="post-meta">
@@ -362,7 +362,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-25T15:00:24+08:00">2018-01-25</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-25T15:46:37+08:00">2018-01-25</time>
             
 
             
@@ -401,9 +401,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/学习笔记/Jupyter Notebook.html#comments" itemprop="discussionUrl">
+                <a href="/notebook/Linux.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="学习笔记/Jupyter Notebook.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="notebook/Linux.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -411,7 +411,7 @@
 
           
           
-             <span id="/学习笔记/Jupyter Notebook.html" class="leancloud_visitors" data-flag-title="Jupyter Notebook学习笔记">
+             <span id="/notebook/Linux.html" class="leancloud_visitors" data-flag-title="Linux学习笔记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -442,28 +442,44 @@
       
 
       
-        <blockquote>
-<p><a href="http://blog.csdn.net/red_stone1/article/details/72858962" target="_blank" rel="noopener">jupyter教程</a></p>
-</blockquote>
-<h3 id="jupyter配置"><a href="#jupyter配置" class="headerlink" title="jupyter配置"></a>jupyter配置</h3><pre><code>jupyter notebook --generate-config
-打开python，输入：
-from notebook.auth import passwd
-passwd()
-根据提示输入密码，将加密后的密文输入到~/.jupyter/jupyter_notebook_config.py
-c.NotebookApp.password = &apos;sha1:XXXXXXX&apos;
-</code></pre><h3 id="jupyter扩展安装"><a href="#jupyter扩展安装" class="headerlink" title="jupyter扩展安装"></a>jupyter扩展安装</h3><pre><code>pip3 install jupyter_contrib_nbextensions --user
-jupyter contrib nbextension install --user
-</code></pre><h3 id="jupyter打印每一行变量"><a href="#jupyter打印每一行变量" class="headerlink" title="jupyter打印每一行变量"></a>jupyter打印每一行变量</h3><pre><code>from IPython.core.interactiveshell import InteractiveShell
-InteractiveShell.ast_node_interactivity = &quot;all&quot;
-</code></pre><h3 id="代码片段"><a href="#代码片段" class="headerlink" title="代码片段"></a>代码片段</h3><p>路径： ~/.local/share/jupyter/nbextensions/snippets/snippets.json</p>
-<h3 id="虚拟环境问题"><a href="#虚拟环境问题" class="headerlink" title="虚拟环境问题"></a>虚拟环境问题</h3><p>jupyter 默认使用的是本机的内核<br>    pip3 install ipykernel<br>    ipython3 kernel install –user –name “python3_ml” –display-name “Python3_ML”</p>
-<blockquote>
-<p>–name命名必须是小写、数字和下划线</p>
-</blockquote>
-<h3 id="Configurable-nbextensions插件管理"><a href="#Configurable-nbextensions插件管理" class="headerlink" title="Configurable nbextensions插件管理"></a>Configurable nbextensions插件管理</h3><p>关闭disable configuration for nbextensions without explicit compatibility这个选项，否则有些扩展不能使用</p>
-<h3 id="Widget插件安装"><a href="#Widget插件安装" class="headerlink" title="Widget插件安装"></a>Widget插件安装</h3><p>jupyter nbextension enable widgetsnbextension –user –py</p>
-<h3 id="虚拟环境启动报错ImportError-No-module-named-‘jupyter-nbextensions-configurator’"><a href="#虚拟环境启动报错ImportError-No-module-named-‘jupyter-nbextensions-configurator’" class="headerlink" title="虚拟环境启动报错ImportError: No module named ‘jupyter_nbextensions_configurator’"></a>虚拟环境启动报错ImportError: No module named ‘jupyter_nbextensions_configurator’</h3><p>进入虚拟环境后：pipenv install jupyter_nbextensions_configurator –skip-lock</p>
-<h3 id="jupyter自定义文件"><a href="#jupyter自定义文件" class="headerlink" title="jupyter自定义文件"></a>jupyter自定义文件</h3><p>创建~/.jupyter/custom/custom.*文件，例如custom.js、custom.css等，会自动加载到jupyter notebook中</p>
+        <h3 id="强制杀死进程"><a href="#强制杀死进程" class="headerlink" title="强制杀死进程"></a>强制杀死进程</h3><pre><code>pkill -f name
+</code></pre><h3 id="读取特定行"><a href="#读取特定行" class="headerlink" title="读取特定行"></a>读取特定行</h3><pre><code>sed -n &apos;3p&apos; filename
+sed -n &apos;3, 7p&apos; filename
+删除特定行
+sed -i &apos;3d&apos; filename
+在某行插入数据
+sed -i &apos;2a data&apos; filename
+</code></pre><h3 id="读取所有"><a href="#读取所有" class="headerlink" title="读取所有"></a>读取所有</h3><pre><code>cat -n filename
+统计文件中字符串出现的次数
+grep &apos;/guangzhou/&apos; shunqi_0620.json |wc -l
+</code></pre><h3 id="创建软连接，必须用绝对路径，否则会报错"><a href="#创建软连接，必须用绝对路径，否则会报错" class="headerlink" title="创建软连接，必须用绝对路径，否则会报错"></a>创建软连接，必须用绝对路径，否则会报错</h3><pre><code>sudo ln -s /home/wanli/Downloads/jdk/bin/java /usr/bin/
+</code></pre><h3 id="创建多级目录，即使父目录已存在"><a href="#创建多级目录，即使父目录已存在" class="headerlink" title="创建多级目录，即使父目录已存在"></a>创建多级目录，即使父目录已存在</h3><pre><code>mkdir -p /1/2/3
+</code></pre><h3 id="查看指定文件夹下的指定文件"><a href="#查看指定文件夹下的指定文件" class="headerlink" title="查看指定文件夹下的指定文件"></a>查看指定文件夹下的指定文件</h3><pre><code>ls -l /usr/bin/|grep mongo.*
+注意:grep里面的的特殊字符是正则中的，其他命令特殊字符是shell中的，在shell中*代表任意
+</code></pre><h3 id="查找指定文件"><a href="#查找指定文件" class="headerlink" title="查找指定文件"></a>查找指定文件</h3><pre><code>tree -f dirname | rg &apos;mongo.*&apos;
+</code></pre><h3 id="批量替换字符串（慎用）"><a href="#批量替换字符串（慎用）" class="headerlink" title="批量替换字符串（慎用）"></a>批量替换字符串（慎用）</h3><pre><code>alias rg-replace=&apos;_rg(){rg $1 $3 &amp;&amp; (rg -l $1 $3 | xargs sed -i &quot;s/$1/$2/g&quot;)}; _rg&apos;
+注：因为alias不支持传递参数，所以用用function解决
+</code></pre><h3 id="查看指定进程"><a href="#查看指定进程" class="headerlink" title="查看指定进程"></a>查看指定进程</h3><pre><code>ps aux|rg mongod
+</code></pre><h3 id="创建空白文件"><a href="#创建空白文件" class="headerlink" title="创建空白文件"></a>创建空白文件</h3><pre><code>touch filename
+</code></pre><h3 id="sudo使用bug"><a href="#sudo使用bug" class="headerlink" title="sudo使用bug"></a>sudo使用bug</h3><pre><code>文件权限是所有，但是用了sudo后会被锁住
+</code></pre><h3 id="用cd无法进入文件夹"><a href="#用cd无法进入文件夹" class="headerlink" title="用cd无法进入文件夹"></a>用cd无法进入文件夹</h3><pre><code>必须要有x权限才能进入文件夹，有w权限才能修改删除
+</code></pre><h3 id="限制内存使用"><a href="#限制内存使用" class="headerlink" title="限制内存使用"></a>限制内存使用</h3><pre><code>sudo gedit /etc/security/limits.conf
+添加：
+* soft as 8000000
+* hard as 14000000
+</code></pre><h3 id="打包文件夹"><a href="#打包文件夹" class="headerlink" title="打包文件夹"></a>打包文件夹</h3><pre><code>tar -cvf atom.tar .atom 只打包，不压缩
+</code></pre><h3 id="批量重命名"><a href="#批量重命名" class="headerlink" title="批量重命名"></a>批量重命名</h3><pre><code>rename &apos;s/.txt/.md/&apos; ./*
+</code></pre><h3 id="复制文件夹和所有文件"><a href="#复制文件夹和所有文件" class="headerlink" title="复制文件夹和所有文件"></a>复制文件夹和所有文件</h3><pre><code>cp -r dir1 dir2
+cp -r dir1/* dir2/
+</code></pre><h3 id="重复打印字符串"><a href="#重复打印字符串" class="headerlink" title="重复打印字符串"></a>重复打印字符串</h3><pre><code>* str=$(printf &quot;%-100s&quot; &quot;*&quot;) | echo &quot;${str// /*}&quot;
+* printf &apos;%*s&apos; 100 | tr &apos;&apos; &apos;*&apos;
+</code></pre><h3 id="scp远程复制文件"><a href="#scp远程复制文件" class="headerlink" title="scp远程复制文件"></a>scp远程复制文件</h3><pre><code>scp [-r] user@host:remote-file-or-dir local-dir
+scp [-r] local-dir-or-file user@host:remote-dir
+</code></pre><ul>
+<li>chsh -s /bin/zsh  # 修改默认的shell</li>
+<li>du -h -d 1        # 查看当前目录下第一层目录的磁盘占用，-d是目录深度</li>
+</ul>
+<h3 id="更新引导"><a href="#更新引导" class="headerlink" title="更新引导"></a>更新引导</h3><p>sudo update-grub2</p>
 
       
     </div>
@@ -510,9 +526,7 @@ InteractiveShell.ast_node_interactivity = &quot;all&quot;
       
         <div class="post-tags">
           
-            <a href="/tags/jupyter/" <i class="fa fa-tag"></i> jupyter</a>
-          
-            <a href="/tags/ipython/" <i class="fa fa-tag"></i> ipython</a>
+            <a href="/tags/linux/" <i class="fa fa-tag"></i> linux</a>
           
         </div>
       
@@ -525,8 +539,8 @@ InteractiveShell.ast_node_interactivity = &quot;all&quot;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/学习笔记/Markdown.html" rel="next" title="Markdown学习笔记">
-                <i class="fa fa-chevron-left"></i> Markdown学习笔记
+              <a href="/notebook/Jupyter Notebook.html" rel="next" title="Jupyter Notebook学习笔记">
+                <i class="fa fa-chevron-left"></i> Jupyter Notebook学习笔记
               </a>
             
           </div>
@@ -535,8 +549,8 @@ InteractiveShell.ast_node_interactivity = &quot;all&quot;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/学习笔记/Linux.html" rel="prev" title="Linux学习笔记">
-                Linux学习笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/notebook/Docker.html" rel="prev" title="Docker学习笔记">
+                Docker学习笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -693,7 +707,7 @@ InteractiveShell.ast_node_interactivity = &quot;all&quot;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#jupyter配置"><span class="nav-number">1.</span> <span class="nav-text">jupyter配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jupyter扩展安装"><span class="nav-number">2.</span> <span class="nav-text">jupyter扩展安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jupyter打印每一行变量"><span class="nav-number">3.</span> <span class="nav-text">jupyter打印每一行变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码片段"><span class="nav-number">4.</span> <span class="nav-text">代码片段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟环境问题"><span class="nav-number">5.</span> <span class="nav-text">虚拟环境问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Configurable-nbextensions插件管理"><span class="nav-number">6.</span> <span class="nav-text">Configurable nbextensions插件管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Widget插件安装"><span class="nav-number">7.</span> <span class="nav-text">Widget插件安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟环境启动报错ImportError-No-module-named-‘jupyter-nbextensions-configurator’"><span class="nav-number">8.</span> <span class="nav-text">虚拟环境启动报错ImportError: No module named ‘jupyter_nbextensions_configurator’</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jupyter自定义文件"><span class="nav-number">9.</span> <span class="nav-text">jupyter自定义文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#强制杀死进程"><span class="nav-number">1.</span> <span class="nav-text">强制杀死进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读取特定行"><span class="nav-number">2.</span> <span class="nav-text">读取特定行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读取所有"><span class="nav-number">3.</span> <span class="nav-text">读取所有</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建软连接，必须用绝对路径，否则会报错"><span class="nav-number">4.</span> <span class="nav-text">创建软连接，必须用绝对路径，否则会报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建多级目录，即使父目录已存在"><span class="nav-number">5.</span> <span class="nav-text">创建多级目录，即使父目录已存在</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看指定文件夹下的指定文件"><span class="nav-number">6.</span> <span class="nav-text">查看指定文件夹下的指定文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找指定文件"><span class="nav-number">7.</span> <span class="nav-text">查找指定文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#批量替换字符串（慎用）"><span class="nav-number">8.</span> <span class="nav-text">批量替换字符串（慎用）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看指定进程"><span class="nav-number">9.</span> <span class="nav-text">查看指定进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建空白文件"><span class="nav-number">10.</span> <span class="nav-text">创建空白文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sudo使用bug"><span class="nav-number">11.</span> <span class="nav-text">sudo使用bug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用cd无法进入文件夹"><span class="nav-number">12.</span> <span class="nav-text">用cd无法进入文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#限制内存使用"><span class="nav-number">13.</span> <span class="nav-text">限制内存使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包文件夹"><span class="nav-number">14.</span> <span class="nav-text">打包文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#批量重命名"><span class="nav-number">15.</span> <span class="nav-text">批量重命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制文件夹和所有文件"><span class="nav-number">16.</span> <span class="nav-text">复制文件夹和所有文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重复打印字符串"><span class="nav-number">17.</span> <span class="nav-text">重复打印字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scp远程复制文件"><span class="nav-number">18.</span> <span class="nav-text">scp远程复制文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新引导"><span class="nav-number">19.</span> <span class="nav-text">更新引导</span></a></li></ol></div>
             
 
           </div>
@@ -713,7 +727,8 @@ InteractiveShell.ast_node_interactivity = &quot;all&quot;
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <script async src="/lib/busuanzi.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -724,9 +739,11 @@ InteractiveShell.ast_node_interactivity = &quot;all&quot;
   
 </div>
 
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
 
 
   <span class="post-meta-divider">|</span>
@@ -852,9 +869,9 @@ InteractiveShell.ast_node_interactivity = &quot;all&quot;
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://wlccgp3.coding.me/学习笔记/Jupyter Notebook.html';
-          this.page.identifier = '学习笔记/Jupyter Notebook.html';
-          this.page.title = 'Jupyter Notebook学习笔记';
+          this.page.url = 'http://wlccgp3.coding.me/notebook/Linux.html';
+          this.page.identifier = 'notebook/Linux.html';
+          this.page.title = 'Linux学习笔记';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://wlccgp3.disqus.com/embed.js';

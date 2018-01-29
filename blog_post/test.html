@@ -121,7 +121,7 @@
 
 
 
-  <title>Git学习笔记 | Just Do It</title>
+  <title>test | Just Do It</title>
   
 
 
@@ -333,7 +333,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wlccgp3.coding.me/学习笔记/Git.html">
+    <link itemprop="mainEntityOfPage" href="http://wlccgp3.coding.me/blog_post/test.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="丿我欲疾风前行灬">
@@ -350,7 +350,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">test</h1>
         
 
         <div class="post-meta">
@@ -362,7 +362,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T11:03:41+08:00">2018-01-27</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-07-13T20:46:25+08:00">2013-07-13</time>
             
 
             
@@ -383,8 +383,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
+                  <a href="/categories/Diary/" itemprop="url" rel="index">
+                    <span itemprop="name">Diary</span>
                   </a>
                 </span>
 
@@ -401,9 +401,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/学习笔记/Git.html#comments" itemprop="discussionUrl">
+                <a href="/blog_post/test.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="学习笔记/Git.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="blog_post/test.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -411,7 +411,7 @@
 
           
           
-             <span id="/学习笔记/Git.html" class="leancloud_visitors" data-flag-title="Git学习笔记">
+             <span id="/blog_post/test.html" class="leancloud_visitors" data-flag-title="test">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -442,57 +442,7 @@
       
 
       
-        <h3 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h3><pre><code>git config --global user.email &apos;1301281985@qq.com&apos;
-git config --global user.name &apos;wanli&apos;
-git config --global credential.helper store
-</code></pre><h3 id="git-status中文显示问题"><a href="#git-status中文显示问题" class="headerlink" title="git status中文显示问题"></a>git status中文显示问题</h3><pre><code>git config --global core.quotepath false
-</code></pre><h3 id="指定编辑器"><a href="#指定编辑器" class="headerlink" title="指定编辑器"></a>指定编辑器</h3><pre><code>git config --global core.editor vim
-</code></pre><h3 id="生成秘钥"><a href="#生成秘钥" class="headerlink" title="生成秘钥"></a>生成秘钥</h3><pre><code>ssh-keygen -t rsa -C &apos;1301281985@qq.com&apos;
-</code></pre><h3 id="加入到known-hosts"><a href="#加入到known-hosts" class="headerlink" title="加入到known_hosts"></a>加入到known_hosts</h3><pre><code>ssh -vT git@git.coding.net
-</code></pre><h3 id="一般流程"><a href="#一般流程" class="headerlink" title="一般流程"></a>一般流程</h3><pre><code>mkdir -p dirname
-git init
-git remote add gitrep(本地仓库名) https://...(远程仓库地址)
-git push -u gitrep master
-    -u：以后的push可以直接用git push默认只推送当前分支
-</code></pre><h3 id="push和pull出现的问题"><a href="#push和pull出现的问题" class="headerlink" title="push和pull出现的问题"></a>push和pull出现的问题</h3><pre><code>fatal: refusing to merge unrelated histories或者fatal: 拒绝合并无关的历史
-git push -f -u [本地如origin] [远程如master]
-git pull [远程origin] [远程master] --allow-unrelated-histories
-</code></pre><h3 id="push出现Failed-to-connect-to-127-0-0-1-port-37956-拒绝连接"><a href="#push出现Failed-to-connect-to-127-0-0-1-port-37956-拒绝连接" class="headerlink" title="push出现Failed to connect to 127.0.0.1 port 37956: 拒绝连接"></a>push出现Failed to connect to 127.0.0.1 port 37956: 拒绝连接</h3><pre><code>env|rg &apos;proxy&apos;可以看到https使用了代理，与lantern有关
-unset https_proxy http_proxy
-</code></pre><h3 id="撤销git-add"><a href="#撤销git-add" class="headerlink" title="撤销git add"></a>撤销git add</h3><pre><code>git reset HEAD file/dir
-</code></pre><h3 id="忽略特定文件夹和文件"><a href="#忽略特定文件夹和文件" class="headerlink" title="忽略特定文件夹和文件"></a>忽略特定文件夹和文件</h3><pre><code>在git仓库的根目录创建.gitignore文件
-</code></pre><h3 id="返回旧版本"><a href="#返回旧版本" class="headerlink" title="返回旧版本"></a>返回旧版本</h3><pre><code>先用 git log -g 查看版本
-然后git reset --hard 3628164  # 最后是commit版本号
-</code></pre><h3 id="如果返回旧版本，而且又关了电脑，现在又想回到新版本"><a href="#如果返回旧版本，而且又关了电脑，现在又想回到新版本" class="headerlink" title="如果返回旧版本，而且又关了电脑，现在又想回到新版本"></a>如果返回旧版本，而且又关了电脑，现在又想回到新版本</h3><pre><code>git reflog 用来记录每一个命令，可以看到提交的版本信息
-git reset --hard commit_id  # commit_id可以缩写
-</code></pre><h3 id="放弃本地所有修改重新拉取远程仓库"><a href="#放弃本地所有修改重新拉取远程仓库" class="headerlink" title="放弃本地所有修改重新拉取远程仓库"></a>放弃本地所有修改重新拉取远程仓库</h3><pre><code>git fetch --all
-git reset --hard origin/master 
-git pull
-</code></pre><h3 id="改乱了工作区某个文件的内容，想直接丢弃工作区的修改时"><a href="#改乱了工作区某个文件的内容，想直接丢弃工作区的修改时" class="headerlink" title="改乱了工作区某个文件的内容，想直接丢弃工作区的修改时"></a>改乱了工作区某个文件的内容，想直接丢弃工作区的修改时</h3><pre><code>git checkout -- file
-git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”
-</code></pre><h3 id="电脑配置的公钥长时间不适用可能会失效，要重新添加到git远程公钥中"><a href="#电脑配置的公钥长时间不适用可能会失效，要重新添加到git远程公钥中" class="headerlink" title="电脑配置的公钥长时间不适用可能会失效，要重新添加到git远程公钥中"></a>电脑配置的公钥长时间不适用可能会失效，要重新添加到git远程公钥中</h3><h3 id="vscode点击同步时出现冲突，解决方法："><a href="#vscode点击同步时出现冲突，解决方法：" class="headerlink" title="vscode点击同步时出现冲突，解决方法："></a>vscode点击同步时出现冲突，解决方法：</h3><pre><code>- F1打开命令菜单，git merge 选择orign/master --&gt; 处理冲突后commit --&gt; git push
-</code></pre><h3 id="修改-gitignore文件-不生效"><a href="#修改-gitignore文件-不生效" class="headerlink" title="修改.gitignore文件 不生效"></a>修改.gitignore文件 不生效</h3><p>原因是.gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。<br>那么解决方法就是先把本地缓存删除（改变成未track状态），然后再提交：<br>    git rm -r –cached .<br>    git add .<br>    git commit -m ‘update .gitignore’</p>
-<h3 id="git撤销删除分支"><a href="#git撤销删除分支" class="headerlink" title="git撤销删除分支"></a>git撤销删除分支</h3><pre><code>git log -g 找到该分支的最后一次操作，记下commit_id
-git checkout -b [branch-name] [commit-id]
-</code></pre><h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><ul>
-<li>git push [远程仓库名] [本地分支名]:[远程分支名]</li>
-</ul>
-<p>如果本地分支名和远程分支名一样，则：</p>
-<ul>
-<li>git push [远程仓库名] [分支名]</li>
-</ul>
-<h4 id="git-push-多个远程仓库"><a href="#git-push-多个远程仓库" class="headerlink" title="git push 多个远程仓库"></a>git push 多个远程仓库</h4><pre><code>git remote add origin &lt;github-url&gt;
-git remote set-url --add origin &lt;coding-url&gt;
-</code></pre><h3 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h3><pre><code>git remote -v  查看是否连接上服务器仓库
-git remote  查看仓库名称
-git remote add [远程仓库名]  https://......（仓库https 地址）
-git remote remove [远程仓库名]  移除该仓库名连接
-</code></pre><h3 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h3><pre><code>git branch -d [branch-name]           # 删除本地分支，-D强制删除
-git branch -vv                        # 查看所有分支的详细信息
-git checkout -b [oldName]             # 创建oldName，并切换到该分支
-git branch -m [oldName] [newName]     # 重命名分支
-git push --delete [origin] [oldName]  # 删除已有的远程分支
-</code></pre>
+        <h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><h4 id="3"><a href="#3" class="headerlink" title="3"></a>3</h4>
       
     </div>
     
@@ -538,7 +488,9 @@ git push --delete [origin] [oldName]  # 删除已有的远程分支
       
         <div class="post-tags">
           
-            <a href="/tags/git/" <i class="fa fa-tag"></i> git</a>
+            <a href="/tags/PS3/" <i class="fa fa-tag"></i> PS3</a>
+          
+            <a href="/tags/Games/" <i class="fa fa-tag"></i> Games</a>
           
         </div>
       
@@ -551,18 +503,14 @@ git push --delete [origin] [oldName]  # 删除已有的远程分支
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/学习笔记/Docker.html" rel="next" title="Docker学习笔记">
-                <i class="fa fa-chevron-left"></i> Docker学习笔记
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/博客文章/学习路线.html" rel="prev" title="学习路线">
-                学习路线 <i class="fa fa-chevron-right"></i>
+              <a href="/notebook/Markdown.html" rel="prev" title="Markdown学习笔记">
+                Markdown学习笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -719,7 +667,7 @@ git push --delete [origin] [oldName]  # 删除已有的远程分支
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化配置"><span class="nav-number">1.</span> <span class="nav-text">初始化配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-status中文显示问题"><span class="nav-number">2.</span> <span class="nav-text">git status中文显示问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定编辑器"><span class="nav-number">3.</span> <span class="nav-text">指定编辑器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成秘钥"><span class="nav-number">4.</span> <span class="nav-text">生成秘钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加入到known-hosts"><span class="nav-number">5.</span> <span class="nav-text">加入到known_hosts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一般流程"><span class="nav-number">6.</span> <span class="nav-text">一般流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#push和pull出现的问题"><span class="nav-number">7.</span> <span class="nav-text">push和pull出现的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#push出现Failed-to-connect-to-127-0-0-1-port-37956-拒绝连接"><span class="nav-number">8.</span> <span class="nav-text">push出现Failed to connect to 127.0.0.1 port 37956: 拒绝连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销git-add"><span class="nav-number">9.</span> <span class="nav-text">撤销git add</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#忽略特定文件夹和文件"><span class="nav-number">10.</span> <span class="nav-text">忽略特定文件夹和文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回旧版本"><span class="nav-number">11.</span> <span class="nav-text">返回旧版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果返回旧版本，而且又关了电脑，现在又想回到新版本"><span class="nav-number">12.</span> <span class="nav-text">如果返回旧版本，而且又关了电脑，现在又想回到新版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#放弃本地所有修改重新拉取远程仓库"><span class="nav-number">13.</span> <span class="nav-text">放弃本地所有修改重新拉取远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改乱了工作区某个文件的内容，想直接丢弃工作区的修改时"><span class="nav-number">14.</span> <span class="nav-text">改乱了工作区某个文件的内容，想直接丢弃工作区的修改时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电脑配置的公钥长时间不适用可能会失效，要重新添加到git远程公钥中"><span class="nav-number">15.</span> <span class="nav-text">电脑配置的公钥长时间不适用可能会失效，要重新添加到git远程公钥中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vscode点击同步时出现冲突，解决方法："><span class="nav-number">16.</span> <span class="nav-text">vscode点击同步时出现冲突，解决方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改-gitignore文件-不生效"><span class="nav-number">17.</span> <span class="nav-text">修改.gitignore文件 不生效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git撤销删除分支"><span class="nav-number">18.</span> <span class="nav-text">git撤销删除分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-push"><span class="nav-number">19.</span> <span class="nav-text">git push</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#git-push-多个远程仓库"><span class="nav-number">19.1.</span> <span class="nav-text">git push 多个远程仓库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-remote"><span class="nav-number">20.</span> <span class="nav-text">git remote</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支管理"><span class="nav-number">21.</span> <span class="nav-text">分支管理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#test"><span class="nav-number">1.</span> <span class="nav-text">test</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1"><span class="nav-number">1.1.</span> <span class="nav-text">1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2"><span class="nav-number">1.1.1.</span> <span class="nav-text">2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">3</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -739,7 +687,8 @@ git push --delete [origin] [oldName]  # 删除已有的远程分支
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <script async src="/lib/busuanzi.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -750,9 +699,11 @@ git push --delete [origin] [oldName]  # 删除已有的远程分支
   
 </div>
 
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
 
 
   <span class="post-meta-divider">|</span>
@@ -878,9 +829,9 @@ git push --delete [origin] [oldName]  # 删除已有的远程分支
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://wlccgp3.coding.me/学习笔记/Git.html';
-          this.page.identifier = '学习笔记/Git.html';
-          this.page.title = 'Git学习笔记';
+          this.page.url = 'http://wlccgp3.coding.me/blog_post/test.html';
+          this.page.identifier = 'blog_post/test.html';
+          this.page.title = 'test';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://wlccgp3.disqus.com/embed.js';
