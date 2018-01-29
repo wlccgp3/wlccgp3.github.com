@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8" />
+<title>正则表达式</title>
+
+<script src="/lib/require/index.js"></script>
+<script src="/lib/jquery/index.js"></script>
+
+<!-- 改为引入外部样式 -->
+<link rel="stylesheet" href="/css/custom.css">
+
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="/lib/mathjax/index.js"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration --></head>
+<body>
+  <div class="myToc" id="toc"></div>
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="k">import</span> <span class="n">InteractiveShell</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>              <span class="c1"># 美化输出数组</span>
+<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span>  <span class="c1"># 打印所有单行变量</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#27491;&#21017;&#34920;&#36798;&#24335;">&#27491;&#21017;&#34920;&#36798;&#24335;<a class="anchor-link" href="#&#27491;&#21017;&#34920;&#36798;&#24335;">&#182;</a></h2><p>正则表达式(regular expression)主要功能是从字符串(string)中通过特定的模式(pattern)，搜索想要找到的内容。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="re.compile(string[,-flag])">re.compile(string[, flag])<a class="anchor-link" href="#re.compile(string[,-flag])">&#182;</a></h3><p>pattern = re.compile(string[, flag]) 返回pattern对象</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>re.compile(r&#39;python&#39;, re.UNICODE)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="match">match<a class="anchor-link" href="#match">&#182;</a></h3><p>re.match(pattern, string[, flags=0])</p>
+<p>从头开始检查字符串是否符合正则表达式。必须从字符串的第一个字符开始就相符。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>传入pattern对象</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+<span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s1">&#39;python markdown&#39;</span><span class="p">)</span>  <span class="c1"># --&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;_sre.SRE_Match object; span=(0, 6), match=&#39;python&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>直接传入字符串</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;python markdown&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;_sre.SRE_Match object; span=(0, 6), match=&#39;python&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;markdown&#39;</span><span class="p">,</span> <span class="s1">&#39;python markdown&#39;</span><span class="p">)</span>  <span class="c1"># --&gt; None</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="search">search<a class="anchor-link" href="#search">&#182;</a></h3><p>re.search(pattern, string[, flags=0])</p>
+<p>搜索整个字符串，直到发现符合的子字符串。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(a.*)(fu)&#39;</span><span class="p">,</span> <span class="s1">&#39;www.baidu.baefu.com&#39;</span><span class="p">)</span>  <span class="c1"># 字符串前面的`r` 是指原始字符串，不转译反斜杠`\`</span>
+<span class="n">r</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;_sre.SRE_Match object; span=(5, 15), match=&#39;aidu.baefu&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>  <span class="c1"># --&gt; 匹配到的字符起始位置</span>
+<span class="n">r</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>    <span class="c1"># --&gt; 匹配到的字符串结尾位置</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>5</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>15</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>   <span class="c1"># --&gt; 缺省为0，返回匹配的字符串</span>
+<span class="n">r</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>  <span class="c1"># --&gt; 以元组形式返回全部分组截获的字符串</span>
+<span class="n">r</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># --&gt; 组中第一个字符串</span>
+<span class="n">r</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># --&gt; 组中第二个</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;aidu.baefu&#39;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(&#39;aidu.bae&#39;, &#39;fu&#39;)</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;aidu.bae&#39;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;fu&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">span</span><span class="p">()</span> <span class="c1"># --&gt; 匹配的字符串起始到结尾</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(5, 15)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="sub">sub<a class="anchor-link" href="#sub">&#182;</a></h3><p>re.sub(pattern, replacement, string[, count=0])</p>
+<p>在string中利用正则变换pattern进行搜索，对于搜索到的字符串，用另一字符串replacement替换。<code>返回替换后的字符串</code>。<br>
+参数：<br>
+pattern: 正则中的模式字符串。<br>
+repl:    替换的字符串，也可为一个函数。<br>
+string:  要被查找替换的原始字符串。<br>
+count:   模式匹配后替换的最大次数，默认 0 表示替换所有的匹配。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;aab12bcc11&#39;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span> <span class="s1">&#39;333&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[11]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;aab333bcc333&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="split">split<a class="anchor-link" href="#split">&#182;</a></h3><p>re.split(pattern, string[, maxsplit])</p>
+<p>按照能够匹配的子串将string分割后返回列表。maxsplit用于指定最大分割次数，不指定将全部分割。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span><span class="s1">&#39;one1two22three34four4&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;one&#39;, &#39;two&#39;, &#39;three&#39;, &#39;four&#39;, &#39;&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="findall">findall<a class="anchor-link" href="#findall">&#182;</a></h3><p>re.findall(pattern, string[, flags])</p>
+<p>根据正则表达式搜索字符串，将所有符合的子字符串放在一给表(list)中返回</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span><span class="s1">&#39;one1two22three34four4&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[13]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;1&#39;, &#39;22&#39;, &#39;34&#39;, &#39;4&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="flags">flags<a class="anchor-link" href="#flags">&#182;</a></h2><p>正则表达式修饰符(可选标志)<br>
+多个标志可以通过按位 OR(|) 它们来指定。如 re.I | re.M 被设置成 I 和 M 标志</p>
+<table>
+<thead><tr>
+<th style="text-align:center">修饰符</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">re.I(IGNORECASE)</td>
+<td style="text-align:center">忽略大小写（括号内是完整写法，下同）</td>
+</tr>
+<tr>
+<td style="text-align:center">re.M(MULTILINE)</td>
+<td style="text-align:center">多行模式，改变 '^' 和 '$' 的行为</td>
+</tr>
+<tr>
+<td style="text-align:center">re.S(DOTALL)</td>
+<td style="text-align:center">点任意匹配模式，改变 '.' 的行为</td>
+</tr>
+<tr>
+<td style="text-align:center">re.L(LOCALE)</td>
+<td style="text-align:center">使预定字符类 \w \W \b \B \s \S 取决于当前区域设定</td>
+</tr>
+<tr>
+<td style="text-align:center">re.U(UNICODE)</td>
+<td style="text-align:center">使预定字符类 \w \W \b \B \s \S \d \D 取决于unicode定义的字符属性</td>
+</tr>
+<tr>
+<td style="text-align:center">re.X(VERBOSE)</td>
+<td style="text-align:center">详细模式。这个模式下正则表达式可以是多行，忽略空白字符，并可以加入注释。</td>
+</tr>
+<tr>
+<td style="text-align:center">re.A使预定字符类</td>
+<td style="text-align:center">\w \W \b \B \s \S \d \D 取决于ascii定义的字符属性</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#27491;&#21017;&#34920;&#36798;&#24335;&#27169;&#24335;">&#27491;&#21017;&#34920;&#36798;&#24335;&#27169;&#24335;<a class="anchor-link" href="#&#27491;&#21017;&#34920;&#36798;&#24335;&#27169;&#24335;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#21333;&#20010;&#23383;&#31526;">&#21333;&#20010;&#23383;&#31526;<a class="anchor-link" href="#&#21333;&#20010;&#23383;&#31526;">&#182;</a></h3><table>
+<thead><tr>
+<th style="text-align:center">标题</th>
+<th style="text-align:center">标题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">.</td>
+<td style="text-align:center">匹配除 <code>\n</code> 之外的任何单个字符  </td>
+</tr>
+<tr>
+<td style="text-align:center">[.\n]</td>
+<td style="text-align:center">匹配所有单个字符  </td>
+</tr>
+<tr>
+<td style="text-align:center">a<span style="border-left:solid 1px;margin:0px 5px"></span>b</td>
+<td style="text-align:center">字符a或字符b  </td>
+</tr>
+<tr>
+<td style="text-align:center">[afg]</td>
+<td style="text-align:center">a或者f或者g的一个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">[0-4]</td>
+<td style="text-align:center">0-4范围内的一个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">[a-f]</td>
+<td style="text-align:center">a-f范围内的一个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">[^m]</td>
+<td style="text-align:center">不是m的一个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\w</td>
+<td style="text-align:center">匹配字母数字，等价于 <code>[A-Za-z0-9_]</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\W</td>
+<td style="text-align:center">匹配非字母数字，等价于 <code>[^A-Za-z0-9_]</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\s</td>
+<td style="text-align:center">匹配任意空白字符，等价于 <code>[\t\n\r\f]</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\S</td>
+<td style="text-align:center">匹配任意非空字符，等价于 <code>[^ \f\n\r\t\v]</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\d</td>
+<td style="text-align:center">匹配任意数字，等价于 <code>[0-9]</code></td>
+</tr>
+<tr>
+<td style="text-align:center">\D</td>
+<td style="text-align:center">匹配任意非数字，等价于 <code>[^0-9]</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote><p>因为markdown表格中<code>a|b</code>的<code>|</code>会转义，所以这里用html代替</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#36793;&#30028;&#21305;&#37197;">&#36793;&#30028;&#21305;&#37197;<a class="anchor-link" href="#&#36793;&#30028;&#21305;&#37197;">&#182;</a></h3><table>
+<thead><tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\A</td>
+<td style="text-align:center">匹配字符串开始</td>
+</tr>
+<tr>
+<td style="text-align:center">\Z</td>
+<td style="text-align:center">匹配字符串结束，如果是存在换行，只匹配到换行前的结束字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">\z</td>
+<td style="text-align:center">匹配字符串结束</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#37325;&#22797;">&#37325;&#22797;<a class="anchor-link" href="#&#37325;&#22797;">&#182;</a></h3><p>紧跟在单个字符之后，表示多个这样类似的字符</p>
+<table>
+<thead><tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:center">重复 &gt;=0 次</td>
+</tr>
+<tr>
+<td style="text-align:center">+</td>
+<td style="text-align:center">重复 &gt;=1 次</td>
+</tr>
+<tr>
+<td style="text-align:center">?</td>
+<td style="text-align:center">重复 0或者1 次</td>
+</tr>
+<tr>
+<td style="text-align:center">{m}</td>
+<td style="text-align:center">重复m次。比如说 a{4}相当于aaaa，再比如说[1-3]{2}相当于[1-3][1-3]</td>
+</tr>
+<tr>
+<td style="text-align:center">{m,n}</td>
+<td style="text-align:center">重复m到n次，小于m次的重复，或者大于n次的重复都不符合条件，中间不能有空格</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="&#36138;&#23146;&#19982;&#38750;&#36138;&#23146;">&#36138;&#23146;&#19982;&#38750;&#36138;&#23146;<a class="anchor-link" href="#&#36138;&#23146;&#19982;&#38750;&#36138;&#23146;">&#182;</a></h4><p>正则匹配默认是贪婪匹配</p>
+<p>贪婪：尽可能多的匹配</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;w.*4&#39;</span><span class="p">,</span> <span class="s1">&#39;one1two22three34four4&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[17]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;_sre.SRE_Match object; span=(5, 21), match=&#39;wo22three34four4&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;1{2,5}&#39;</span><span class="p">,</span> <span class="s1">&#39;11111111&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[23]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;_sre.SRE_Match object; span=(0, 5), match=&#39;11111&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>非贪婪：尽可能少的匹配</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;w.*?4&#39;</span><span class="p">,</span> <span class="s1">&#39;one1two22three34four4&#39;</span><span class="p">)</span>  <span class="c1"># 比.*就多了个？号</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[24]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;_sre.SRE_Match object; span=(5, 16), match=&#39;wo22three34&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#20301;&#32622;">&#20301;&#32622;<a class="anchor-link" href="#&#20301;&#32622;">&#182;</a></h3><table>
+<thead><tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">^</td>
+<td style="text-align:center">字符串的起始位置</td>
+</tr>
+<tr>
+<td style="text-align:center">$</td>
+<td style="text-align:center">字符串的结尾位置</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#20854;&#20182;">&#20854;&#20182;<a class="anchor-link" href="#&#20854;&#20182;">&#182;</a></h3><table>
+<thead><tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">(re)</td>
+<td style="text-align:center">匹配括号内的表达式，也表示一个组</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\n</code></td>
+<td style="text-align:center">匹配一个换行符</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>\t</code></td>
+<td style="text-align:center">匹配一个制表符</td>
+</tr>
+</tbody>
+</table>
+<p>其他转义字符等等</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#21069;&#21521;&#21542;&#23450;&#30028;&#23450;&#31526;">&#21069;&#21521;&#21542;&#23450;&#30028;&#23450;&#31526;<a class="anchor-link" href="#&#21069;&#21521;&#21542;&#23450;&#30028;&#23450;&#31526;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?!a).*&#39;</span><span class="p">,</span> <span class="s1">&#39;afwfw&#39;</span><span class="p">)</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?!www)\S&#39;</span><span class="p">,</span> <span class="s1">&#39;https://www.baidu.com/&#39;</span><span class="p">)</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;((?!www)\S)+&#39;</span><span class="p">,</span> <span class="s1">&#39;https://www.baidu.com/&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[16]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;_sre.SRE_Match object; span=(1, 5), match=&#39;fwfw&#39;&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[16]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;_sre.SRE_Match object; span=(0, 1), match=&#39;h&#39;&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[16]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;_sre.SRE_Match object; span=(0, 8), match=&#39;https://&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>正则中的(?P<name>…)</li>
+</ul>
+<p>和普通的用括号分组类似，不同在于这里给匹配的组命名，后续（同一正则表达式内和搜索后得到的Match对象中），都可以通过此group的名字而去引用此group。
+虽然此处group内命名了，但是其仍然和普通的中一样，可以通过索引号，即group(1),group(2)等等，去引用对应的group的。</p>
+
+<pre><code>group(1)==group(name1)  
+group(2)==group(name2)  </code></pre>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+</body>
+
+ 
+
+
+</html>
