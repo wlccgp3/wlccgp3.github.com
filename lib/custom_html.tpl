@@ -48,7 +48,27 @@
 
 {% block body %}
 <body>
-  <div class="myToc" id="toc"></div>
+<div class="toc">
+<ul>
+{%- for cell in nb.cells -%}
+    {%- if cell.cell_type in ['markdown'] -%}
+        {%- if resources.global_content_filter.include_markdown and not cell.get("transient",{}).get("remove_source", false) -%}
+            {%- for i in cell.source.split('\n') -%}
+                {%- if i.startswith('#') -%}
+                    {% if i.split(None, 1)[0].startswith('#') %}
+                        {% set h_len = i.split(None, 1)[0] | length %}
+                        {% set h_text = i.split(None, 1)[-1] %}
+                        <li class="toc-li-{{ h_len }}">
+                            <a href="#{{ i.split(None, 1)[-1].split() | join('-') }}">{{ h_text }}</a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {%- endif -%}
+    {%- endif -%}
+{%- endfor -%}
+</ul>
+</div>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 {{ super() }}

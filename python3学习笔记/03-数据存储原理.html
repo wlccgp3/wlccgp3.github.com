@@ -32,13 +32,206 @@
     </script>
     <!-- End of mathjax configuration --></head>
 <body>
-  <div class="myToc" id="toc"></div>
+<div class="toc">
+<ul>
+                        
+                        
+                        <li class="toc-li-4">
+                            <a href="#python数据存储原理">python数据存储原理</a>
+                        </li>
+                    
+                
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                        
+                        
+                        <li class="toc-li-1">
+                            <a href="#标识符">标识符</a>
+                        </li>
+                    
+                
+            
+            
+            
+            
+            
+            
+                        
+                        
+                        <li class="toc-li-3">
+                            <a href="#命名空间">命名空间</a>
+                        </li>
+                    
+                
+            
+            
+            
+            
+            
+                        
+                        
+                        <li class="toc-li-3">
+                            <a href="#作用域">作用域</a>
+                        </li>
+                    
+                
+            
+            
+            
+            
+                        
+                        
+                        <li class="toc-li-3">
+                            <a href="#LEGB-命名空间">LEGB 命名空间</a>
+                        </li>
+                    
+                
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                        
+                        
+                        <li class="toc-li-4">
+                            <a href="#LEGB-访问规则">LEGB 访问规则</a>
+                        </li>
+                    
+                
+            
+            
+                        
+                        
+                        <li class="toc-li-3">
+                            <a href="#global、nonlocal、locals()、globals()">global、nonlocal、locals()、globals()</a>
+                        </li>
+                    
+                
+            
+            
+            
+            
+            
+            
+                        
+                        
+                        <li class="toc-li-3">
+                            <a href="#理解a-=-a-+-1">理解a = a + 1</a>
+                        </li>
+                    
+                
+            
+            
+                        
+                        
+                        <li class="toc-li-4">
+                            <a href="#上">上</a>
+                        </li>
+                    
+                
+            
+            
+                        
+                        
+                        <li class="toc-li-4">
+                            <a href="#中">中</a>
+                        </li>
+                    
+                
+            
+            
+                        
+                        
+                        <li class="toc-li-4">
+                            <a href="#右">右</a>
+                        </li>
+                    
+                
+            
+            
+                        
+                        
+                        <li class="toc-li-4">
+                            <a href="#左">左</a>
+                        </li>
+                    
+                
+            
+            
+                        
+                        
+                        <li class="toc-li-3">
+                            <a href="#可变对象的引用(除了数字和字符串)">可变对象的引用(除了数字和字符串)</a>
+                        </li>
+                    
+                
+            
+            
+                        
+                        
+                        <li class="toc-li-4">
+                            <a href="#解析">解析</a>
+                        </li>
+                    
+                
+            
+                        
+                        
+                        <li class="toc-li-4">
+                            <a href="#可变对象的浅拷贝">可变对象的浅拷贝</a>
+                        </li>
+                    
+                
+            
+            
+            
+                        
+                        
+                        <li class="toc-li-4">
+                            <a href="#修改字典的列表">修改字典的列表</a>
+                        </li>
+                    
+                
+            
+                        
+                        
+                        <li class="toc-li-3">
+                            <a href="#导入copy模块实现deep-copy">导入copy模块实现deep copy</a>
+                        </li>
+                    
+                
+            
+            
+            </ul>
+</div>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="k">import</span> <span class="n">InteractiveShell</span>
@@ -55,7 +248,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="python&#25968;&#25454;&#23384;&#20648;&#21407;&#29702;">python&#25968;&#25454;&#23384;&#20648;&#21407;&#29702;<a class="anchor-link" href="#python&#25968;&#25454;&#23384;&#20648;&#21407;&#29702;">&#182;</a></h2><p><strong>变量 引用 对象</strong></p>
+<h4 id="python&#25968;&#25454;&#23384;&#20648;&#21407;&#29702;">python&#25968;&#25454;&#23384;&#20648;&#21407;&#29702;<a class="anchor-link" href="#python&#25968;&#25454;&#23384;&#20648;&#21407;&#29702;">&#182;</a></h4><p><strong>变量 引用 对象</strong></p>
 
 <pre><code>x = 1
 
@@ -195,7 +388,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#26631;&#35782;&#31526;">&#26631;&#35782;&#31526;<a class="anchor-link" href="#&#26631;&#35782;&#31526;">&#182;</a></h3><p>事实确实如此，这是 Python 比较特殊一点：如同'a' 'b' 这样的名称其实有一个共同的名字：identifier（注意不要与 ID 混淆了），中文名为“标识符”，来解释一下：</p>
+<h1 id="&#26631;&#35782;&#31526;">&#26631;&#35782;&#31526;<a class="anchor-link" href="#&#26631;&#35782;&#31526;">&#182;</a></h1><p>事实确实如此，这是 Python 比较特殊一点：如同'a' 'b' 这样的名称其实有一个共同的名字：identifier（注意不要与 ID 混淆了），中文名为“标识符”，来解释一下：</p>
 <p>标识符：各类对象的名称，比如函数名、方法名、类名，变量名、常量名等。</p>
 <p>在 Python 中赋值并不会直接复制数据，而只是将名称绑定到对象，对象本身是不知道也不需要关心（该关心这个的是程序猿）自己叫什么名字的。一个对象甚至可以指向不同的标识符，上例中的'a' 'b'便是如此。真正管理这些名子的事物叫“命名空间”。</p>
 
@@ -871,8 +1064,8 @@ In global scope: global spam
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">y</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">y</span>
-<span class="n">x</span>
+<span class="n">y</span>  <span class="c1"># --&gt;</span>
+<span class="n">x</span>  <span class="c1"># --&gt;</span>
 </pre></div>
 
 </div>
@@ -925,7 +1118,7 @@ In global scope: global spam
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">copy</span>
@@ -935,8 +1128,6 @@ In global scope: global spam
 
 <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">])</span>  <span class="c1"># --&gt;</span>
 <span class="nb">id</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">])</span>  <span class="c1"># --&gt;</span>
-
-<span class="n">z</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -949,26 +1140,26 @@ In global scope: global spam
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[43]:</div>
+<div class="prompt output_prompt">Out[4]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>140201480829256</pre>
+<pre>140592905522888</pre>
 </div>
 
 </div>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[43]:</div>
+<div class="prompt output_prompt">Out[4]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>140201480830024</pre>
+<pre>140592905541640</pre>
 </div>
 
 </div>
@@ -979,10 +1170,12 @@ In global scope: global spam
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span>  <span class="c1"># --&gt;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">x</span>  <span class="c1"># --&gt;</span>
 <span class="n">z</span>  <span class="c1"># --&gt;</span>
 </pre></div>
 
@@ -996,7 +1189,7 @@ In global scope: global spam
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[44]:</div>
+<div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -1009,7 +1202,7 @@ In global scope: global spam
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[44]:</div>
+<div class="prompt output_prompt">Out[5]:</div>
 
 
 

@@ -11722,14 +11722,18 @@ div.output_area pre {
 
 /* md代码高亮 */
 .rendered_html pre,.rendered_html code, .rendered_html pre code {
-    background-color: hsl(0, 0%, 91%);
+    background-color: hsl(0, 0%, 91%);    
 }
 
 /* 宽度自适应 */
 @media only screen and (max-device-width: 800px) {
     #notebook-container {
+        width: 1000px !important;
         margin-right: auto;
         margin-left: auto;
+    }
+    .toc {
+        display: none;
     }
 }
 
@@ -11740,4 +11744,31 @@ div.output_area pre {
         margin-left: 350px;
     }
 }
-</maniac@softwaremaniacs.org></head>
+
+.toc {
+  position: fixed;
+  left: 10px;
+  top: 10%;
+}
+
+.toc a:hover {
+  color: #fc6423;
+  text-decoration: none;
+}
+
+.toc .toc-li-2 {
+  margin-left: 5px;
+  font-size: 14px;
+}
+.toc .toc-li-3 {
+  margin-left: 20px;
+  font-size: 13px;
+}
+.toc .toc-li-4 {
+  margin-left: 40px;
+  font-size: 12px;
+}
+.toc .toc-li-5 {
+  margin-left: 60px;
+  font-size: 12px;
+}</maniac@softwaremaniacs.org></head>
